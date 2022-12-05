@@ -119,7 +119,6 @@
             this.type_of_blocks.Name = "type_of_blocks";
             this.type_of_blocks.Size = new System.Drawing.Size(121, 23);
             this.type_of_blocks.TabIndex = 0;
-            this.type_of_blocks.Text = "--Select--";
             this.toolTip1.SetToolTip(this.type_of_blocks, "Choose type of grid");
             this.type_of_blocks.SelectedIndexChanged += new System.EventHandler(this.type_of_blocks_SelectedIndexChanged);
             // 
@@ -263,7 +262,6 @@
             this.switch_cargo_weight.Name = "switch_cargo_weight";
             this.switch_cargo_weight.Size = new System.Drawing.Size(143, 23);
             this.switch_cargo_weight.TabIndex = 1;
-            this.switch_cargo_weight.Text = "--Select--";
             // 
             // activate_containers
             // 
@@ -304,7 +302,6 @@
             this.user_location_choice.Name = "user_location_choice";
             this.user_location_choice.Size = new System.Drawing.Size(121, 23);
             this.user_location_choice.TabIndex = 4;
-            this.user_location_choice.Text = "--Select--";
             this.user_location_choice.SelectedIndexChanged += new System.EventHandler(this.location_selector_SelectedIndexChanged);
             // 
             // label2

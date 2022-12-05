@@ -5,6 +5,8 @@ namespace SE_Fight_Gravity
         #region Variables
         public const decimal newton = 9807;
         public decimal g_amount = 1;
+        public decimal total_newton_value = 0;
+        public decimal user_value_kg = 0;
 
         // Engine Specs
         public const decimal large_hydrogen_largegrid = 7200000; // Водородные ускорители
@@ -38,20 +40,19 @@ namespace SE_Fight_Gravity
         public const decimal small_ion_smallgrid_fuel = 200000; // Mw
 
         // Large Cargo Container
+        public const decimal largecargocontainer_mass_largegrid = 2500; // Kg
+        public const decimal largecargocontainer_volume_largegrid = 421000; // Litres
         public const decimal largecargocontainer_mass_smallgrid = 260; // Kg
         public const decimal largecargocontainer_volume_smalldrid = 16000; // Litres
-
-        public const decimal largecargocontainer_mass_largegrid = 2450; // Kg
-        public const decimal largecargocontainer_volume_largegrid = 421000; // Litres
 
         // Medium Cargo Container NOTE: Availiable only for small blocks.
         public const int mediumcargocontainer_mass_smallblock = 151; // Kg
         public const int mediumcargocontainer_volume_smallblock = 3400; //Litres
 
         // Small Cargo Container
-        public const int smallcargocontainer_mass_smallblock = 73; // Kg
+        public const int smallcargocontainer_mass_smallgrid = 73; // Kg
         public const int smallcargocontainer_volume_smallblock = 125; // Litres
-        public const int smallcargocontainer_mass_bigblock = 576; // Kg
+        public const int smallcargocontainer_mass_largegrid = 576; // Kg
         public const int smallcargocontainer_volume_bigblock = 15625; // Litres
         #endregion
 
@@ -73,6 +74,7 @@ namespace SE_Fight_Gravity
         private void user_entered_value_TextChanged(object sender, EventArgs e)
         {
             user_location_choice.Enabled = true;
+            this.user_value_kg = decimal.Parse(user_entered_value.Text);
         }
 
         private void location_selector_SelectedIndexChanged(object sender, EventArgs e)
@@ -156,62 +158,74 @@ namespace SE_Fight_Gravity
             ion_consumption_large.Enabled = true;
             ion_consumption_small.Enabled = true;
 
-            decimal user_value_kg = decimal.Parse(user_entered_value.Text);
-            decimal total_newton_value = g_amount * user_value_kg / 1000;
-            newton_result.Text = Math.Ceiling(total_newton_value).ToString() + " N";
-
-            if (type_of_blocks.SelectedIndex == 0 & activate_containers.Checked == false) // Большие блоки + чекбокс не выбран
+            if(type_of_blocks.SelectedIndex == 0) // Рассчет для больших блоков
             {
-                decimal large_atmospheric_largegrid_quantity = total_newton_value / large_atmospheric_largegrid; // Атмосферные ускорители
-                large_atmospheric_thrusters_quantity.Text = Math.Ceiling(large_atmospheric_largegrid_quantity).ToString();
-
-                decimal small_atmospheric_largegrid_quantity = total_newton_value / small_atmospheric_largegrid;
-                small_atmospheric_thrusters_quantity.Text = Math.Ceiling(small_atmospheric_largegrid_quantity).ToString();
-
-                decimal large_hydrogen_largegrid_quantity = total_newton_value / large_hydrogen_largegrid; // Водородные ускорители
-                large_hydrogen_thrusters_quantity.Text = Math.Ceiling(large_hydrogen_largegrid_quantity).ToString();
-
-                decimal small_hydrogen_largegrid_quantity = total_newton_value / small_hydrogen_largegrid;
-                small_hydrogen_thrusters_quantity.Text = Math.Ceiling(small_hydrogen_largegrid_quantity).ToString();
-
-                decimal large_ion_largegrid_quantity = total_newton_value / large_ion_largegrid; // Ионные ускорители
-                large_ion_thrusters_quantity.Text = Math.Ceiling(large_ion_largegrid_quantity).ToString();
-
-                decimal small_ion_largegrid_quantity = total_newton_value / small_ion_largegrid;
-                small_ion_thrusters_quantity.Text = Math.Ceiling(small_ion_largegrid_quantity).ToString();
-
-                hydrogen_consumption(large_hydrogen_largegrid_quantity, small_hydrogen_largegrid_quantity, large_hydrogen_largegrid_fuel, small_hydrogen_largegrid_fuel);
-                atmospheric_consumption(large_atmospheric_largegrid_quantity, small_atmospheric_largegrid_quantity, large_atmospheric_largegrid_fuel, small_atmospheric_largegrid_fuel);
-                ion_consumption(large_ion_largegrid_quantity, small_ion_largegrid_quantity, large_ion_largegrid_fuel, small_ion_largegrid_fuel);
+                this.total_newton_value = g_amount * user_value_kg / 1000;
+                calc_for_largegrid(total_newton_value);
             }
-
-            if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == false) // Малые блоки + чекбокс не выбран
+            if (type_of_blocks.SelectedIndex == 1) // Рассчет для маленьких блоков
             {
-                decimal large_atmospheric_smallgrid_quantity = total_newton_value / large_atmospheric_smallgrid; // Атмосферные ускорители
-                large_atmospheric_thrusters_quantity.Text = Math.Ceiling(large_atmospheric_smallgrid_quantity).ToString();
-
-                decimal small_atmospheric_smallgrid_quantity = total_newton_value / small_atmospheric_smallgrid;
-                small_atmospheric_thrusters_quantity.Text = Math.Ceiling(small_atmospheric_smallgrid_quantity).ToString();
-
-                decimal large_hydrogen_smallgrid_quantity = total_newton_value / large_hydrogen_smallgrid; // Водородные ускорители
-                large_hydrogen_thrusters_quantity.Text = Math.Ceiling(large_hydrogen_smallgrid_quantity).ToString();
-
-                decimal small_hydrogen_smallgrid_quantity = total_newton_value / small_hydrogen_smallgrid;
-                small_hydrogen_thrusters_quantity.Text = Math.Ceiling(small_hydrogen_smallgrid_quantity).ToString();
-
-                decimal large_ion_smallgrid_quantity = total_newton_value / large_ion_smallgrid; // Ионные ускорители
-                large_ion_thrusters_quantity.Text = Math.Ceiling(large_ion_smallgrid_quantity).ToString();
-
-                decimal small_ion_smallgrid_quantity = total_newton_value / small_ion_smallgrid;
-                small_ion_thrusters_quantity.Text = Math.Ceiling(small_ion_smallgrid_quantity).ToString();
-
-                hydrogen_consumption(large_hydrogen_smallgrid_quantity, small_hydrogen_smallgrid_quantity, large_hydrogen_smallgrid_fuel, small_hydrogen_smallgrid_fuel); // Рассчет потребления водорода
-                atmospheric_consumption(large_atmospheric_smallgrid_quantity, small_atmospheric_smallgrid_quantity, large_atmospheric_smallgrid_fuel, small_atmospheric_smallgrid_fuel);
-                ion_consumption(large_ion_smallgrid_quantity, small_ion_smallgrid_quantity, large_ion_smallgrid_fuel, small_ion_smallgrid_fuel);
+                this.total_newton_value = g_amount * user_value_kg / 1000;
+                calc_for_smallgrid(total_newton_value);
+            }
+            if (type_of_blocks.SelectedIndex ==0 & activate_containers.Checked == true & activate_large_container.Checked == true) // Большие блоки + контейнеры + большой контейнер
+            {
+                this.total_newton_value = ((largecargocontainer_mass_largegrid * decimal.Parse(large_container_quantity.Text)) + user_value_kg) * g_amount / 1000;
+                calc_for_largegrid(total_newton_value);
             }
         }
 
         #region Calculation Power Methods
+        private void calc_for_largegrid(decimal newtons)
+        {
+            decimal large_atmospheric_largegrid_quantity = newtons / large_atmospheric_largegrid; // Атмосферные ускорители
+            large_atmospheric_thrusters_quantity.Text = Math.Ceiling(large_atmospheric_largegrid_quantity).ToString();
+
+            decimal small_atmospheric_largegrid_quantity = newtons / small_atmospheric_largegrid;
+            small_atmospheric_thrusters_quantity.Text = Math.Ceiling(small_atmospheric_largegrid_quantity).ToString();
+
+            decimal large_hydrogen_largegrid_quantity = newtons / large_hydrogen_largegrid; // Водородные ускорители
+            large_hydrogen_thrusters_quantity.Text = Math.Ceiling(large_hydrogen_largegrid_quantity).ToString();
+
+            decimal small_hydrogen_largegrid_quantity = newtons / small_hydrogen_largegrid;
+            small_hydrogen_thrusters_quantity.Text = Math.Ceiling(small_hydrogen_largegrid_quantity).ToString();
+
+            decimal large_ion_largegrid_quantity = newtons / large_ion_largegrid; // Ионные ускорители
+            large_ion_thrusters_quantity.Text = Math.Ceiling(large_ion_largegrid_quantity).ToString();
+
+            decimal small_ion_largegrid_quantity = newtons / small_ion_largegrid;
+            small_ion_thrusters_quantity.Text = Math.Ceiling(small_ion_largegrid_quantity).ToString();
+
+            hydrogen_consumption(large_hydrogen_largegrid_quantity, small_hydrogen_largegrid_quantity, large_hydrogen_largegrid_fuel, small_hydrogen_largegrid_fuel);
+            atmospheric_consumption(large_atmospheric_largegrid_quantity, small_atmospheric_largegrid_quantity, large_atmospheric_largegrid_fuel, small_atmospheric_largegrid_fuel);
+            ion_consumption(large_ion_largegrid_quantity, small_ion_largegrid_quantity, large_ion_largegrid_fuel, small_ion_largegrid_fuel);
+        }
+        private void calc_for_smallgrid(decimal newtons)
+        {
+            decimal large_atmospheric_smallgrid_quantity = newtons / large_atmospheric_smallgrid; // Атмосферные ускорители
+            large_atmospheric_thrusters_quantity.Text = Math.Ceiling(large_atmospheric_smallgrid_quantity).ToString();
+
+            decimal small_atmospheric_smallgrid_quantity = newtons / small_atmospheric_smallgrid;
+            small_atmospheric_thrusters_quantity.Text = Math.Ceiling(small_atmospheric_smallgrid_quantity).ToString();
+
+            decimal large_hydrogen_smallgrid_quantity = newtons / large_hydrogen_smallgrid; // Водородные ускорители
+            large_hydrogen_thrusters_quantity.Text = Math.Ceiling(large_hydrogen_smallgrid_quantity).ToString();
+
+            decimal small_hydrogen_smallgrid_quantity = newtons / small_hydrogen_smallgrid;
+            small_hydrogen_thrusters_quantity.Text = Math.Ceiling(small_hydrogen_smallgrid_quantity).ToString();
+
+            decimal large_ion_smallgrid_quantity = newtons / large_ion_smallgrid; // Ионные ускорители
+            large_ion_thrusters_quantity.Text = Math.Ceiling(large_ion_smallgrid_quantity).ToString();
+
+            decimal small_ion_smallgrid_quantity = newtons / small_ion_smallgrid;
+            small_ion_thrusters_quantity.Text = Math.Ceiling(small_ion_smallgrid_quantity).ToString();
+
+            hydrogen_consumption(large_hydrogen_smallgrid_quantity, small_hydrogen_smallgrid_quantity, large_hydrogen_smallgrid_fuel, small_hydrogen_smallgrid_fuel); // Рассчет потребления водорода
+            atmospheric_consumption(large_atmospheric_smallgrid_quantity, small_atmospheric_smallgrid_quantity, large_atmospheric_smallgrid_fuel, small_atmospheric_smallgrid_fuel);
+            ion_consumption(large_ion_smallgrid_quantity, small_ion_smallgrid_quantity, large_ion_smallgrid_fuel, small_ion_smallgrid_fuel);
+            newton_result.Text = Math.Ceiling(total_newton_value).ToString() + " N";
+        }
+
         private void hydrogen_consumption(decimal largehydrogen, decimal smallhydrogen, decimal largefuel, decimal smallfuel)
         {
             decimal fuel_consume_large = Math.Ceiling(largehydrogen) * largefuel;
