@@ -34,6 +34,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cargo_no_weight = new System.Windows.Forms.RadioButton();
+            this.cargo_weight = new System.Windows.Forms.RadioButton();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.activate_small_container = new System.Windows.Forms.CheckBox();
@@ -43,12 +45,11 @@
             this.activate_large_container = new System.Windows.Forms.CheckBox();
             this.medium_container_quantity = new System.Windows.Forms.TextBox();
             this.large_container_quantity = new System.Windows.Forms.TextBox();
-            this.switch_cargo_weight = new System.Windows.Forms.ComboBox();
-            this.activate_containers = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.user_location_choice = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.user_entered_value = new System.Windows.Forms.TextBox();
+            this.activate_containers = new System.Windows.Forms.CheckBox();
             this.gravityhight_text = new System.Windows.Forms.Label();
             this.gforce_text = new System.Windows.Forms.Label();
             this.button_calculation = new System.Windows.Forms.Button();
@@ -115,7 +116,7 @@
             this.type_of_blocks.Items.AddRange(new object[] {
             "Большие",
             "Малые"});
-            this.type_of_blocks.Location = new System.Drawing.Point(57, 35);
+            this.type_of_blocks.Location = new System.Drawing.Point(65, 35);
             this.type_of_blocks.Name = "type_of_blocks";
             this.type_of_blocks.Size = new System.Drawing.Size(121, 23);
             this.type_of_blocks.TabIndex = 0;
@@ -125,7 +126,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(49, 16);
+            this.label1.Location = new System.Drawing.Point(57, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(138, 15);
             this.label1.TabIndex = 1;
@@ -140,6 +141,7 @@
             this.groupBox1.Controls.Add(this.user_entered_value);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.type_of_blocks);
+            this.groupBox1.Controls.Add(this.activate_containers);
             this.groupBox1.Location = new System.Drawing.Point(10, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(260, 349);
@@ -148,6 +150,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cargo_no_weight);
+            this.groupBox2.Controls.Add(this.cargo_weight);
             this.groupBox2.Controls.Add(this.pictureBox4);
             this.groupBox2.Controls.Add(this.pictureBox3);
             this.groupBox2.Controls.Add(this.activate_small_container);
@@ -157,19 +161,40 @@
             this.groupBox2.Controls.Add(this.activate_large_container);
             this.groupBox2.Controls.Add(this.medium_container_quantity);
             this.groupBox2.Controls.Add(this.large_container_quantity);
-            this.groupBox2.Controls.Add(this.switch_cargo_weight);
-            this.groupBox2.Controls.Add(this.activate_containers);
-            this.groupBox2.Location = new System.Drawing.Point(8, 167);
+            this.groupBox2.Location = new System.Drawing.Point(10, 183);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(244, 171);
+            this.groupBox2.Size = new System.Drawing.Size(244, 160);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Опционально";
+            // 
+            // cargo_no_weight
+            // 
+            this.cargo_no_weight.AutoSize = true;
+            this.cargo_no_weight.Enabled = false;
+            this.cargo_no_weight.Location = new System.Drawing.Point(12, 30);
+            this.cargo_no_weight.Name = "cargo_no_weight";
+            this.cargo_no_weight.Size = new System.Drawing.Size(188, 19);
+            this.cargo_no_weight.TabIndex = 12;
+            this.cargo_no_weight.Text = "Не учитывать вес контейнера";
+            this.cargo_no_weight.UseVisualStyleBackColor = true;
+            this.cargo_no_weight.CheckedChanged += new System.EventHandler(this.cargo_no_weight_CheckedChanged);
+            // 
+            // cargo_weight
+            // 
+            this.cargo_weight.AutoSize = true;
+            this.cargo_weight.Enabled = false;
+            this.cargo_weight.Location = new System.Drawing.Point(12, 11);
+            this.cargo_weight.Name = "cargo_weight";
+            this.cargo_weight.Size = new System.Drawing.Size(214, 19);
+            this.cargo_weight.TabIndex = 11;
+            this.cargo_weight.Text = "Учитывать вес самого контейнера";
+            this.cargo_weight.UseVisualStyleBackColor = true;
+            this.cargo_weight.CheckedChanged += new System.EventHandler(this.cargo_weight_CheckedChanged);
             // 
             // pictureBox4
             // 
             this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
-            this.pictureBox4.Location = new System.Drawing.Point(6, 135);
+            this.pictureBox4.Location = new System.Drawing.Point(6, 120);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(23, 23);
             this.pictureBox4.TabIndex = 10;
@@ -178,7 +203,7 @@
             // pictureBox3
             // 
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.Location = new System.Drawing.Point(6, 106);
+            this.pictureBox3.Location = new System.Drawing.Point(6, 91);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(23, 23);
             this.pictureBox3.TabIndex = 9;
@@ -188,7 +213,7 @@
             // 
             this.activate_small_container.AutoSize = true;
             this.activate_small_container.Enabled = false;
-            this.activate_small_container.Location = new System.Drawing.Point(39, 140);
+            this.activate_small_container.Location = new System.Drawing.Point(39, 125);
             this.activate_small_container.Name = "activate_small_container";
             this.activate_small_container.Size = new System.Drawing.Size(127, 19);
             this.activate_small_container.TabIndex = 4;
@@ -198,7 +223,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(6, 74);
+            this.pictureBox2.Location = new System.Drawing.Point(6, 59);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(23, 23);
             this.pictureBox2.TabIndex = 8;
@@ -208,7 +233,7 @@
             // 
             this.activate_medium_container.AutoSize = true;
             this.activate_medium_container.Enabled = false;
-            this.activate_medium_container.Location = new System.Drawing.Point(39, 108);
+            this.activate_medium_container.Location = new System.Drawing.Point(39, 93);
             this.activate_medium_container.Name = "activate_medium_container";
             this.activate_medium_container.Size = new System.Drawing.Size(135, 19);
             this.activate_medium_container.TabIndex = 3;
@@ -218,16 +243,17 @@
             // small_container_quantity
             // 
             this.small_container_quantity.Enabled = false;
-            this.small_container_quantity.Location = new System.Drawing.Point(190, 136);
+            this.small_container_quantity.Location = new System.Drawing.Point(190, 121);
             this.small_container_quantity.Name = "small_container_quantity";
             this.small_container_quantity.Size = new System.Drawing.Size(49, 23);
             this.small_container_quantity.TabIndex = 7;
+            this.small_container_quantity.TextChanged += new System.EventHandler(this.small_container_quantity_TextChanged);
             // 
             // activate_large_container
             // 
             this.activate_large_container.AutoSize = true;
             this.activate_large_container.Enabled = false;
-            this.activate_large_container.Location = new System.Drawing.Point(39, 76);
+            this.activate_large_container.Location = new System.Drawing.Point(39, 61);
             this.activate_large_container.Name = "activate_large_container";
             this.activate_large_container.Size = new System.Drawing.Size(139, 19);
             this.activate_large_container.TabIndex = 2;
@@ -237,7 +263,7 @@
             // medium_container_quantity
             // 
             this.medium_container_quantity.Enabled = false;
-            this.medium_container_quantity.Location = new System.Drawing.Point(190, 106);
+            this.medium_container_quantity.Location = new System.Drawing.Point(190, 91);
             this.medium_container_quantity.Name = "medium_container_quantity";
             this.medium_container_quantity.Size = new System.Drawing.Size(49, 23);
             this.medium_container_quantity.TabIndex = 6;
@@ -245,40 +271,16 @@
             // large_container_quantity
             // 
             this.large_container_quantity.Enabled = false;
-            this.large_container_quantity.Location = new System.Drawing.Point(190, 74);
+            this.large_container_quantity.Location = new System.Drawing.Point(190, 59);
             this.large_container_quantity.Name = "large_container_quantity";
             this.large_container_quantity.Size = new System.Drawing.Size(49, 23);
             this.large_container_quantity.TabIndex = 5;
-            // 
-            // switch_cargo_weight
-            // 
-            this.switch_cargo_weight.BackColor = System.Drawing.SystemColors.Window;
-            this.switch_cargo_weight.Enabled = false;
-            this.switch_cargo_weight.FormattingEnabled = true;
-            this.switch_cargo_weight.Items.AddRange(new object[] {
-            "Добавить вес контейнера",
-            "Не добавлять вес контейнера"});
-            this.switch_cargo_weight.Location = new System.Drawing.Point(52, 40);
-            this.switch_cargo_weight.Name = "switch_cargo_weight";
-            this.switch_cargo_weight.Size = new System.Drawing.Size(143, 23);
-            this.switch_cargo_weight.TabIndex = 1;
-            // 
-            // activate_containers
-            // 
-            this.activate_containers.AutoSize = true;
-            this.activate_containers.Enabled = false;
-            this.activate_containers.Location = new System.Drawing.Point(74, 15);
-            this.activate_containers.Name = "activate_containers";
-            this.activate_containers.Size = new System.Drawing.Size(104, 19);
-            this.activate_containers.TabIndex = 0;
-            this.activate_containers.Text = "Добавить груз";
-            this.activate_containers.UseVisualStyleBackColor = true;
-            this.activate_containers.CheckedChanged += new System.EventHandler(this.activate_containers_CheckedChanged);
+            this.large_container_quantity.TextChanged += new System.EventHandler(this.large_container_quantity_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(55, 119);
+            this.label3.Location = new System.Drawing.Point(63, 119);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(126, 15);
             this.label3.TabIndex = 5;
@@ -298,7 +300,7 @@
             "Пертам",
             "Чужая",
             "Титан"});
-            this.user_location_choice.Location = new System.Drawing.Point(57, 139);
+            this.user_location_choice.Location = new System.Drawing.Point(65, 139);
             this.user_location_choice.Name = "user_location_choice";
             this.user_location_choice.Size = new System.Drawing.Size(121, 23);
             this.user_location_choice.TabIndex = 4;
@@ -307,7 +309,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(51, 67);
+            this.label2.Location = new System.Drawing.Point(59, 67);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(132, 15);
             this.label2.TabIndex = 3;
@@ -318,12 +320,24 @@
             this.user_entered_value.BackColor = System.Drawing.SystemColors.Window;
             this.user_entered_value.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.user_entered_value.Enabled = false;
-            this.user_entered_value.Location = new System.Drawing.Point(57, 86);
+            this.user_entered_value.Location = new System.Drawing.Point(65, 86);
             this.user_entered_value.Name = "user_entered_value";
             this.user_entered_value.Size = new System.Drawing.Size(121, 23);
             this.user_entered_value.TabIndex = 2;
             this.toolTip1.SetToolTip(this.user_entered_value, "Enter mass of your ship");
             this.user_entered_value.TextChanged += new System.EventHandler(this.user_entered_value_TextChanged);
+            // 
+            // activate_containers
+            // 
+            this.activate_containers.AutoSize = true;
+            this.activate_containers.Enabled = false;
+            this.activate_containers.Location = new System.Drawing.Point(57, 168);
+            this.activate_containers.Name = "activate_containers";
+            this.activate_containers.Size = new System.Drawing.Size(139, 19);
+            this.activate_containers.TabIndex = 0;
+            this.activate_containers.Text = "Контейнеры с рудой";
+            this.activate_containers.UseVisualStyleBackColor = true;
+            this.activate_containers.CheckedChanged += new System.EventHandler(this.activate_containers_CheckedChanged);
             // 
             // gravityhight_text
             // 
@@ -815,7 +829,6 @@
         private CheckBox activate_small_container;
         private CheckBox activate_medium_container;
         private CheckBox activate_large_container;
-        private ComboBox switch_cargo_weight;
         private GroupBox groupBox3;
         private PictureBox pictureBox4;
         private PictureBox pictureBox3;
@@ -860,5 +873,7 @@
         private TextBox ion_consumption_large;
         private Label label16;
         private ToolTip toolTip1;
+        private RadioButton cargo_no_weight;
+        private RadioButton cargo_weight;
     }
 }

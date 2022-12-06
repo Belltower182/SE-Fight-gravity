@@ -7,6 +7,8 @@ namespace SE_Fight_Gravity
         public decimal g_amount = 1;
         public decimal total_newton_value = 0;
         public decimal user_value_kg = 0;
+        public decimal large_container_parsed = 0;
+        public decimal small_container_parsed = 0;
 
         // Engine Specs
         public const decimal large_hydrogen_largegrid = 7200000; // Водородные ускорители
@@ -34,26 +36,26 @@ namespace SE_Fight_Gravity
         public const decimal large_ion_smallgrid = 172800;
         public const decimal small_ion_smallgrid = 14400;
 
-        public const decimal large_ion_largegrid_fuel = 33600000; // Mw
-        public const decimal small_ion_largegrid_fuel = 3360000; // Mw
-        public const decimal large_ion_smallgrid_fuel = 2400000; // Mw
-        public const decimal small_ion_smallgrid_fuel = 200000; // Mw
+        public const decimal large_ion_largegrid_fuel = 33600000; // MW
+        public const decimal small_ion_largegrid_fuel = 3360000; // MW
+        public const decimal large_ion_smallgrid_fuel = 2400000; // MW
+        public const decimal small_ion_smallgrid_fuel = 200000; // MW
 
         // Large Cargo Container
-        public const decimal largecargocontainer_mass_largegrid = 2500; // Kg
-        public const decimal largecargocontainer_volume_largegrid = 421000; // Litres
-        public const decimal largecargocontainer_mass_smallgrid = 260; // Kg
-        public const decimal largecargocontainer_volume_smalldrid = 16000; // Litres
+        public const decimal largecargocontainer_mass_largegrid = 2500; // KG
+        public const decimal largecargocontainer_mass_smallgrid = 260; // KG
+        public const decimal largecargocontainer_with_uranium_largegrid = 1140203; // Контейнер полный урана
+
 
         // Medium Cargo Container NOTE: Availiable only for small blocks.
-        public const int mediumcargocontainer_mass_smallblock = 151; // Kg
-        public const int mediumcargocontainer_volume_smallblock = 3400; //Litres
+        public const int mediumcargocontainer_mass_smallblock = 151; // KG
 
         // Small Cargo Container
-        public const int smallcargocontainer_mass_smallgrid = 73; // Kg
-        public const int smallcargocontainer_volume_smallblock = 125; // Litres
-        public const int smallcargocontainer_mass_largegrid = 576; // Kg
-        public const int smallcargocontainer_volume_bigblock = 15625; // Litres
+        public const int smallcargocontainer_mass_largegrid = 576; // KG
+        public decimal smallcargocontainer_with_uranium_largegrid = 42234; //KG
+        public const int smallcargocontainer_mass_smallgrid = 73; // KG
+
+
         #endregion
 
         public Form1()
@@ -163,15 +165,29 @@ namespace SE_Fight_Gravity
                 this.total_newton_value = g_amount * user_value_kg / 1000;
                 calc_for_largegrid(total_newton_value);
             }
+            if (type_of_blocks.SelectedIndex == 0 & activate_containers.Checked == true & cargo_weight.Checked == true & activate_large_container.Checked == true) // Контейнеры с рудой + контейнеры + большой контейнер
+            {
+                this.total_newton_value = ((largecargocontainer_mass_largegrid * large_container_parsed) + (largecargocontainer_with_uranium_largegrid * large_container_parsed) + user_value_kg) * g_amount / 1000;
+                calc_for_largegrid(total_newton_value);
+            }
+            if(type_of_blocks.SelectedIndex == 0 & activate_containers.Checked == true & cargo_weight.Checked == true & activate_large_container.Checked == true & activate_small_container.Checked == true)
+            {
+                this.total_newton_value = ((largecargocontainer_mass_largegrid * large_container_parsed + largecargocontainer_with_uranium_largegrid * large_container_parsed) + (smallcargocontainer_mass_largegrid * small_container_parsed + smallcargocontainer_with_uranium_largegrid * small_container_parsed) + user_value_kg) * g_amount / 1000;
+                calc_for_largegrid(total_newton_value);
+            }
+            if (type_of_blocks.SelectedIndex == 0 & activate_containers.Checked == true & cargo_no_weight.Checked == true & activate_large_container.Checked == true)
+            {
+                this.total_newton_value = ((largecargocontainer_with_uranium_largegrid * large_container_parsed) + user_value_kg) * g_amount / 1000;
+            }
+            if (type_of_blocks.SelectedIndex == 0 & activate_containers.Checked == true & cargo_weight.Checked == true & activate_large_container.Checked == true & activate_small_container.Checked == true)
+            {
+                this.total_newton_value = ((largecargocontainer_with_uranium_largegrid * large_container_parsed) + (smallcargocontainer_with_uranium_largegrid * small_container_parsed) + user_value_kg) * g_amount / 1000;
+                calc_for_largegrid(total_newton_value);
+            }
             if (type_of_blocks.SelectedIndex == 1) // Рассчет для маленьких блоков
             {
                 this.total_newton_value = g_amount * user_value_kg / 1000;
                 calc_for_smallgrid(total_newton_value);
-            }
-            if (type_of_blocks.SelectedIndex ==0 & activate_containers.Checked == true & activate_large_container.Checked == true) // Большие блоки + контейнеры + большой контейнер
-            {
-                this.total_newton_value = ((largecargocontainer_mass_largegrid * decimal.Parse(large_container_quantity.Text)) + user_value_kg) * g_amount / 1000;
-                calc_for_largegrid(total_newton_value);
             }
         }
 
@@ -199,6 +215,7 @@ namespace SE_Fight_Gravity
             hydrogen_consumption(large_hydrogen_largegrid_quantity, small_hydrogen_largegrid_quantity, large_hydrogen_largegrid_fuel, small_hydrogen_largegrid_fuel);
             atmospheric_consumption(large_atmospheric_largegrid_quantity, small_atmospheric_largegrid_quantity, large_atmospheric_largegrid_fuel, small_atmospheric_largegrid_fuel);
             ion_consumption(large_ion_largegrid_quantity, small_ion_largegrid_quantity, large_ion_largegrid_fuel, small_ion_largegrid_fuel);
+            newton_result.Text = Math.Ceiling(total_newton_value).ToString() + " N";
         }
         private void calc_for_smallgrid(decimal newtons)
         {
@@ -257,7 +274,9 @@ namespace SE_Fight_Gravity
         {
             if (type_of_blocks.SelectedIndex == 0 & activate_containers.Checked == true)
             {
-                switch_cargo_weight.Enabled = true;
+                cargo_weight.Checked = true;
+                cargo_weight.Enabled = true;
+                cargo_no_weight.Enabled = true;
                 activate_large_container.Enabled = true;
                 large_container_quantity.Enabled = true;
                 activate_medium_container.Enabled = false;
@@ -267,7 +286,10 @@ namespace SE_Fight_Gravity
             }
             if (type_of_blocks.SelectedIndex == 0 & activate_containers.Checked == false)
             {
-                switch_cargo_weight.Enabled = false;
+                cargo_weight.Enabled = false;
+                cargo_no_weight.Enabled = false;
+                cargo_weight.Checked = false;
+                cargo_no_weight.Checked = false;
                 activate_large_container.Enabled = false;
                 large_container_quantity.Enabled = false;
                 activate_medium_container.Enabled = false;
@@ -277,7 +299,8 @@ namespace SE_Fight_Gravity
             }
             if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == true)
             {
-                switch_cargo_weight.Enabled = true;
+                cargo_weight.Enabled = true;
+                cargo_no_weight.Enabled = true;
                 activate_large_container.Enabled = true;
                 large_container_quantity.Enabled = true;
                 activate_medium_container.Enabled = true;
@@ -287,7 +310,10 @@ namespace SE_Fight_Gravity
             }
             if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == false)
             {
-                switch_cargo_weight.Enabled = false;
+                cargo_weight.Enabled = false;
+                cargo_no_weight.Enabled = false;
+                cargo_weight.Checked = false;
+                cargo_no_weight.Checked = false;
                 activate_large_container.Enabled = false;
                 large_container_quantity.Enabled = false;
                 activate_medium_container.Enabled = false;
@@ -295,6 +321,32 @@ namespace SE_Fight_Gravity
                 activate_small_container.Enabled = false;
                 small_container_quantity.Enabled = false;
             }
+        }
+
+        private void cargo_no_weight_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cargo_no_weight.Checked== true)
+            {
+                cargo_weight.Checked = false;
+            }
+        }
+
+        private void cargo_weight_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cargo_weight.Checked == true)
+            {
+                cargo_no_weight.Checked= false;
+            }
+        }
+
+        private void large_container_quantity_TextChanged(object sender, EventArgs e)
+        {
+            this.large_container_parsed = decimal.Parse(large_container_quantity.Text);
+        }
+
+        private void small_container_quantity_TextChanged(object sender, EventArgs e)
+        {
+            this.small_container_parsed = decimal.Parse(small_container_quantity.Text);
         }
     }
 }
