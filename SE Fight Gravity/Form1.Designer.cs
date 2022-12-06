@@ -267,6 +267,7 @@
             this.medium_container_quantity.Name = "medium_container_quantity";
             this.medium_container_quantity.Size = new System.Drawing.Size(49, 23);
             this.medium_container_quantity.TabIndex = 6;
+            this.medium_container_quantity.TextChanged += new System.EventHandler(this.medium_container_quantity_TextChanged);
             // 
             // large_container_quantity
             // 
