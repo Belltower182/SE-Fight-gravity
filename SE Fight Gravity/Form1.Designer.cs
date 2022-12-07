@@ -48,12 +48,12 @@
             this.activate_large_container = new System.Windows.Forms.CheckBox();
             this.medium_container_quantity = new System.Windows.Forms.TextBox();
             this.large_container_quantity = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.user_location_choice = new System.Windows.Forms.ComboBox();
-            this.button_calculation = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.user_entered_value = new System.Windows.Forms.TextBox();
+            this.button_calculation = new System.Windows.Forms.Button();
             this.activate_containers = new System.Windows.Forms.CheckBox();
             this.gravityhight_text = new System.Windows.Forms.Label();
             this.gforce_text = new System.Windows.Forms.Label();
@@ -92,6 +92,8 @@
             this.large_ion_thrusters_quantity = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.summary_mass = new System.Windows.Forms.TextBox();
+            this.label_summary_mass = new System.Windows.Forms.Label();
             this.height_of_gravity = new System.Windows.Forms.TextBox();
             this.gravity_location = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -157,7 +159,7 @@
             // 
             this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button2.Location = new System.Drawing.Point(224, 374);
+            this.button2.Location = new System.Drawing.Point(224, 373);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(30, 28);
             this.button2.TabIndex = 14;
@@ -225,9 +227,9 @@
             this.full_of_ore.Enabled = false;
             this.full_of_ore.Location = new System.Drawing.Point(9, 13);
             this.full_of_ore.Name = "full_of_ore";
-            this.full_of_ore.Size = new System.Drawing.Size(170, 19);
+            this.full_of_ore.Size = new System.Drawing.Size(190, 19);
             this.full_of_ore.TabIndex = 11;
-            this.full_of_ore.Text = "Контейнеры полные руды";
+            this.full_of_ore.Text = "Заполнить контейнеры рудой";
             this.full_of_ore.UseVisualStyleBackColor = true;
             this.full_of_ore.CheckedChanged += new System.EventHandler(this.cargo_weight_CheckedChanged);
             // 
@@ -321,16 +323,6 @@
             this.large_container_quantity.TabIndex = 5;
             this.large_container_quantity.TextChanged += new System.EventHandler(this.large_container_quantity_TextChanged);
             // 
-            // button1
-            // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.Location = new System.Drawing.Point(188, 374);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(30, 28);
-            this.button1.TabIndex = 13;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -360,20 +352,15 @@
             this.user_location_choice.TabIndex = 4;
             this.user_location_choice.SelectedIndexChanged += new System.EventHandler(this.location_selector_SelectedIndexChanged);
             // 
-            // button_calculation
+            // button1
             // 
-            this.button_calculation.BackColor = System.Drawing.Color.Bisque;
-            this.button_calculation.Enabled = false;
-            this.button_calculation.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button_calculation.FlatAppearance.BorderSize = 2;
-            this.button_calculation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_calculation.Location = new System.Drawing.Point(10, 374);
-            this.button_calculation.Name = "button_calculation";
-            this.button_calculation.Size = new System.Drawing.Size(172, 28);
-            this.button_calculation.TabIndex = 9;
-            this.button_calculation.Text = "Рассчитать";
-            this.button_calculation.UseVisualStyleBackColor = false;
-            this.button_calculation.Click += new System.EventHandler(this.button_calculation_Click);
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button1.Location = new System.Drawing.Point(193, 373);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(30, 28);
+            this.button1.TabIndex = 13;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -396,6 +383,21 @@
             this.toolTip1.SetToolTip(this.user_entered_value, "Enter mass of your ship");
             this.user_entered_value.TextChanged += new System.EventHandler(this.user_entered_value_TextChanged);
             // 
+            // button_calculation
+            // 
+            this.button_calculation.BackColor = System.Drawing.Color.Bisque;
+            this.button_calculation.Enabled = false;
+            this.button_calculation.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button_calculation.FlatAppearance.BorderSize = 2;
+            this.button_calculation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_calculation.Location = new System.Drawing.Point(10, 373);
+            this.button_calculation.Name = "button_calculation";
+            this.button_calculation.Size = new System.Drawing.Size(181, 28);
+            this.button_calculation.TabIndex = 9;
+            this.button_calculation.Text = "Рассчитать";
+            this.button_calculation.UseVisualStyleBackColor = false;
+            this.button_calculation.Click += new System.EventHandler(this.button_calculation_Click);
+            // 
             // activate_containers
             // 
             this.activate_containers.AutoSize = true;
@@ -411,7 +413,7 @@
             // gravityhight_text
             // 
             this.gravityhight_text.AutoSize = true;
-            this.gravityhight_text.Location = new System.Drawing.Point(28, 218);
+            this.gravityhight_text.Location = new System.Drawing.Point(28, 223);
             this.gravityhight_text.Name = "gravityhight_text";
             this.gravityhight_text.Size = new System.Drawing.Size(117, 15);
             this.gravityhight_text.TabIndex = 11;
@@ -439,7 +441,7 @@
             // 
             this.newton_result.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.newton_result.Enabled = false;
-            this.newton_result.Location = new System.Drawing.Point(11, 282);
+            this.newton_result.Location = new System.Drawing.Point(11, 341);
             this.newton_result.Name = "newton_result";
             this.newton_result.Size = new System.Drawing.Size(145, 23);
             this.newton_result.TabIndex = 7;
@@ -769,7 +771,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(4, 264);
+            this.label4.Location = new System.Drawing.Point(4, 323);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(162, 15);
             this.label4.TabIndex = 8;
@@ -777,6 +779,8 @@
             // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.summary_mass);
+            this.groupBox7.Controls.Add(this.label_summary_mass);
             this.groupBox7.Controls.Add(this.label4);
             this.groupBox7.Controls.Add(this.newton_result);
             this.groupBox7.Controls.Add(this.height_of_gravity);
@@ -790,11 +794,30 @@
             this.groupBox7.TabIndex = 12;
             this.groupBox7.TabStop = false;
             // 
+            // summary_mass
+            // 
+            this.summary_mass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.summary_mass.Enabled = false;
+            this.summary_mass.Location = new System.Drawing.Point(11, 293);
+            this.summary_mass.Name = "summary_mass";
+            this.summary_mass.Size = new System.Drawing.Size(145, 23);
+            this.summary_mass.TabIndex = 15;
+            this.summary_mass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label_summary_mass
+            // 
+            this.label_summary_mass.AutoSize = true;
+            this.label_summary_mass.Location = new System.Drawing.Point(32, 272);
+            this.label_summary_mass.Name = "label_summary_mass";
+            this.label_summary_mass.Size = new System.Drawing.Size(107, 15);
+            this.label_summary_mass.TabIndex = 14;
+            this.label_summary_mass.Text = "Суммарная масса";
+            // 
             // height_of_gravity
             // 
             this.height_of_gravity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.height_of_gravity.Enabled = false;
-            this.height_of_gravity.Location = new System.Drawing.Point(59, 237);
+            this.height_of_gravity.Location = new System.Drawing.Point(59, 242);
             this.height_of_gravity.Name = "height_of_gravity";
             this.height_of_gravity.Size = new System.Drawing.Size(55, 23);
             this.height_of_gravity.TabIndex = 13;
@@ -814,7 +837,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(896, 422);
+            this.ClientSize = new System.Drawing.Size(896, 418);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
@@ -913,5 +936,7 @@
         private RadioButton full_of_ore;
         private Label label17;
         private ComboBox cargo_multiplier;
+        private TextBox summary_mass;
+        private Label label_summary_mass;
     }
 }
