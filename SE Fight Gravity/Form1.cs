@@ -177,14 +177,15 @@ namespace SE_Fight_Gravity
             if (type_of_blocks.SelectedIndex == 0 & activate_containers.Checked == true & cargo_no_weight.Checked == true & activate_large_container.Checked == true)
             {
                 this.total_newton_value = ((largecargocontainer_with_uranium_largegrid * large_container_parsed) + user_value_kg) * g_amount / 1000;
+                calc_for_largegrid(total_newton_value);
             }
             // LG + weight included + small container
             if (type_of_blocks.SelectedIndex == 0 & activate_containers.Checked == true & cargo_weight.Checked == true & activate_small_container.Checked == true)
             {
-                this.total_newton_value = ((smallcargocontainer_mass_largegrid * small_container_parsed) + user_value_kg) * g_amount / 1000;
+                this.total_newton_value = ((smallcargocontainer_mass_largegrid * small_container_parsed) + (smallcargocontainer_with_uranium_largegrid * small_container_parsed) + user_value_kg) * g_amount / 1000;
                 calc_for_largegrid(total_newton_value);
             }
-            // LG + weight included + small conteiner
+            // LG + weight not included + small conteiner
             if (type_of_blocks.SelectedIndex == 0 & activate_containers.Checked == true & cargo_no_weight.Checked == true & activate_small_container.Checked == true)
             {
                 this.total_newton_value = ((smallcargocontainer_with_uranium_largegrid * small_container_parsed) + user_value_kg) * g_amount / 1000;
@@ -193,10 +194,10 @@ namespace SE_Fight_Gravity
             // LG + weight included + large and small conteiners
             if (type_of_blocks.SelectedIndex == 0 & activate_containers.Checked == true & cargo_weight.Checked == true & activate_large_container.Checked == true & activate_small_container.Checked == true)
             {
-                this.total_newton_value = ((largecargocontainer_mass_largegrid * large_container_parsed + largecargocontainer_with_uranium_largegrid * large_container_parsed) + (smallcargocontainer_mass_largegrid * small_container_parsed + smallcargocontainer_with_uranium_largegrid * small_container_parsed) + user_value_kg) * g_amount / 1000;
+                this.total_newton_value = (((largecargocontainer_mass_largegrid * large_container_parsed) + (largecargocontainer_with_uranium_largegrid * large_container_parsed) + (smallcargocontainer_mass_largegrid * small_container_parsed) + (smallcargocontainer_with_uranium_largegrid * small_container_parsed)) + user_value_kg) * g_amount / 1000;
                 calc_for_largegrid(total_newton_value);
             }
-            // LG + weight included + large and small conteiners
+            // LG + weight not included + large and small conteiners
             if (type_of_blocks.SelectedIndex == 0 & activate_containers.Checked == true & cargo_no_weight.Checked == true & activate_large_container.Checked == true & activate_small_container.Checked == true)
             {
                 this.total_newton_value = ((largecargocontainer_with_uranium_largegrid * large_container_parsed) + (smallcargocontainer_with_uranium_largegrid * small_container_parsed) + user_value_kg) * g_amount / 1000;
@@ -213,80 +214,86 @@ namespace SE_Fight_Gravity
             // SG + weight include + large container
             if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == true & cargo_weight.Checked == true & activate_large_container.Checked == true)
             {
-                this.total_newton_value = ((largecargocontainer_mass_smallgrid * large_container_parsed) + user_value_kg) * g_amount / 1000;
-                calc_for_largegrid(total_newton_value);
+                this.total_newton_value = (((largecargocontainer_mass_smallgrid * large_container_parsed) + (largecargocontainer_with_uranium_smallgrid * large_container_parsed)) + user_value_kg) * g_amount / 1000;
+                calc_for_smallgrid(total_newton_value);
             }
             // SG + weight not include + large container
             if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == true & cargo_no_weight.Checked == true & activate_large_container.Checked == true)
             {
                 this.total_newton_value = ((largecargocontainer_with_uranium_smallgrid * large_container_parsed) + user_value_kg) * g_amount / 1000;
-                calc_for_largegrid(total_newton_value);
+                calc_for_smallgrid(total_newton_value);
             }
             // SG + weight include + medium container
             if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == true & cargo_weight.Checked == true & activate_medium_container.Checked == true)
             {
-                this.total_newton_value = ((mediumcargocontainer_mass_smallgrid * medium_container_parsed) + (mediumcontainer_with_uranium_smallgrid * medium_container_parsed) + user_value_kg) * g_amount / 1000;
-                calc_for_largegrid(total_newton_value);
+                this.total_newton_value = (((mediumcargocontainer_mass_smallgrid * medium_container_parsed) + (mediumcontainer_with_uranium_smallgrid * medium_container_parsed)) + user_value_kg) * g_amount / 1000;
+                calc_for_smallgrid(total_newton_value);
             }
             // SG + weight not included + medium container
             if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == true & cargo_no_weight.Checked == true & activate_medium_container.Checked == true)
             {
                 this.total_newton_value = ((mediumcontainer_with_uranium_smallgrid * medium_container_parsed) + user_value_kg) * g_amount / 1000;
-                calc_for_largegrid(total_newton_value);
+                calc_for_smallgrid(total_newton_value);
             }
             // SG + weight included + small container
             if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == true & cargo_weight.Checked == true & activate_small_container.Checked == true)
             {
-                this.total_newton_value = ((smallcargocontainer_mass_smallgrid * small_container_parsed) + (smallcargocontainer_with_uranium_smallgrid * small_container_parsed) + user_value_kg) * g_amount / 1000;
-                calc_for_largegrid(total_newton_value);
+                this.total_newton_value = (((smallcargocontainer_mass_smallgrid * small_container_parsed) + (smallcargocontainer_with_uranium_smallgrid * small_container_parsed)) + user_value_kg) * g_amount / 1000;
+                calc_for_smallgrid(total_newton_value);
             }
             // SG + weight not included + small container
             if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == true & cargo_no_weight.Checked == true & activate_small_container.Checked == true)
             {
                 this.total_newton_value = ((smallcargocontainer_with_uranium_smallgrid * small_container_parsed) + user_value_kg) * g_amount / 1000;
-                calc_for_largegrid(total_newton_value);
+                calc_for_smallgrid(total_newton_value);
             }
             // SG + weight include + large and medium containers
             if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == true & cargo_weight.Checked == true & activate_large_container.Checked == true & activate_medium_container.Checked == true)
             {
-                this.total_newton_value = ((largecargocontainer_mass_smallgrid * large_container_parsed + largecargocontainer_with_uranium_smallgrid * large_container_parsed) + (mediumcargocontainer_mass_smallgrid * medium_container_parsed + mediumcontainer_with_uranium_smallgrid * medium_container_parsed) + user_value_kg) * g_amount / 1000;
+                calc_for_smallgrid(total_newton_value);
+                this.total_newton_value = (((largecargocontainer_mass_smallgrid * large_container_parsed + largecargocontainer_with_uranium_smallgrid * large_container_parsed) + (mediumcargocontainer_mass_smallgrid * medium_container_parsed + mediumcontainer_with_uranium_smallgrid * medium_container_parsed)) + user_value_kg) * g_amount / 1000;
             }
             // SG + weight not included + large and medium containers
             if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == true & cargo_no_weight.Checked == true & activate_large_container.Checked == true & activate_medium_container.Checked == true)
             {
                 this.total_newton_value = ((largecargocontainer_with_uranium_smallgrid * large_container_parsed) + (mediumcontainer_with_uranium_smallgrid * medium_container_parsed) + user_value_kg) * g_amount / 1000;
+                calc_for_smallgrid(total_newton_value);
             }
             //SG + weight included + large small containers
             if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == true & cargo_weight.Checked == true & activate_large_container.Checked == true & activate_small_container.Checked == true)
             {
-                this.total_newton_value = ((largecargocontainer_mass_smallgrid * large_container_parsed + largecargocontainer_with_uranium_smallgrid * large_container_parsed) + (smallcargocontainer_mass_smallgrid * small_container_parsed + smallcargocontainer_with_uranium_smallgrid * small_container_parsed) + user_value_kg) * g_amount / 1000;
+                this.total_newton_value = (((largecargocontainer_mass_smallgrid * large_container_parsed + largecargocontainer_with_uranium_smallgrid * large_container_parsed) + (smallcargocontainer_mass_smallgrid * small_container_parsed + smallcargocontainer_with_uranium_smallgrid * small_container_parsed)) + user_value_kg) * g_amount / 1000;
+                calc_for_smallgrid(total_newton_value);
             }
             //SG + weight not included + large small containers
             if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == true & cargo_no_weight.Checked == true & activate_large_container.Checked == true & activate_small_container.Checked == true)
             {
+                calc_for_smallgrid(total_newton_value);
                 this.total_newton_value = ((largecargocontainer_with_uranium_smallgrid * large_container_parsed + smallcargocontainer_with_uranium_smallgrid * small_container_parsed) + user_value_kg) * g_amount / 1000;
             }
             //SG + weight included + large medium small containers
             if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == true & cargo_weight.Checked == true & activate_large_container.Checked == true & activate_medium_container.Checked == true & activate_small_container.Checked == true)
             {
-                this.total_newton_value = ((largecargocontainer_mass_smallgrid * large_container_parsed + largecargocontainer_with_uranium_smallgrid * large_container_parsed) + (mediumcargocontainer_mass_smallgrid * medium_container_parsed + mediumcontainer_with_uranium_smallgrid * medium_container_parsed) + (smallcargocontainer_mass_smallgrid * small_container_parsed + smallcargocontainer_with_uranium_smallgrid * small_container_parsed) + user_value_kg) * g_amount / 1000;
+                calc_for_smallgrid(total_newton_value);
+                this.total_newton_value = (((largecargocontainer_mass_smallgrid * large_container_parsed) + (largecargocontainer_with_uranium_smallgrid * large_container_parsed) + (mediumcargocontainer_mass_smallgrid * medium_container_parsed) + (mediumcontainer_with_uranium_smallgrid * medium_container_parsed) + (smallcargocontainer_mass_smallgrid * small_container_parsed) + (smallcargocontainer_with_uranium_smallgrid * small_container_parsed)) + user_value_kg) * g_amount / 1000;
             }
             //SG + weight not included + large medium small containers
-            if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == true & cargo_weight.Checked == true & activate_large_container.Checked == true & activate_medium_container.Checked == true & activate_small_container.Checked == true)
+            if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == true & cargo_no_weight.Checked == true & activate_large_container.Checked == true & activate_medium_container.Checked == true & activate_small_container.Checked == true)
             {
+                calc_for_smallgrid(total_newton_value);
                 this.total_newton_value = ((largecargocontainer_with_uranium_smallgrid * large_container_parsed) + (mediumcontainer_with_uranium_smallgrid * medium_container_parsed) + (smallcargocontainer_with_uranium_smallgrid * small_container_parsed) + user_value_kg) * g_amount / 1000;
             }
             //SG + weight include + medium small containers
             if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == true & cargo_weight.Checked == true & activate_medium_container.Checked == true & activate_small_container.Checked == true)
             {
-                this.total_newton_value = (((mediumcargocontainer_mass_smallgrid * medium_container_parsed + mediumcontainer_with_uranium_smallgrid * medium_container_parsed) + (smallcargocontainer_mass_smallgrid * small_container_parsed + smallcargocontainer_with_uranium_smallgrid * small_container_parsed)) + user_value_kg) * g_amount / 1000;
-                calc_for_largegrid(total_newton_value);
+                this.total_newton_value = (((mediumcargocontainer_mass_smallgrid * medium_container_parsed) + (mediumcontainer_with_uranium_smallgrid * medium_container_parsed) + (smallcargocontainer_mass_smallgrid * small_container_parsed) + (smallcargocontainer_with_uranium_smallgrid * small_container_parsed)) + user_value_kg) * g_amount / 1000;
+                calc_for_smallgrid(total_newton_value);
             }
             //SG + weight not include + medium small containers
             if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == true & cargo_no_weight.Checked == true & activate_medium_container.Checked == true & activate_small_container.Checked == true)
             {
                 this.total_newton_value = (((mediumcargocontainer_mass_smallgrid * medium_container_parsed + mediumcontainer_with_uranium_smallgrid * medium_container_parsed) + (smallcargocontainer_mass_smallgrid * small_container_parsed + smallcargocontainer_with_uranium_smallgrid * small_container_parsed)) + user_value_kg) * g_amount / 1000;
-                calc_for_largegrid(total_newton_value);
+                calc_for_smallgrid(total_newton_value);
             }
             #endregion
         }
@@ -337,7 +344,7 @@ namespace SE_Fight_Gravity
             decimal small_ion_smallgrid_quantity = newtons / small_ion_smallgrid;
             small_ion_thrusters_quantity.Text = Math.Ceiling(small_ion_smallgrid_quantity).ToString();
 
-            hydrogen_consumption(large_hydrogen_smallgrid_quantity, small_hydrogen_smallgrid_quantity, large_hydrogen_smallgrid_fuel, small_hydrogen_smallgrid_fuel); // Рассчет потребления водорода
+            hydrogen_consumption(large_hydrogen_smallgrid_quantity, small_hydrogen_smallgrid_quantity, large_hydrogen_smallgrid_fuel, small_hydrogen_smallgrid_fuel);
             atmospheric_consumption(large_atmospheric_smallgrid_quantity, small_atmospheric_smallgrid_quantity, large_atmospheric_smallgrid_fuel, small_atmospheric_smallgrid_fuel);
             ion_consumption(large_ion_smallgrid_quantity, small_ion_smallgrid_quantity, large_ion_smallgrid_fuel, small_ion_smallgrid_fuel);
             newton_result.Text = Math.Ceiling(total_newton_value).ToString() + " N";
