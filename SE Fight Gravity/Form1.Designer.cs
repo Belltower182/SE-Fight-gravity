@@ -33,9 +33,12 @@
             this.type_of_blocks = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cargo_no_weight = new System.Windows.Forms.RadioButton();
-            this.cargo_weight = new System.Windows.Forms.RadioButton();
+            this.cargo_multiplier = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.without_ore = new System.Windows.Forms.RadioButton();
+            this.full_of_ore = new System.Windows.Forms.RadioButton();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.activate_small_container = new System.Windows.Forms.CheckBox();
@@ -45,14 +48,15 @@
             this.activate_large_container = new System.Windows.Forms.CheckBox();
             this.medium_container_quantity = new System.Windows.Forms.TextBox();
             this.large_container_quantity = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.user_location_choice = new System.Windows.Forms.ComboBox();
+            this.button_calculation = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.user_entered_value = new System.Windows.Forms.TextBox();
             this.activate_containers = new System.Windows.Forms.CheckBox();
             this.gravityhight_text = new System.Windows.Forms.Label();
             this.gforce_text = new System.Windows.Forms.Label();
-            this.button_calculation = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.newton_result = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -90,8 +94,6 @@
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.height_of_gravity = new System.Windows.Forms.TextBox();
             this.gravity_location = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -111,7 +113,7 @@
             // 
             // type_of_blocks
             // 
-            this.type_of_blocks.BackColor = System.Drawing.SystemColors.Window;
+            this.type_of_blocks.BackColor = System.Drawing.Color.Bisque;
             this.type_of_blocks.FormattingEnabled = true;
             this.type_of_blocks.Items.AddRange(new object[] {
             "Большие",
@@ -134,24 +136,39 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.user_location_choice);
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.user_entered_value);
+            this.groupBox1.Controls.Add(this.button_calculation);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.type_of_blocks);
             this.groupBox1.Controls.Add(this.activate_containers);
             this.groupBox1.Location = new System.Drawing.Point(10, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(260, 349);
+            this.groupBox1.Size = new System.Drawing.Size(260, 408);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             // 
+            // button2
+            // 
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button2.Location = new System.Drawing.Point(224, 374);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(30, 28);
+            this.button2.TabIndex = 14;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.cargo_no_weight);
-            this.groupBox2.Controls.Add(this.cargo_weight);
+            this.groupBox2.Controls.Add(this.cargo_multiplier);
+            this.groupBox2.Controls.Add(this.label17);
+            this.groupBox2.Controls.Add(this.without_ore);
+            this.groupBox2.Controls.Add(this.full_of_ore);
             this.groupBox2.Controls.Add(this.pictureBox4);
             this.groupBox2.Controls.Add(this.pictureBox3);
             this.groupBox2.Controls.Add(this.activate_small_container);
@@ -161,40 +178,63 @@
             this.groupBox2.Controls.Add(this.activate_large_container);
             this.groupBox2.Controls.Add(this.medium_container_quantity);
             this.groupBox2.Controls.Add(this.large_container_quantity);
-            this.groupBox2.Location = new System.Drawing.Point(10, 183);
+            this.groupBox2.Location = new System.Drawing.Point(10, 185);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(244, 160);
+            this.groupBox2.Size = new System.Drawing.Size(244, 185);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             // 
-            // cargo_no_weight
+            // cargo_multiplier
             // 
-            this.cargo_no_weight.AutoSize = true;
-            this.cargo_no_weight.Enabled = false;
-            this.cargo_no_weight.Location = new System.Drawing.Point(12, 30);
-            this.cargo_no_weight.Name = "cargo_no_weight";
-            this.cargo_no_weight.Size = new System.Drawing.Size(188, 19);
-            this.cargo_no_weight.TabIndex = 12;
-            this.cargo_no_weight.Text = "Не учитывать вес контейнера";
-            this.cargo_no_weight.UseVisualStyleBackColor = true;
-            this.cargo_no_weight.CheckedChanged += new System.EventHandler(this.cargo_no_weight_CheckedChanged);
+            this.cargo_multiplier.Enabled = false;
+            this.cargo_multiplier.FormattingEnabled = true;
+            this.cargo_multiplier.Items.AddRange(new object[] {
+            "x1",
+            "x3",
+            "x5",
+            "x10"});
+            this.cargo_multiplier.Location = new System.Drawing.Point(190, 60);
+            this.cargo_multiplier.Name = "cargo_multiplier";
+            this.cargo_multiplier.Size = new System.Drawing.Size(49, 23);
+            this.cargo_multiplier.TabIndex = 14;
             // 
-            // cargo_weight
+            // label17
             // 
-            this.cargo_weight.AutoSize = true;
-            this.cargo_weight.Enabled = false;
-            this.cargo_weight.Location = new System.Drawing.Point(12, 11);
-            this.cargo_weight.Name = "cargo_weight";
-            this.cargo_weight.Size = new System.Drawing.Size(214, 19);
-            this.cargo_weight.TabIndex = 11;
-            this.cargo_weight.Text = "Учитывать вес самого контейнера";
-            this.cargo_weight.UseVisualStyleBackColor = true;
-            this.cargo_weight.CheckedChanged += new System.EventHandler(this.cargo_weight_CheckedChanged);
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(6, 63);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(132, 15);
+            this.label17.TabIndex = 13;
+            this.label17.Text = "Множитель инвентаря";
+            // 
+            // without_ore
+            // 
+            this.without_ore.AutoSize = true;
+            this.without_ore.Enabled = false;
+            this.without_ore.Location = new System.Drawing.Point(9, 34);
+            this.without_ore.Name = "without_ore";
+            this.without_ore.Size = new System.Drawing.Size(136, 19);
+            this.without_ore.TabIndex = 12;
+            this.without_ore.Text = "Пустые контейнеры";
+            this.without_ore.UseVisualStyleBackColor = true;
+            this.without_ore.CheckedChanged += new System.EventHandler(this.cargo_no_weight_CheckedChanged);
+            // 
+            // full_of_ore
+            // 
+            this.full_of_ore.AutoSize = true;
+            this.full_of_ore.Enabled = false;
+            this.full_of_ore.Location = new System.Drawing.Point(9, 13);
+            this.full_of_ore.Name = "full_of_ore";
+            this.full_of_ore.Size = new System.Drawing.Size(170, 19);
+            this.full_of_ore.TabIndex = 11;
+            this.full_of_ore.Text = "Контейнеры полные руды";
+            this.full_of_ore.UseVisualStyleBackColor = true;
+            this.full_of_ore.CheckedChanged += new System.EventHandler(this.cargo_weight_CheckedChanged);
             // 
             // pictureBox4
             // 
             this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
-            this.pictureBox4.Location = new System.Drawing.Point(6, 120);
+            this.pictureBox4.Location = new System.Drawing.Point(6, 153);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(23, 23);
             this.pictureBox4.TabIndex = 10;
@@ -203,7 +243,7 @@
             // pictureBox3
             // 
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.Location = new System.Drawing.Point(6, 91);
+            this.pictureBox3.Location = new System.Drawing.Point(6, 124);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(23, 23);
             this.pictureBox3.TabIndex = 9;
@@ -213,7 +253,7 @@
             // 
             this.activate_small_container.AutoSize = true;
             this.activate_small_container.Enabled = false;
-            this.activate_small_container.Location = new System.Drawing.Point(39, 125);
+            this.activate_small_container.Location = new System.Drawing.Point(39, 158);
             this.activate_small_container.Name = "activate_small_container";
             this.activate_small_container.Size = new System.Drawing.Size(127, 19);
             this.activate_small_container.TabIndex = 4;
@@ -223,7 +263,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(6, 59);
+            this.pictureBox2.Location = new System.Drawing.Point(6, 92);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(23, 23);
             this.pictureBox2.TabIndex = 8;
@@ -233,7 +273,7 @@
             // 
             this.activate_medium_container.AutoSize = true;
             this.activate_medium_container.Enabled = false;
-            this.activate_medium_container.Location = new System.Drawing.Point(39, 93);
+            this.activate_medium_container.Location = new System.Drawing.Point(39, 126);
             this.activate_medium_container.Name = "activate_medium_container";
             this.activate_medium_container.Size = new System.Drawing.Size(135, 19);
             this.activate_medium_container.TabIndex = 3;
@@ -242,8 +282,9 @@
             // 
             // small_container_quantity
             // 
+            this.small_container_quantity.BackColor = System.Drawing.SystemColors.Window;
             this.small_container_quantity.Enabled = false;
-            this.small_container_quantity.Location = new System.Drawing.Point(190, 121);
+            this.small_container_quantity.Location = new System.Drawing.Point(190, 154);
             this.small_container_quantity.Name = "small_container_quantity";
             this.small_container_quantity.Size = new System.Drawing.Size(49, 23);
             this.small_container_quantity.TabIndex = 7;
@@ -253,7 +294,7 @@
             // 
             this.activate_large_container.AutoSize = true;
             this.activate_large_container.Enabled = false;
-            this.activate_large_container.Location = new System.Drawing.Point(39, 61);
+            this.activate_large_container.Location = new System.Drawing.Point(39, 94);
             this.activate_large_container.Name = "activate_large_container";
             this.activate_large_container.Size = new System.Drawing.Size(139, 19);
             this.activate_large_container.TabIndex = 2;
@@ -262,8 +303,9 @@
             // 
             // medium_container_quantity
             // 
+            this.medium_container_quantity.BackColor = System.Drawing.SystemColors.Window;
             this.medium_container_quantity.Enabled = false;
-            this.medium_container_quantity.Location = new System.Drawing.Point(190, 91);
+            this.medium_container_quantity.Location = new System.Drawing.Point(190, 124);
             this.medium_container_quantity.Name = "medium_container_quantity";
             this.medium_container_quantity.Size = new System.Drawing.Size(49, 23);
             this.medium_container_quantity.TabIndex = 6;
@@ -271,12 +313,23 @@
             // 
             // large_container_quantity
             // 
+            this.large_container_quantity.BackColor = System.Drawing.SystemColors.Window;
             this.large_container_quantity.Enabled = false;
-            this.large_container_quantity.Location = new System.Drawing.Point(190, 59);
+            this.large_container_quantity.Location = new System.Drawing.Point(190, 92);
             this.large_container_quantity.Name = "large_container_quantity";
             this.large_container_quantity.Size = new System.Drawing.Size(49, 23);
             this.large_container_quantity.TabIndex = 5;
             this.large_container_quantity.TextChanged += new System.EventHandler(this.large_container_quantity_TextChanged);
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button1.Location = new System.Drawing.Point(188, 374);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(30, 28);
+            this.button1.TabIndex = 13;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -307,6 +360,21 @@
             this.user_location_choice.TabIndex = 4;
             this.user_location_choice.SelectedIndexChanged += new System.EventHandler(this.location_selector_SelectedIndexChanged);
             // 
+            // button_calculation
+            // 
+            this.button_calculation.BackColor = System.Drawing.Color.Bisque;
+            this.button_calculation.Enabled = false;
+            this.button_calculation.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button_calculation.FlatAppearance.BorderSize = 2;
+            this.button_calculation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_calculation.Location = new System.Drawing.Point(10, 374);
+            this.button_calculation.Name = "button_calculation";
+            this.button_calculation.Size = new System.Drawing.Size(172, 28);
+            this.button_calculation.TabIndex = 9;
+            this.button_calculation.Text = "Рассчитать";
+            this.button_calculation.UseVisualStyleBackColor = false;
+            this.button_calculation.Click += new System.EventHandler(this.button_calculation_Click);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -332,11 +400,11 @@
             // 
             this.activate_containers.AutoSize = true;
             this.activate_containers.Enabled = false;
-            this.activate_containers.Location = new System.Drawing.Point(57, 168);
+            this.activate_containers.Location = new System.Drawing.Point(22, 168);
             this.activate_containers.Name = "activate_containers";
-            this.activate_containers.Size = new System.Drawing.Size(139, 19);
+            this.activate_containers.Size = new System.Drawing.Size(225, 19);
             this.activate_containers.TabIndex = 0;
-            this.activate_containers.Text = "Контейнеры с рудой";
+            this.activate_containers.Text = "Добавить контейнеры полные руды";
             this.activate_containers.UseVisualStyleBackColor = true;
             this.activate_containers.CheckedChanged += new System.EventHandler(this.activate_containers_CheckedChanged);
             // 
@@ -357,17 +425,6 @@
             this.gforce_text.Size = new System.Drawing.Size(73, 15);
             this.gforce_text.TabIndex = 10;
             this.gforce_text.Text = "Гравитация:";
-            // 
-            // button_calculation
-            // 
-            this.button_calculation.Enabled = false;
-            this.button_calculation.Location = new System.Drawing.Point(277, 323);
-            this.button_calculation.Name = "button_calculation";
-            this.button_calculation.Size = new System.Drawing.Size(112, 28);
-            this.button_calculation.TabIndex = 9;
-            this.button_calculation.Text = "Рассчитать";
-            this.button_calculation.UseVisualStyleBackColor = true;
-            this.button_calculation.Click += new System.EventHandler(this.button_calculation_Click);
             // 
             // pictureBox1
             // 
@@ -395,7 +452,7 @@
             this.groupBox3.Controls.Add(this.groupBox6);
             this.groupBox3.Location = new System.Drawing.Point(456, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(430, 349);
+            this.groupBox3.Size = new System.Drawing.Size(430, 408);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Требуемое количество ускорителей";
@@ -729,7 +786,7 @@
             this.groupBox7.Controls.Add(this.gforce_text);
             this.groupBox7.Location = new System.Drawing.Point(277, 2);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(169, 315);
+            this.groupBox7.Size = new System.Drawing.Size(169, 408);
             this.groupBox7.TabIndex = 12;
             this.groupBox7.TabStop = false;
             // 
@@ -753,39 +810,17 @@
             this.gravity_location.TabIndex = 12;
             this.gravity_location.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // button1
-            // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.Location = new System.Drawing.Point(388, 323);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(30, 28);
-            this.button1.TabIndex = 13;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button2.Location = new System.Drawing.Point(417, 323);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(30, 28);
-            this.button2.TabIndex = 14;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(896, 359);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(896, 422);
             this.Controls.Add(this.groupBox7);
-            this.Controls.Add(this.button_calculation);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "SE Fight Gravity";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -874,7 +909,9 @@
         private TextBox ion_consumption_large;
         private Label label16;
         private ToolTip toolTip1;
-        private RadioButton cargo_no_weight;
-        private RadioButton cargo_weight;
+        private RadioButton without_ore;
+        private RadioButton full_of_ore;
+        private Label label17;
+        private ComboBox cargo_multiplier;
     }
 }
