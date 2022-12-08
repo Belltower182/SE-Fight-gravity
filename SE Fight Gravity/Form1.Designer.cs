@@ -102,7 +102,6 @@
             this.height_of_gravity = new System.Windows.Forms.TextBox();
             this.gravity_location = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.label2_warn = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -124,8 +123,8 @@
             this.type_of_blocks.BackColor = System.Drawing.Color.Bisque;
             this.type_of_blocks.FormattingEnabled = true;
             this.type_of_blocks.Items.AddRange(new object[] {
-            "Большие",
-            "Малые"});
+            "Large grid",
+            "Small grid"});
             this.type_of_blocks.Location = new System.Drawing.Point(65, 35);
             this.type_of_blocks.Name = "type_of_blocks";
             this.type_of_blocks.Size = new System.Drawing.Size(121, 23);
@@ -144,7 +143,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label_warn);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.label3);
@@ -166,11 +164,10 @@
             // 
             this.label_warn.AutoSize = true;
             this.label_warn.ForeColor = System.Drawing.Color.Red;
-            this.label_warn.Location = new System.Drawing.Point(189, 89);
+            this.label_warn.Location = new System.Drawing.Point(10, 412);
             this.label_warn.Name = "label_warn";
-            this.label_warn.Size = new System.Drawing.Size(67, 15);
+            this.label_warn.Size = new System.Drawing.Size(0, 15);
             this.label_warn.TabIndex = 15;
-            this.label_warn.Text = "Only digits!";
             this.label_warn.Visible = false;
             // 
             // button2
@@ -185,7 +182,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label2_warn);
             this.groupBox2.Controls.Add(this.cargo_multiplier);
             this.groupBox2.Controls.Add(this.label17);
             this.groupBox2.Controls.Add(this.without_ore);
@@ -207,6 +203,7 @@
             // 
             // cargo_multiplier
             // 
+            this.cargo_multiplier.BackColor = System.Drawing.Color.White;
             this.cargo_multiplier.Enabled = false;
             this.cargo_multiplier.FormattingEnabled = true;
             this.cargo_multiplier.Items.AddRange(new object[] {
@@ -235,9 +232,9 @@
             this.without_ore.Enabled = false;
             this.without_ore.Location = new System.Drawing.Point(7, 35);
             this.without_ore.Name = "without_ore";
-            this.without_ore.Size = new System.Drawing.Size(117, 19);
+            this.without_ore.Size = new System.Drawing.Size(142, 19);
             this.without_ore.TabIndex = 12;
-            this.without_ore.Text = "Empty containers";
+            this.without_ore.Text = "Add empty containers";
             this.toolTip1.SetToolTip(this.without_ore, "Leave containers empty");
             this.without_ore.UseVisualStyleBackColor = true;
             this.without_ore.CheckedChanged += new System.EventHandler(this.cargo_no_weight_CheckedChanged);
@@ -248,9 +245,9 @@
             this.full_of_ore.Enabled = false;
             this.full_of_ore.Location = new System.Drawing.Point(7, 13);
             this.full_of_ore.Name = "full_of_ore";
-            this.full_of_ore.Size = new System.Drawing.Size(172, 19);
+            this.full_of_ore.Size = new System.Drawing.Size(159, 19);
             this.full_of_ore.TabIndex = 11;
-            this.full_of_ore.Text = "Fill containers with ore (full)";
+            this.full_of_ore.Text = "Add containers full of ore";
             this.toolTip1.SetToolTip(this.full_of_ore, "Fill containers with ore (full)");
             this.full_of_ore.UseVisualStyleBackColor = true;
             this.full_of_ore.CheckedChanged += new System.EventHandler(this.cargo_weight_CheckedChanged);
@@ -284,6 +281,7 @@
             this.activate_small_container.Text = "Small container";
             this.toolTip1.SetToolTip(this.activate_small_container, "Activate small container calculation");
             this.activate_small_container.UseVisualStyleBackColor = true;
+            this.activate_small_container.CheckedChanged += new System.EventHandler(this.activate_small_container_CheckedChanged);
             // 
             // pictureBox2
             // 
@@ -305,10 +303,11 @@
             this.activate_medium_container.Text = "Medium container";
             this.toolTip1.SetToolTip(this.activate_medium_container, "activate medium container calculation");
             this.activate_medium_container.UseVisualStyleBackColor = true;
+            this.activate_medium_container.CheckedChanged += new System.EventHandler(this.activate_medium_container_CheckedChanged);
             // 
             // small_container_quantity
             // 
-            this.small_container_quantity.BackColor = System.Drawing.SystemColors.Window;
+            this.small_container_quantity.BackColor = System.Drawing.Color.White;
             this.small_container_quantity.Enabled = false;
             this.small_container_quantity.Location = new System.Drawing.Point(190, 154);
             this.small_container_quantity.Name = "small_container_quantity";
@@ -328,10 +327,11 @@
             this.activate_large_container.Text = "Large container";
             this.toolTip1.SetToolTip(this.activate_large_container, "Activate large container calculations");
             this.activate_large_container.UseVisualStyleBackColor = true;
+            this.activate_large_container.CheckedChanged += new System.EventHandler(this.activate_large_container_CheckedChanged);
             // 
             // medium_container_quantity
             // 
-            this.medium_container_quantity.BackColor = System.Drawing.SystemColors.Window;
+            this.medium_container_quantity.BackColor = System.Drawing.Color.White;
             this.medium_container_quantity.Enabled = false;
             this.medium_container_quantity.Location = new System.Drawing.Point(190, 124);
             this.medium_container_quantity.Name = "medium_container_quantity";
@@ -342,7 +342,7 @@
             // 
             // large_container_quantity
             // 
-            this.large_container_quantity.BackColor = System.Drawing.SystemColors.Window;
+            this.large_container_quantity.BackColor = System.Drawing.Color.White;
             this.large_container_quantity.Enabled = false;
             this.large_container_quantity.Location = new System.Drawing.Point(190, 92);
             this.large_container_quantity.Name = "large_container_quantity";
@@ -366,14 +366,14 @@
             this.user_location_choice.Enabled = false;
             this.user_location_choice.FormattingEnabled = true;
             this.user_location_choice.Items.AddRange(new object[] {
-            "Земля",
-            "Луна",
-            "Марс",
-            "Европа",
-            "Тритон",
-            "Пертам",
-            "Чужая",
-            "Титан"});
+            "Earth",
+            "Moon",
+            "Mars",
+            "Europa",
+            "Triton",
+            "Pertam",
+            "Alien",
+            "Titan"});
             this.user_location_choice.Location = new System.Drawing.Point(65, 139);
             this.user_location_choice.Name = "user_location_choice";
             this.user_location_choice.Size = new System.Drawing.Size(121, 23);
@@ -391,6 +391,7 @@
             this.button1.TabIndex = 13;
             this.toolTip1.SetToolTip(this.button1, "Save calculations to txt file");
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
@@ -924,26 +925,18 @@
             this.gravity_location.TabIndex = 12;
             this.gravity_location.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label2_warn
-            // 
-            this.label2_warn.AutoSize = true;
-            this.label2_warn.ForeColor = System.Drawing.Color.Red;
-            this.label2_warn.Location = new System.Drawing.Point(117, 63);
-            this.label2_warn.Name = "label2_warn";
-            this.label2_warn.Size = new System.Drawing.Size(67, 15);
-            this.label2_warn.TabIndex = 16;
-            this.label2_warn.Text = "Only digits!";
-            this.label2_warn.Visible = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(885, 418);
+            this.ClientSize = new System.Drawing.Size(885, 430);
+            this.Controls.Add(this.label_warn);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "SE Fight Gravity";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -969,6 +962,7 @@
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1046,6 +1040,5 @@
         private Label label19;
         private Label label18;
         private Label label_warn;
-        private Label label2_warn;
     }
 }

@@ -105,6 +105,7 @@ namespace SE_Fight_Gravity
             if (check_user_value != true)
             {
                 label_warn.Visible = true;
+                label_warn.Text = "Enter only digits";
             }
             else
             {
@@ -454,8 +455,20 @@ namespace SE_Fight_Gravity
             ion_consumption_small.Text = Math.Ceiling(ion_consume_small).ToString() + " MW";
         }
         #endregion
+
         private void activate_containers_CheckedChanged(object sender, EventArgs e)
         {
+            if (activate_containers.Checked != true)
+            {
+
+                large_container_quantity.BackColor = Color.White;
+                medium_container_quantity.BackColor = Color.White;
+                small_container_quantity.BackColor = Color.White;
+                activate_large_container.Checked = false;
+                activate_medium_container.Checked = false;
+                activate_small_container.Checked = false;
+
+            }
             if (type_of_blocks.SelectedIndex == 0 & activate_containers.Checked == true)
             {
                 cargo_multiplier.Enabled = true;
@@ -534,11 +547,12 @@ namespace SE_Fight_Gravity
             bool check_large_cargo = double.TryParse(large_container_quantity.Text, out double value);
             if (check_large_cargo !=true)
             {
-                label2_warn.Visible = true;
+                label_warn.Visible = true;
+                label_warn.Text = "Enter only digits!";
             }
             else
             {
-                label2_warn.Visible = false;
+                label_warn.Visible = false;
                 this.large_container_parsed = Convert.ToDouble(large_container_quantity.Text);
             }
         }
@@ -548,11 +562,12 @@ namespace SE_Fight_Gravity
             bool check_medium_cargo = double.TryParse(medium_container_quantity.Text, out double value);
             if (check_medium_cargo != true)
             {
-                label2_warn.Visible = true;
+                label_warn.Visible = true;
+                label_warn.Text = "Enter only digits!";
             }
             else
             {
-                label2_warn.Visible = false;
+                label_warn.Visible = false;
                 this.medium_container_parsed = Convert.ToDouble(medium_container_quantity.Text);
             }
         }
@@ -562,12 +577,172 @@ namespace SE_Fight_Gravity
             bool check_small_cargo = double.TryParse(small_container_quantity.Text, out double value);
             if (check_small_cargo != true)
             {
-                label2_warn.Visible = true;
+                label_warn.Visible = true;
+                label_warn.Text = "Enter only digits!";
             }
             else
             {
-                label2_warn.Visible = false;
+                label_warn.Visible = false;
                 this.small_container_parsed = Convert.ToDouble(small_container_quantity.Text);
+            }
+        }
+
+        private void activate_large_container_CheckedChanged(object sender, EventArgs e)
+        {
+            if (activate_large_container.Checked == true)
+            {
+                large_container_quantity.BackColor = Color.Bisque;
+            }
+            if (activate_large_container.Checked == false)
+            {
+                large_container_quantity.BackColor = Color.White;
+            }
+            if (activate_large_container.Checked != true)
+            {
+                large_container_quantity.Text = "0";
+            }
+        }
+
+        private void activate_medium_container_CheckedChanged(object sender, EventArgs e)
+        {
+            if (activate_medium_container.Checked == true)
+            {
+                medium_container_quantity.BackColor = Color.Bisque;
+            }
+            if (activate_medium_container.Checked == false)
+            {
+                medium_container_quantity.BackColor = Color.White;
+            }
+            if (activate_medium_container.Checked != true)
+            {
+                medium_container_quantity.Text = "0";
+            }
+        }
+
+        private void activate_small_container_CheckedChanged(object sender, EventArgs e)
+        {
+            if (activate_small_container.Checked == true)
+            {
+                small_container_quantity.BackColor = Color.Bisque;
+            }
+            if (activate_small_container.Checked == false)
+            {
+                small_container_quantity.BackColor = Color.White;
+            }
+            if (activate_small_container.Checked != true)
+            {
+                small_container_quantity.Text = "0";
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string applicationPath = Path.GetFullPath(AppDomain.CurrentDomain.BaseDirectory);
+            string saveFilePath = Path.Combine(applicationPath, "Saved_Specs.txt");
+            using var writer = new StreamWriter(saveFilePath, append: false);
+            if (activate_containers.Checked == false)
+            {
+                writer.WriteLine("Location: " + user_location_choice.Text.ToString());
+                writer.WriteLine("Gravity on location: " + gravity_location.Text.ToString());
+                writer.WriteLine("Type of blocks: " + type_of_blocks.Text.ToString());
+                writer.WriteLine("Cargo containers: No");
+                if (full_of_ore.Checked == true)
+                {
+                    writer.WriteLine("Cargo filled with ore: Yes");
+                }
+                else
+                {
+                    writer.WriteLine("Cargo filled with ore: No");
+                }
+                writer.WriteLine("Total mass: " + Math.Ceiling(mass_summary_set).ToString() + " KG");
+                writer.WriteLine("Required thrusters power: " + Math.Ceiling(total_newton_value).ToString() + " N");
+                writer.WriteLine("");
+                writer.WriteLine("/////////////////////");
+                writer.WriteLine("ATMOSPHERIC THRUSTERS");
+                writer.WriteLine("/////////////////////");
+                writer.WriteLine("Large thrusters quantity: " + large_atmospheric_thrusters_quantity.Text.ToString());
+                writer.WriteLine("Energy consumption: " + energy_consumption_large.Text.ToString());
+                writer.WriteLine("");
+                writer.WriteLine("Small thrusters quantity: " + small_atmospheric_thrusters_quantity.Text.ToString());
+                writer.WriteLine("Energy consumption: " + energy_consumption_small.Text.ToString());
+                writer.WriteLine("");
+                writer.WriteLine("//////////////////");
+                writer.WriteLine("HYDROGEN THRUSTERS");
+                writer.WriteLine("//////////////////");
+                writer.WriteLine("Large thrusters quantity: " + large_hydrogen_thrusters_quantity.Text.ToString());
+                writer.WriteLine("Fuel consumption: " + fuel_consumption_large.Text.ToString());
+                writer.WriteLine("");
+                writer.WriteLine("Small thrusters quantity: " + small_hydrogen_thrusters_quantity.Text.ToString());
+                writer.WriteLine("Fuel consumption: " + fuel_consumption_small.Text.ToString());
+                writer.WriteLine("");
+                writer.WriteLine("/////////////");
+                writer.WriteLine("ION THRUSTERS");
+                writer.WriteLine("/////////////");
+                writer.WriteLine("Large thrusters quantity: " + large_ion_thrusters_quantity.Text.ToString());
+                writer.WriteLine("Fuel consumption: " + ion_consumption_large.Text.ToString());
+                writer.WriteLine("");
+                writer.WriteLine("Small thrusters quantity: " + small_ion_thrusters_quantity.Text.ToString());
+                writer.WriteLine("Fuel consumption: " + ion_consumption_small.Text.ToString());
+                writer.WriteLine("");
+                writer.WriteLine("///////////////////////////////");
+                writer.WriteLine("File created: " + DateTime.Now);
+                writer.WriteLine("SE Fight Gravity by Belltower");
+                writer.WriteLine("///////////////////////////////");
+                writer.Close();
+            }
+            if (activate_containers.Checked == true)
+            {
+                writer.WriteLine("Location: " + user_location_choice.Text.ToString());
+                writer.WriteLine("Gravity on location: " + gravity_location.Text.ToString());
+                writer.WriteLine("Type of blocks: " + type_of_blocks.Text.ToString());
+                writer.WriteLine("Cargo containers: Yes");
+                if (full_of_ore.Checked == true)
+                {
+                    writer.WriteLine("Cargo filled with ore: Yes");
+                }
+                else
+                {
+                    writer.WriteLine("Cargo filled with ore: No");
+                }
+                writer.WriteLine("Cargo multiplier: " + cargo_multiplier.Text.ToString());
+                writer.WriteLine("Large container quantity: " + large_container_quantity.Text.ToString());
+                writer.WriteLine("Medium container quantity: " + medium_container_quantity.Text.ToString());
+                writer.WriteLine("Small container quantity: " + small_container_quantity.Text.ToString());
+                writer.WriteLine("Total mass: " + Math.Ceiling(mass_summary_set).ToString() + " KG");
+                writer.WriteLine("Required thrusters power: " + Math.Ceiling(total_newton_value).ToString() + " N");
+                writer.WriteLine("");
+                writer.WriteLine("/////////////////////");
+                writer.WriteLine("ATMOSPHERIC THRUSTERS");
+                writer.WriteLine("/////////////////////");
+                writer.WriteLine("Large thrusters quantity: " + large_atmospheric_thrusters_quantity.Text.ToString());
+                writer.WriteLine("Energy consumption: " + energy_consumption_large.Text.ToString());
+                writer.WriteLine("");
+                writer.WriteLine("Small thrusters quantity: " + small_atmospheric_thrusters_quantity.Text.ToString());
+                writer.WriteLine("Energy consumption: " + energy_consumption_small.Text.ToString());
+                writer.WriteLine("");
+                writer.WriteLine("//////////////////");
+                writer.WriteLine("HYDROGEN THRUSTERS");
+                writer.WriteLine("//////////////////");
+                writer.WriteLine("Large thrusters quantity: " + large_hydrogen_thrusters_quantity.Text.ToString());
+                writer.WriteLine("Fuel consumption: " + fuel_consumption_large.Text.ToString());
+                writer.WriteLine("");
+                writer.WriteLine("Small thrusters quantity: " + small_hydrogen_thrusters_quantity.Text.ToString());
+                writer.WriteLine("Fuel consumption: " + fuel_consumption_small.Text.ToString());
+                writer.WriteLine("");
+                writer.WriteLine("/////////////");
+                writer.WriteLine("ION THRUSTERS");
+                writer.WriteLine("/////////////");
+                writer.WriteLine("Large thrusters quantity: " + large_ion_thrusters_quantity.Text.ToString());
+                writer.WriteLine("Fuel consumption: " + ion_consumption_large.Text.ToString());
+                writer.WriteLine("");
+                writer.WriteLine("Small thrusters quantity: " + small_ion_thrusters_quantity.Text.ToString());
+                writer.WriteLine("Fuel consumption: " + ion_consumption_small.Text.ToString());
+                writer.WriteLine("");
+                writer.WriteLine("///////////////////////////////");
+                writer.WriteLine("File created: " + DateTime.Now);
+                writer.WriteLine("SE Fight Gravity by Belltower");
+                writer.WriteLine("///////////////////////////////");
+                writer.Close();
             }
         }
     }
