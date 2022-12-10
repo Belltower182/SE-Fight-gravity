@@ -328,6 +328,7 @@ namespace SE_Fight_Gravity
             }
             return;
         }
+
         private void calc_for_largegrid(double newtons)
         {
             this.large_atmospheric_largegrid_quantity = newtons / large_atmospheric_largegrid; // Atmospheric thrusters
@@ -438,9 +439,9 @@ namespace SE_Fight_Gravity
             // SG + weight include + large and medium containers
             if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == true & full_of_ore.Checked == true & activate_large_container.Checked == true & activate_medium_container.Checked == true)
             {
-                calc_for_smallgrid(total_newton_value);
                 this.mass_summary_set = ((largecargocontainer_mass_smallgrid * large_container_parsed) + (largecargocontainer_with_uranium_smallgrid * large_container_parsed) + (mediumcargocontainer_mass_smallgrid * medium_container_parsed) + (mediumcontainer_with_uranium_smallgrid * medium_container_parsed)) * cargo_multiplier_set + user_value_kg;
                 this.total_newton_value = mass_summary_set * g_amount / 1000;
+                calc_for_smallgrid(total_newton_value);
             }
             // SG + weight not included + large and medium containers
             if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == true & without_ore.Checked == true & activate_large_container.Checked == true & activate_medium_container.Checked == true)
@@ -459,23 +460,23 @@ namespace SE_Fight_Gravity
             //SG + weight not included + large small containers
             if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == true & without_ore.Checked == true & activate_large_container.Checked == true & activate_small_container.Checked == true)
             {
-                calc_for_smallgrid(total_newton_value);
                 this.mass_summary_set = ((largecargocontainer_mass_smallgrid * large_container_parsed) + (smallcargocontainer_mass_smallgrid * small_container_parsed)) + user_value_kg;
                 this.total_newton_value = mass_summary_set * g_amount / 1000;
+                calc_for_smallgrid(total_newton_value);
             }
             //SG + weight included + large medium small containers
             if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == true & full_of_ore.Checked == true & activate_large_container.Checked == true & activate_medium_container.Checked == true & activate_small_container.Checked == true)
             {
-                calc_for_smallgrid(total_newton_value);
                 this.mass_summary_set = ((largecargocontainer_mass_smallgrid * large_container_parsed) + (largecargocontainer_with_uranium_smallgrid * large_container_parsed) + (mediumcargocontainer_mass_smallgrid * medium_container_parsed) + (mediumcontainer_with_uranium_smallgrid * medium_container_parsed) + (smallcargocontainer_mass_smallgrid * small_container_parsed) + (smallcargocontainer_with_uranium_smallgrid * small_container_parsed)) * cargo_multiplier_set + user_value_kg;
                 this.total_newton_value = mass_summary_set * g_amount / 1000;
+                calc_for_smallgrid(total_newton_value);
             }
             //SG + weight not included + large medium small containers
             if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == true & without_ore.Checked == true & activate_large_container.Checked == true & activate_medium_container.Checked == true & activate_small_container.Checked == true)
             {
-                calc_for_smallgrid(total_newton_value);
                 this.mass_summary_set = ((largecargocontainer_mass_smallgrid * large_container_parsed) + (mediumcargocontainer_mass_smallgrid * medium_container_parsed) + (smallcargocontainer_mass_smallgrid * small_container_parsed)) + user_value_kg;
                 this.total_newton_value = mass_summary_set * g_amount / 1000;
+                calc_for_smallgrid(total_newton_value);
             }
             //SG + weight include + medium small containers
             if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == true & full_of_ore.Checked == true & activate_medium_container.Checked == true & activate_small_container.Checked == true)

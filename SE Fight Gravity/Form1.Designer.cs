@@ -154,7 +154,7 @@
             this.type_of_blocks.Items.AddRange(new object[] {
             "Large grid",
             "Small grid"});
-            this.type_of_blocks.Location = new System.Drawing.Point(71, 182);
+            this.type_of_blocks.Location = new System.Drawing.Point(71, 184);
             this.type_of_blocks.Name = "type_of_blocks";
             this.type_of_blocks.Size = new System.Drawing.Size(121, 23);
             this.type_of_blocks.TabIndex = 0;
@@ -164,7 +164,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(66, 163);
+            this.label1.Location = new System.Drawing.Point(66, 165);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(127, 15);
             this.label1.TabIndex = 1;
@@ -376,7 +376,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(84, 266);
+            this.label3.Location = new System.Drawing.Point(84, 268);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 15);
             this.label3.TabIndex = 5;
@@ -396,7 +396,7 @@
             "Pertam",
             "Alien",
             "Titan"});
-            this.user_location_choice.Location = new System.Drawing.Point(71, 286);
+            this.user_location_choice.Location = new System.Drawing.Point(71, 288);
             this.user_location_choice.Name = "user_location_choice";
             this.user_location_choice.Size = new System.Drawing.Size(121, 23);
             this.user_location_choice.TabIndex = 4;
@@ -419,7 +419,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(80, 214);
+            this.label2.Location = new System.Drawing.Point(80, 216);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(101, 15);
             this.label2.TabIndex = 3;
@@ -440,7 +440,7 @@
             this.user_entered_value.BackColor = System.Drawing.SystemColors.Window;
             this.user_entered_value.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.user_entered_value.Enabled = false;
-            this.user_entered_value.Location = new System.Drawing.Point(71, 233);
+            this.user_entered_value.Location = new System.Drawing.Point(71, 235);
             this.user_entered_value.Name = "user_entered_value";
             this.user_entered_value.Size = new System.Drawing.Size(121, 23);
             this.user_entered_value.TabIndex = 2;
