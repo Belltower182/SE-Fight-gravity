@@ -458,7 +458,7 @@
         AAAASUVORK5CYII=
 </value>
   </data>
-  <data name="pictureBox6.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pictureBox8.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAABGdBTUEAALGPC/xhBQAAFa9JREFUeF7t
         mwuYV+Paxn37w7e/b3/b/vbeV5KKdBDJsSiRpiSUmg6qURQjlRxyFjkfolJyyPkcopBjiIgRySGHxiGy
@@ -556,7 +556,7 @@
         vY7rK7Rqcx1AGJ/eWtWqWlX7NbRNNvkb85+GO59juqgAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="pictureBox7.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pictureBox6.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAABGdBTUEAALGPC/xhBQAAFSpJREFUeF7t
         2gmwXVWVBmAb26Gdyq4iNEg3EpohCZMSBhFFBERGEUFGRVREQAaZFRAQEBAUohAUJMSIICICojKpTBIB
@@ -652,6 +652,9 @@
         GB2j4591vOhF/w+37Hg2k8MBPAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>25</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAMAEBAAAAEAIABoBAAANgAAABgYAAABACAAiAkAAJ4EAAAgIAAAAQAgAKgQAAAmDgAAKAAAABAA
