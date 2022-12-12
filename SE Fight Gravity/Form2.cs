@@ -17,9 +17,23 @@ namespace SE_Fight_Gravity
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void closeinfo_button_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void github_button_Click(object sender, EventArgs e)
+        {
+            label3.ForeColor = Color.Green;
+            label3.Visible = true;
+            Clipboard.SetText("https://github.com/Belltower182/SE-Fight-gravity");
+        }
+
+        private void email_button_Click(object sender, EventArgs e)
+        {
+            label3.ForeColor = Color.Green;
+            label3.Visible = true;
+            Clipboard.SetText("https://github.com/Belltower182/SE-Fight-gravity");
         }
     }
 }

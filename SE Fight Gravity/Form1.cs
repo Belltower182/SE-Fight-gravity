@@ -15,6 +15,7 @@ namespace SE_Fight_Gravity
         public double small_container_parsed = 0;
         public double cargo_multiplier_set = 1;
         public double mass_summary_set = 0;
+        public string count_check_containers = "e";
 
         public double total_atmo_large_quantity = 0; // Atmospheric
         public double total_atmo_small_quantity = 0;
@@ -53,10 +54,10 @@ namespace SE_Fight_Gravity
         public const double small_hydrogen_largegrid = 1080000;
         public const double large_hydrogen_smallgrid = 480000;
         public const double small_hydrogen_smallgrid = 98400;
-        public const double large_hydrogen_largegrid_fuel = 4820.05; // L/S
-        public const double small_hydrogen_largegrid_fuel = 803.34;
-        public const double large_hydrogen_smallgrid_fuel = 385.60;
-        public const double small_hydrogen_smallgrid_fuel = 80.33;
+        public const double large_hydrogen_largegrid_fuel = 4820; // L/S
+        public const double small_hydrogen_largegrid_fuel = 803;
+        public const double large_hydrogen_smallgrid_fuel = 386;
+        public const double small_hydrogen_smallgrid_fuel = 80;
         public const double large_hydrogen_largeg_mass = 6940; // KG
         public const double small_hydrogen_largeg_mass = 1420;
         public const double large_hydrogen_smallg_mass = 1222;
@@ -89,25 +90,27 @@ namespace SE_Fight_Gravity
         public const double small_ion_smallg_mass = 121;
 
         // Large cargo Container
-        public const double largecargocontainer_mass_largegrid = 2500; // KG
-        public const double largecargocontainer_mass_smallgrid = 260;
+        public const double largecargocontainer_mass_largegrid = 2593; // KG
+        public const double largecargocontainer_mass_smallgrid = 626;
         public const double largecargocontainer_with_uranium_largegrid = 1140203;
         public const double largecargocontainer_with_uranium_smallgrid = 42234;
 
         // Medium Cargo Container NOTE: Availiable only for small blocks.
-        public const double mediumcargocontainer_mass_smallgrid = 151; // KG
+        public const double mediumcargocontainer_mass_smallgrid = 275; // KG
         public const double mediumcontainer_with_uranium_smallgrid = 9123;
 
         // Small Cargo Container
-        public const int smallcargocontainer_mass_largegrid = 576; // KG
-        public const int smallcargocontainer_mass_smallgrid = 73;
-        public double smallcargocontainer_with_uranium_largegrid = 42234;
-        public double smallcargocontainer_with_uranium_smallgrid = 337;
+        public const double smallcargocontainer_mass_largegrid = 649; // KG
+        public const int smallcargocontainer_mass_smallgrid = 49;
+        public const int smallcargocontainer_with_uranium_largegrid = 1751;
+        public const int smallcargocontainer_with_uranium_smallgrid = 132;
         #endregion
 
         public Form1()
         {
             InitializeComponent();
+
+            return;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -141,32 +144,37 @@ namespace SE_Fight_Gravity
             fuel_consumption_small.Text= "...";
             ion_consumption_large.Text = "...";
             ion_consumption_small.Text = "...";
+            return;
         }
+
         #endregion
 
         private void type_of_blocks_SelectedIndexChanged(object sender, EventArgs e)
         {
             user_entered_value.Enabled = true;
             user_entered_value.BackColor = Color.Bisque;
+
+            return;
         }
 
         private void user_entered_value_TextChanged(object sender, EventArgs e)
         {
-            user_location_choice.Enabled = true;
             user_location_choice.BackColor = Color.Bisque;
             
             bool check_user_value = double.TryParse(user_entered_value.Text, out double value);
             if (check_user_value != true)
             {
-                label_warn.ForeColor = Color.Red;
-                label_warn.Visible = true;
-                label_warn.Text = "Enter only digits!";
+                label_warning.ForeColor = Color.Red;
+                label_warning.Visible = true;
+                label_warning.Text = "Enter only digits!";
             }
             else
             {
-                label_warn.Visible = false;
+                user_location_choice.Enabled = true;
+                label_warning.Visible = false;
                 this.user_value_kg = Convert.ToDouble(user_entered_value.Text);
             }
+            return;
         }
 
         private void location_selector_SelectedIndexChanged(object sender, EventArgs e)
@@ -218,6 +226,7 @@ namespace SE_Fight_Gravity
 
         private void button_calculation_Click(object sender, EventArgs e)
         {
+            label4.Text = count_check_containers.ToString();
             #region Set multipliers
             if (cargo_multiplier.SelectedIndex == 0)
             {
@@ -239,6 +248,7 @@ namespace SE_Fight_Gravity
 
             #region Activate fields by button press
 
+            button1.Enabled = true;
             tmass_large_atmo.Enabled = true;
             tmass_large_hydro.Enabled= true;
             tmass_large_ion.Enabled = true;
@@ -265,26 +275,31 @@ namespace SE_Fight_Gravity
             ion_consumption_small.Enabled = true;
             #endregion
 
-            #region Calculations for large grid blocks
-            calc_largeg_thrusters();
-            #endregion
-
-            #region Calculations for small grid blocks
-            calc_smallg_thrusters();
-            #endregion
-        }
-
-        #region Calculation Power Methods
-
-        private void calc_largeg_thrusters()
-        {
-            // LG
             if (type_of_blocks.SelectedIndex == 0)
             {
                 this.mass_summary_set = user_value_kg;
                 this.total_newton_value = g_amount * user_value_kg / 1000;
                 calc_for_largegrid(total_newton_value);
             }
+            if (type_of_blocks.SelectedIndex == 0 & activate_containers.Checked == true)
+            {
+                calc_largeg_thrusters();
+            }
+            if (type_of_blocks.SelectedIndex == 1)
+            {
+                this.mass_summary_set = user_value_kg;
+                this.total_newton_value = g_amount * user_value_kg / 1000;
+                calc_for_smallgrid(total_newton_value);
+            }
+            if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == true)
+            {
+                calc_smallg_thrusters();
+            }
+            return;
+        }
+
+        private void calc_largeg_thrusters()
+        {
             // LG + weight included + large container
             if (type_of_blocks.SelectedIndex == 0 & activate_containers.Checked == true & full_of_ore.Checked == true & activate_large_container.Checked == true)
             {
@@ -324,76 +339,14 @@ namespace SE_Fight_Gravity
             if (type_of_blocks.SelectedIndex == 0 & activate_containers.Checked == true & without_ore.Checked == true & activate_large_container.Checked == true & activate_small_container.Checked == true)
             {
                 this.total_newton_value = ((largecargocontainer_mass_largegrid * large_container_parsed) + (largecargocontainer_with_uranium_largegrid * large_container_parsed) + (smallcargocontainer_mass_largegrid * small_container_parsed) + (smallcargocontainer_with_uranium_largegrid * small_container_parsed)) * cargo_multiplier_set + user_value_kg;
+                this.total_newton_value = mass_summary_set * g_amount / 1000;
                 calc_for_largegrid(total_newton_value);
             }
             return;
         }
 
-        private void calc_for_largegrid(double newtons)
-        {
-            this.large_atmospheric_largegrid_quantity = newtons / large_atmospheric_largegrid; // Atmospheric thrusters
-            this.total_atmo_large_mass = (large_atmospheric_largegrid_quantity * large_atmospheric_largeg_mass) + mass_summary_set;
-            tmass_large_atmo.Text = Math.Ceiling(total_atmo_large_mass).ToString() + " Kg";
-            this.total_atmo_large_newton = (total_atmo_large_mass * g_amount) / 1000;
-            tnewton_large_atmo.Text = Math.Ceiling(total_atmo_large_newton).ToString() + " N";
-            this.total_atmo_large_quantity = total_atmo_large_newton / large_atmospheric_largegrid;
-            large_atmospheric_thrusters_quantity.Text = Math.Ceiling(total_atmo_large_quantity).ToString();
-
-
-            this.small_atmospheric_largegrid_quantity = newtons / small_atmospheric_largegrid;
-            this.total_atmo_small_mass = (small_atmospheric_largegrid_quantity * small_atmospheric_largeg_mass) + mass_summary_set;
-            tmass_small_atmo.Text = Math.Ceiling(total_atmo_small_mass).ToString() + " Kg";
-            this.total_atmo_small_newton = (total_atmo_small_mass * g_amount) / 1000;
-            tnewton_small_atmo.Text = Math.Ceiling(total_atmo_small_newton).ToString() + " N";
-            this.total_atmo_small_quantity = total_atmo_small_newton / small_atmospheric_largegrid;
-            small_atmospheric_thrusters_quantity.Text = Math.Ceiling(small_atmospheric_largegrid_quantity).ToString(); ////////////////////
-
-            this.large_hydrogen_largegrid_quantity = newtons / large_hydrogen_largegrid; // Hydrogen thrusters
-            this.total_hydro_large_mass = (large_hydrogen_largegrid_quantity * large_hydrogen_largeg_mass) + mass_summary_set;
-            tmass_large_hydro.Text = Math.Ceiling(total_hydro_large_mass).ToString() + " Kg";
-            this.total_hydro_large_newton = (total_hydro_large_mass * g_amount) / 1000;
-            tnewton_large_hydro.Text = Math.Ceiling(total_hydro_large_newton).ToString() + " N";
-            this.total_hydro_large_quantity = total_hydro_large_newton / large_hydrogen_largegrid;
-            large_hydrogen_thrusters_quantity.Text = Math.Ceiling(total_hydro_large_quantity).ToString();
-
-            this.small_hydrogen_largegrid_quantity = newtons / small_hydrogen_largegrid;
-            this.total_hydro_small_mass = (small_hydrogen_largegrid_quantity * small_hydrogen_largeg_mass) + mass_summary_set;
-            tmass_small_hydro.Text = Math.Ceiling(total_hydro_small_mass).ToString() + " Kg";
-            this.total_hydro_small_newton = (total_hydro_small_mass * g_amount) / 1000;
-            tnewton_small_hydro.Text = Math.Ceiling(total_hydro_small_newton).ToString() + " N";
-            this.total_hydro_small_quantity = total_hydro_small_newton / small_hydrogen_largegrid;
-            small_hydrogen_thrusters_quantity.Text = Math.Ceiling(total_hydro_small_quantity).ToString();
-
-            this.large_ion_largegrid_quantity = newtons / large_ion_largegrid; // Ion thrusters
-            this.total_ion_large_mass = (large_ion_largegrid_quantity * large_ion_largeg_mass) + mass_summary_set;
-            tmass_large_ion.Text = Math.Ceiling(total_ion_large_mass).ToString() + " Kg";
-            this.total_ion_large_newton = (total_ion_large_mass * g_amount) / 1000;
-            tnewton_large_ion.Text = Math.Ceiling(total_ion_large_newton).ToString() + " N";
-            this.total_ion_large_quantity = total_ion_large_newton / large_ion_largegrid;
-            large_ion_thrusters_quantity.Text = Math.Ceiling(total_ion_large_quantity).ToString();
-
-            this.small_ion_largegrid_quantity = newtons / small_ion_largegrid;
-            this.total_ion_small_mass = (small_ion_largegrid_quantity * small_ion_largeg_mass) + mass_summary_set;
-            tmass_small_ion.Text = Math.Ceiling(total_ion_small_mass).ToString() + " Kg";
-            this.total_ion_small_newton = (total_ion_small_mass * g_amount) / 1000;
-            tnewton_small_ion.Text = Math.Ceiling(total_ion_small_newton).ToString() + " N";
-            this.total_ion_small_quantity = total_ion_small_newton / small_ion_largegrid;
-            small_ion_thrusters_quantity.Text = Math.Ceiling(total_ion_small_quantity).ToString();
-
-            atmospheric_consumption(total_atmo_large_quantity, total_atmo_small_quantity, large_atmospheric_largegrid_fuel, small_atmospheric_largegrid_fuel);
-            hydrogen_consumption(total_hydro_large_quantity, total_hydro_small_quantity, large_hydrogen_largegrid_fuel, small_hydrogen_largegrid_fuel);
-            ion_consumption(total_ion_large_quantity, total_ion_small_quantity, large_ion_largegrid_fuel, small_ion_largegrid_fuel);
-        }
-
         private void calc_smallg_thrusters()
         {
-            // SG
-            if (type_of_blocks.SelectedIndex == 1)
-            {
-                this.mass_summary_set = user_value_kg;
-                this.total_newton_value = g_amount * user_value_kg / 1000;
-                calc_for_smallgrid(total_newton_value);
-            }
             // SG + weight include + large container
             if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == true & full_of_ore.Checked == true & activate_large_container.Checked == true)
             {
@@ -467,19 +420,19 @@ namespace SE_Fight_Gravity
             //SG + weight included + large medium small containers
             if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == true & full_of_ore.Checked == true & activate_large_container.Checked == true & activate_medium_container.Checked == true & activate_small_container.Checked == true)
             {
-                this.mass_summary_set = ((largecargocontainer_mass_smallgrid * large_container_parsed) + (largecargocontainer_with_uranium_smallgrid * large_container_parsed) + (mediumcargocontainer_mass_smallgrid * medium_container_parsed) + (mediumcontainer_with_uranium_smallgrid * medium_container_parsed) + (smallcargocontainer_mass_smallgrid * small_container_parsed) + (smallcargocontainer_with_uranium_smallgrid * small_container_parsed)) * cargo_multiplier_set + user_value_kg;
+                this.mass_summary_set = ((largecargocontainer_mass_smallgrid * large_container_parsed + largecargocontainer_with_uranium_smallgrid * large_container_parsed) + (mediumcargocontainer_mass_smallgrid * medium_container_parsed + mediumcontainer_with_uranium_smallgrid * medium_container_parsed) + (smallcargocontainer_mass_smallgrid * small_container_parsed + smallcargocontainer_with_uranium_smallgrid * small_container_parsed)) * cargo_multiplier_set + user_value_kg;
                 this.total_newton_value = mass_summary_set * g_amount / 1000;
                 calc_for_smallgrid(total_newton_value);
             }
             //SG + weight not included + large medium small containers
-            if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == true & without_ore.Checked == true & activate_large_container.Checked == true & activate_medium_container.Checked == true & activate_small_container.Checked == true)
+            if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == true & without_ore.Checked == true & full_of_ore.Checked != true & activate_large_container.Checked == true & activate_medium_container.Checked == true & activate_small_container.Checked == true)
             {
                 this.mass_summary_set = ((largecargocontainer_mass_smallgrid * large_container_parsed) + (mediumcargocontainer_mass_smallgrid * medium_container_parsed) + (smallcargocontainer_mass_smallgrid * small_container_parsed)) + user_value_kg;
                 this.total_newton_value = mass_summary_set * g_amount / 1000;
                 calc_for_smallgrid(total_newton_value);
             }
             //SG + weight include + medium small containers
-            if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == true & full_of_ore.Checked == true & activate_medium_container.Checked == true & activate_small_container.Checked == true)
+            if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == true & full_of_ore.Checked == true & full_of_ore.Checked != true & activate_medium_container.Checked == true & activate_small_container.Checked == true)
             {
                 this.mass_summary_set = ((mediumcargocontainer_mass_smallgrid * medium_container_parsed) + (mediumcontainer_with_uranium_smallgrid * medium_container_parsed) + (smallcargocontainer_mass_smallgrid * small_container_parsed) + (smallcargocontainer_with_uranium_smallgrid * small_container_parsed)) * cargo_multiplier_set + user_value_kg;
                 this.total_newton_value = mass_summary_set * g_amount / 1000;
@@ -492,6 +445,65 @@ namespace SE_Fight_Gravity
                 this.total_newton_value = mass_summary_set * g_amount / 1000;
                 calc_for_smallgrid(total_newton_value);
             }
+            return;
+        }
+
+        private void calc_for_largegrid(double newtons)
+        {
+            this.large_atmospheric_largegrid_quantity = newtons / large_atmospheric_largegrid; // Atmospheric thrusters
+            this.total_atmo_large_mass = (large_atmospheric_largegrid_quantity * large_atmospheric_largeg_mass) + mass_summary_set;
+            tmass_large_atmo.Text = Math.Ceiling(total_atmo_large_mass).ToString() + " Kg";
+            this.total_atmo_large_newton = (total_atmo_large_mass * g_amount) / 1000;
+            tnewton_large_atmo.Text = Math.Ceiling(total_atmo_large_newton).ToString() + " N";
+            this.total_atmo_large_quantity = total_atmo_large_newton / large_atmospheric_largegrid;
+            large_atmospheric_thrusters_quantity.Text = Math.Ceiling(total_atmo_large_quantity).ToString();
+
+
+            this.small_atmospheric_largegrid_quantity = newtons / small_atmospheric_largegrid;
+            this.total_atmo_small_mass = (small_atmospheric_largegrid_quantity * small_atmospheric_largeg_mass) + mass_summary_set;
+            tmass_small_atmo.Text = Math.Ceiling(total_atmo_small_mass).ToString() + " Kg";
+            this.total_atmo_small_newton = (total_atmo_small_mass * g_amount) / 1000;
+            tnewton_small_atmo.Text = Math.Ceiling(total_atmo_small_newton).ToString() + " N";
+            this.total_atmo_small_quantity = total_atmo_small_newton / small_atmospheric_largegrid;
+            small_atmospheric_thrusters_quantity.Text = Math.Ceiling(small_atmospheric_largegrid_quantity).ToString(); ////////////////////
+
+            this.large_hydrogen_largegrid_quantity = newtons / large_hydrogen_largegrid; // Hydrogen thrusters
+            this.total_hydro_large_mass = (large_hydrogen_largegrid_quantity * large_hydrogen_largeg_mass) + mass_summary_set;
+            tmass_large_hydro.Text = Math.Ceiling(total_hydro_large_mass).ToString() + " Kg";
+            this.total_hydro_large_newton = (total_hydro_large_mass * g_amount) / 1000;
+            tnewton_large_hydro.Text = Math.Ceiling(total_hydro_large_newton).ToString() + " N";
+            this.total_hydro_large_quantity = total_hydro_large_newton / large_hydrogen_largegrid;
+            large_hydrogen_thrusters_quantity.Text = Math.Ceiling(total_hydro_large_quantity).ToString();
+
+            this.small_hydrogen_largegrid_quantity = newtons / small_hydrogen_largegrid;
+            this.total_hydro_small_mass = (small_hydrogen_largegrid_quantity * small_hydrogen_largeg_mass) + mass_summary_set;
+            tmass_small_hydro.Text = Math.Ceiling(total_hydro_small_mass).ToString() + " Kg";
+            this.total_hydro_small_newton = (total_hydro_small_mass * g_amount) / 1000;
+            tnewton_small_hydro.Text = Math.Ceiling(total_hydro_small_newton).ToString() + " N";
+            this.total_hydro_small_quantity = total_hydro_small_newton / small_hydrogen_largegrid;
+            small_hydrogen_thrusters_quantity.Text = Math.Ceiling(total_hydro_small_quantity).ToString();
+
+            this.large_ion_largegrid_quantity = newtons / large_ion_largegrid; // Ion thrusters
+            this.total_ion_large_mass = (large_ion_largegrid_quantity * large_ion_largeg_mass) + mass_summary_set;
+            tmass_large_ion.Text = Math.Ceiling(total_ion_large_mass).ToString() + " Kg";
+            this.total_ion_large_newton = (total_ion_large_mass * g_amount) / 1000;
+            tnewton_large_ion.Text = Math.Ceiling(total_ion_large_newton).ToString() + " N";
+            this.total_ion_large_quantity = total_ion_large_newton / large_ion_largegrid;
+            large_ion_thrusters_quantity.Text = Math.Ceiling(total_ion_large_quantity).ToString();
+
+            this.small_ion_largegrid_quantity = newtons / small_ion_largegrid;
+            this.total_ion_small_mass = (small_ion_largegrid_quantity * small_ion_largeg_mass) + mass_summary_set;
+            tmass_small_ion.Text = Math.Ceiling(total_ion_small_mass).ToString() + " Kg";
+            this.total_ion_small_newton = (total_ion_small_mass * g_amount) / 1000;
+            tnewton_small_ion.Text = Math.Ceiling(total_ion_small_newton).ToString() + " N";
+            this.total_ion_small_quantity = total_ion_small_newton / small_ion_largegrid;
+            small_ion_thrusters_quantity.Text = Math.Ceiling(total_ion_small_quantity).ToString();
+
+            atmospheric_consumption(total_atmo_large_quantity, total_atmo_small_quantity, large_atmospheric_largegrid_fuel, small_atmospheric_largegrid_fuel);
+            hydrogen_consumption(total_hydro_large_quantity, total_hydro_small_quantity, large_hydrogen_largegrid_fuel, small_hydrogen_largegrid_fuel);
+            ion_consumption(total_ion_large_quantity, total_ion_small_quantity, large_ion_largegrid_fuel, small_ion_largegrid_fuel);
+
+            return;
         }
 
         private void calc_for_smallgrid(double newtons)
@@ -547,6 +559,8 @@ namespace SE_Fight_Gravity
             atmospheric_consumption(total_atmo_large_quantity, total_atmo_small_quantity, large_atmospheric_smallgrid_fuel, small_atmospheric_smallgrid_fuel);
             hydrogen_consumption(total_hydro_large_quantity, total_hydro_small_quantity, large_hydrogen_smallgrid_fuel, small_hydrogen_smallgrid_fuel);
             ion_consumption(total_ion_large_quantity, total_ion_small_quantity, large_ion_smallgrid_fuel, small_ion_smallgrid_fuel);
+
+            return;
         }
 
         private void hydrogen_consumption(double largehydrogen, double smallhydrogen, double largefuel, double smallfuel)
@@ -556,6 +570,8 @@ namespace SE_Fight_Gravity
 
             double fuel_consume_small = Math.Ceiling(smallhydrogen * smallfuel);
             fuel_consumption_small.Text = Math.Ceiling(fuel_consume_small).ToString() + " L/S";
+
+            return;
         }
 
         private void atmospheric_consumption(double largeatm, double smallatm, double largeatmfuel, double smallatmfuel)
@@ -565,6 +581,8 @@ namespace SE_Fight_Gravity
 
             double atm_consume_small = Math.Ceiling(smallatm) * smallatmfuel;
             energy_consumption_small.Text = Math.Ceiling(atm_consume_small).ToString() + " KW";
+
+            return;
         }
 
         private void ion_consumption(double largeion, double smallion, double largeionfuel, double smallionfuel)
@@ -574,14 +592,14 @@ namespace SE_Fight_Gravity
 
             double ion_consume_small = Math.Ceiling(smallion) * smallionfuel;
             ion_consumption_small.Text = Math.Ceiling(ion_consume_small).ToString() + " KW";
+
+            return;
         }
-        #endregion
 
         private void activate_containers_CheckedChanged(object sender, EventArgs e)
         {
             if (activate_containers.Checked != true)
             {
-
                 large_container_quantity.BackColor = Color.White;
                 medium_container_quantity.BackColor = Color.White;
                 small_container_quantity.BackColor = Color.White;
@@ -645,6 +663,7 @@ namespace SE_Fight_Gravity
                 activate_small_container.Enabled = false;
                 small_container_quantity.Enabled = false;
             }
+            return;
         }
 
         private void cargo_no_weight_CheckedChanged(object sender, EventArgs e)
@@ -653,6 +672,7 @@ namespace SE_Fight_Gravity
             {
                 full_of_ore.Checked = false;
             }
+            return;
         }
 
         private void cargo_weight_CheckedChanged(object sender, EventArgs e)
@@ -661,6 +681,7 @@ namespace SE_Fight_Gravity
             {
                 without_ore.Checked= false;
             }
+            return;
         }
 
         private void large_container_quantity_TextChanged(object sender, EventArgs e)
@@ -668,15 +689,16 @@ namespace SE_Fight_Gravity
             bool check_large_cargo = double.TryParse(large_container_quantity.Text, out double value);
             if (check_large_cargo !=true)
             {
-                label_warn.ForeColor = Color.Red;
-                label_warn.Visible = true;
-                label_warn.Text = "Enter only digits!";
+                label_warning.ForeColor = Color.Red;
+                label_warning.Visible = true;
+                label_warning.Text = "Enter only digits!";
             }
             else
             {
-                label_warn.Visible = false;
+                label_warning.Visible = false;
                 this.large_container_parsed = Convert.ToDouble(large_container_quantity.Text);
             }
+            return;
         }
 
         private void medium_container_quantity_TextChanged(object sender, EventArgs e)
@@ -684,15 +706,16 @@ namespace SE_Fight_Gravity
             bool check_medium_cargo = double.TryParse(medium_container_quantity.Text, out double value);
             if (check_medium_cargo != true)
             {
-                label_warn.ForeColor = Color.Red;
-                label_warn.Visible = true;
-                label_warn.Text = "Enter only digits!";
+                label_warning.ForeColor = Color.Red;
+                label_warning.Visible = true;
+                label_warning.Text = "Enter only digits!";
             }
             else
             {
-                label_warn.Visible = false;
+                label_warning.Visible = false;
                 this.medium_container_parsed = Convert.ToDouble(medium_container_quantity.Text);
             }
+            return;
         }
 
         private void small_container_quantity_TextChanged(object sender, EventArgs e)
@@ -700,15 +723,16 @@ namespace SE_Fight_Gravity
             bool check_small_cargo = double.TryParse(small_container_quantity.Text, out double value);
             if (check_small_cargo != true)
             {
-                label_warn.ForeColor = Color.Red;
-                label_warn.Visible = true;
-                label_warn.Text = "Enter only digits!";
+                label_warning.ForeColor = Color.Red;
+                label_warning.Visible = true;
+                label_warning.Text = "Enter only digits!";
             }
             else
             {
-                label_warn.Visible = false;
+                label_warning.Visible = false;
                 this.small_container_parsed = Convert.ToDouble(small_container_quantity.Text);
             }
+            return;
         }
 
         private void activate_large_container_CheckedChanged(object sender, EventArgs e)
@@ -720,27 +744,24 @@ namespace SE_Fight_Gravity
             if (activate_large_container.Checked == false)
             {
                 large_container_quantity.BackColor = Color.White;
-            }
-            if (activate_large_container.Checked != true)
-            {
                 large_container_quantity.Text = "0";
             }
+            return;
         }
 
         private void activate_medium_container_CheckedChanged(object sender, EventArgs e)
         {
             if (activate_medium_container.Checked == true)
             {
+                this.count_check_containers += "m";
                 medium_container_quantity.BackColor = Color.Bisque;
             }
             if (activate_medium_container.Checked == false)
             {
                 medium_container_quantity.BackColor = Color.White;
-            }
-            if (activate_medium_container.Checked != true)
-            {
                 medium_container_quantity.Text = "0";
             }
+            return;
         }
 
         private void activate_small_container_CheckedChanged(object sender, EventArgs e)
@@ -752,68 +773,71 @@ namespace SE_Fight_Gravity
             if (activate_small_container.Checked == false)
             {
                 small_container_quantity.BackColor = Color.White;
-            }
-            if (activate_small_container.Checked != true)
-            {
                 small_container_quantity.Text = "0";
             }
+            return;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            label_warn.Visible = true;
-            label_warn.ForeColor = Color.Green;
-            label_warn.Text = "File saved in program directory";
+            label_warning.Visible = true;
+            label_warning.ForeColor = Color.Green;
+            label_warning.Text = "File saved in program directory";
 
             string applicationPath = Path.GetFullPath(AppDomain.CurrentDomain.BaseDirectory);
-            string saveFilePath = Path.Combine(applicationPath, "Saved_Specs.txt");
+            string saveFilePath = Path.Combine(applicationPath, "Saved_specs.txt");
             using var writer = new StreamWriter(saveFilePath, append: false);
             if (activate_containers.Checked == false)
             {
                 writer.WriteLine("Location: " + user_location_choice.Text.ToString());
                 writer.WriteLine("Type of blocks: " + type_of_blocks.Text.ToString());
                 writer.WriteLine("Cargo containers: No");
-                if (full_of_ore.Checked == true)
-                {
-                    writer.WriteLine("Cargo filled with ore: Yes");
-                }
-                else
-                {
-                    writer.WriteLine("Cargo filled with ore: No");
-                }
-                writer.WriteLine("Total mass: " + Math.Ceiling(mass_summary_set).ToString() + " KG");
-                writer.WriteLine("Required thrusters power: " + Math.Ceiling(total_newton_value).ToString() + " N");
                 writer.WriteLine("");
                 writer.WriteLine("/////////////////////");
                 writer.WriteLine("ATMOSPHERIC THRUSTERS");
                 writer.WriteLine("/////////////////////");
+                writer.WriteLine("");
+                writer.WriteLine("Total large thrusters mass: " + tmass_large_atmo.Text.ToString());
+                writer.WriteLine("Required power: " + tnewton_large_atmo.Text.ToString());
                 writer.WriteLine("Large thrusters quantity: " + large_atmospheric_thrusters_quantity.Text.ToString());
                 writer.WriteLine("Energy consumption: " + energy_consumption_large.Text.ToString());
                 writer.WriteLine("");
+                writer.WriteLine("Total small thrusters mass: " + tmass_small_atmo.Text.ToString());
+                writer.WriteLine("Required power: " + tnewton_small_atmo.Text.ToString() + " N");
                 writer.WriteLine("Small thrusters quantity: " + small_atmospheric_thrusters_quantity.Text.ToString());
                 writer.WriteLine("Energy consumption: " + energy_consumption_small.Text.ToString());
                 writer.WriteLine("");
                 writer.WriteLine("//////////////////");
                 writer.WriteLine("HYDROGEN THRUSTERS");
                 writer.WriteLine("//////////////////");
-                writer.WriteLine("Large thrusters quantity: " + large_hydrogen_thrusters_quantity.Text.ToString());
-                writer.WriteLine("Fuel consumption: " + fuel_consumption_large.Text.ToString());
                 writer.WriteLine("");
+                writer.WriteLine("Total large thrusters mass: " + tmass_large_hydro.Text.ToString());
+                writer.WriteLine("Required power: " + tnewton_large_hydro.Text.ToString());
+                writer.WriteLine("Large thrusters quantity: " + large_hydrogen_thrusters_quantity.Text.ToString());
+                writer.WriteLine("Energy consumption: " + fuel_consumption_large.Text.ToString());
+                writer.WriteLine("");
+                writer.WriteLine("Total small thrusters mass: " + tmass_small_hydro.Text.ToString());
+                writer.WriteLine("Required power: " + tnewton_small_hydro.Text.ToString());
                 writer.WriteLine("Small thrusters quantity: " + small_hydrogen_thrusters_quantity.Text.ToString());
-                writer.WriteLine("Fuel consumption: " + fuel_consumption_small.Text.ToString());
+                writer.WriteLine("Energy consumption: " + fuel_consumption_small.Text.ToString());
                 writer.WriteLine("");
                 writer.WriteLine("/////////////");
                 writer.WriteLine("ION THRUSTERS");
                 writer.WriteLine("/////////////");
-                writer.WriteLine("Large thrusters quantity: " + large_ion_thrusters_quantity.Text.ToString());
-                writer.WriteLine("Fuel consumption: " + ion_consumption_large.Text.ToString());
                 writer.WriteLine("");
+                writer.WriteLine("Total large thrusters mass: " + tmass_large_ion.Text.ToString());
+                writer.WriteLine("Required power: " + tnewton_large_ion.Text.ToString());
+                writer.WriteLine("Large thrusters quantity: " + large_ion_thrusters_quantity.Text.ToString());
+                writer.WriteLine("Energy consumption: " + ion_consumption_large.Text.ToString());
+                writer.WriteLine("");
+                writer.WriteLine("Total small thrusters mass: " + tmass_small_ion.Text.ToString());
+                writer.WriteLine("Required power: " + tnewton_small_ion.Text.ToString());
                 writer.WriteLine("Small thrusters quantity: " + small_ion_thrusters_quantity.Text.ToString());
-                writer.WriteLine("Fuel consumption: " + ion_consumption_small.Text.ToString());
+                writer.WriteLine("Energy consumption: " + ion_consumption_small.Text.ToString());
                 writer.WriteLine("");
                 writer.WriteLine("///////////////////////////////");
                 writer.WriteLine("File created: " + DateTime.Now);
-                writer.WriteLine("SE Fight Gravity by Belltower");
+                writer.WriteLine("'SE Fight Gravity' by Belltower");
                 writer.WriteLine("///////////////////////////////");
                 writer.Close();
             }
@@ -834,48 +858,64 @@ namespace SE_Fight_Gravity
                 writer.WriteLine("Large container quantity: " + large_container_quantity.Text.ToString());
                 writer.WriteLine("Medium container quantity: " + medium_container_quantity.Text.ToString());
                 writer.WriteLine("Small container quantity: " + small_container_quantity.Text.ToString());
-                writer.WriteLine("Total mass: " + Math.Ceiling(mass_summary_set).ToString() + " KG");
                 writer.WriteLine("Required thrusters power: " + Math.Ceiling(total_newton_value).ToString() + " N");
                 writer.WriteLine("");
                 writer.WriteLine("/////////////////////");
                 writer.WriteLine("ATMOSPHERIC THRUSTERS");
                 writer.WriteLine("/////////////////////");
+                writer.WriteLine("");
+                writer.WriteLine("Total large thrusters mass: " + tmass_large_atmo.Text.ToString());
+                writer.WriteLine("Required power: " + tnewton_large_atmo.Text.ToString());
                 writer.WriteLine("Large thrusters quantity: " + large_atmospheric_thrusters_quantity.Text.ToString());
                 writer.WriteLine("Energy consumption: " + energy_consumption_large.Text.ToString());
                 writer.WriteLine("");
+                writer.WriteLine("Total small thrusters mass: " + tmass_small_atmo.Text.ToString());
+                writer.WriteLine("Required power: " + tnewton_small_atmo.Text.ToString() + " N");
                 writer.WriteLine("Small thrusters quantity: " + small_atmospheric_thrusters_quantity.Text.ToString());
                 writer.WriteLine("Energy consumption: " + energy_consumption_small.Text.ToString());
                 writer.WriteLine("");
                 writer.WriteLine("//////////////////");
                 writer.WriteLine("HYDROGEN THRUSTERS");
                 writer.WriteLine("//////////////////");
-                writer.WriteLine("Large thrusters quantity: " + large_hydrogen_thrusters_quantity.Text.ToString());
-                writer.WriteLine("Fuel consumption: " + fuel_consumption_large.Text.ToString());
                 writer.WriteLine("");
+                writer.WriteLine("Total large thrusters mass: " + tmass_large_hydro.Text.ToString());
+                writer.WriteLine("Required power: " + tnewton_large_hydro.Text.ToString());
+                writer.WriteLine("Large thrusters quantity: " + large_hydrogen_thrusters_quantity.Text.ToString());
+                writer.WriteLine("Energy consumption: " + fuel_consumption_large.Text.ToString());
+                writer.WriteLine("");
+                writer.WriteLine("Total small thrusters mass: " + tmass_small_hydro.Text.ToString());
+                writer.WriteLine("Required power: " + tnewton_small_hydro.Text.ToString());
                 writer.WriteLine("Small thrusters quantity: " + small_hydrogen_thrusters_quantity.Text.ToString());
-                writer.WriteLine("Fuel consumption: " + fuel_consumption_small.Text.ToString());
+                writer.WriteLine("Energy consumption: " + fuel_consumption_small.Text.ToString());
                 writer.WriteLine("");
                 writer.WriteLine("/////////////");
                 writer.WriteLine("ION THRUSTERS");
                 writer.WriteLine("/////////////");
-                writer.WriteLine("Large thrusters quantity: " + large_ion_thrusters_quantity.Text.ToString());
-                writer.WriteLine("Fuel consumption: " + ion_consumption_large.Text.ToString());
                 writer.WriteLine("");
+                writer.WriteLine("Total large thrusters mass: " + tmass_large_ion.Text.ToString());
+                writer.WriteLine("Required power: " + tnewton_large_ion.Text.ToString());
+                writer.WriteLine("Large thrusters quantity: " + large_ion_thrusters_quantity.Text.ToString());
+                writer.WriteLine("Energy consumption: " + ion_consumption_large.Text.ToString());
+                writer.WriteLine("");
+                writer.WriteLine("Total small thrusters mass: " + tmass_small_ion.Text.ToString());
+                writer.WriteLine("Required power: " + tnewton_small_ion.Text.ToString());
                 writer.WriteLine("Small thrusters quantity: " + small_ion_thrusters_quantity.Text.ToString());
-                writer.WriteLine("Fuel consumption: " + ion_consumption_small.Text.ToString());
+                writer.WriteLine("Energy consumption: " + ion_consumption_small.Text.ToString());
                 writer.WriteLine("");
                 writer.WriteLine("///////////////////////////////");
                 writer.WriteLine("File created: " + DateTime.Now);
-                writer.WriteLine("SE Fight Gravity by Belltower");
+                writer.WriteLine("'SE Fight Gravity' by Belltower");
                 writer.WriteLine("///////////////////////////////");
                 writer.Close();
             }
+            return;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2();
             form2.Show();
+            return;
         }
     }
 }
