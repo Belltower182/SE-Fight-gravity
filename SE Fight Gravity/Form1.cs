@@ -226,7 +226,6 @@ namespace SE_Fight_Gravity
 
         private void button_calculation_Click(object sender, EventArgs e)
         {
-            label4.Text = count_check_containers.ToString();
             #region Set multipliers
             if (cargo_multiplier.SelectedIndex == 0)
             {

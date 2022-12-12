@@ -33,6 +33,7 @@
             this.type_of_blocks = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.activate_small_container = new System.Windows.Forms.CheckBox();
@@ -128,7 +129,6 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label43 = new System.Windows.Forms.Label();
             this.label_warning = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -193,6 +193,15 @@
             this.groupBox1.Size = new System.Drawing.Size(260, 597);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(10, 562);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(163, 29);
+            this.button3.TabIndex = 15;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -449,6 +458,7 @@
             this.user_entered_value.Name = "user_entered_value";
             this.user_entered_value.Size = new System.Drawing.Size(121, 23);
             this.user_entered_value.TabIndex = 2;
+            this.user_entered_value.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip1.SetToolTip(this.user_entered_value, "Enter mass of your ship");
             this.user_entered_value.TextChanged += new System.EventHandler(this.user_entered_value_TextChanged);
             // 
@@ -503,7 +513,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(29, 176);
+            this.label14.Location = new System.Drawing.Point(28, 176);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(117, 15);
             this.label14.TabIndex = 5;
@@ -514,7 +524,7 @@
             this.energy_consumption_small.BackColor = System.Drawing.Color.AliceBlue;
             this.energy_consumption_small.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.energy_consumption_small.Enabled = false;
-            this.energy_consumption_small.Location = new System.Drawing.Point(36, 197);
+            this.energy_consumption_small.Location = new System.Drawing.Point(35, 197);
             this.energy_consumption_small.Name = "energy_consumption_small";
             this.energy_consumption_small.Size = new System.Drawing.Size(100, 23);
             this.energy_consumption_small.TabIndex = 3;
@@ -525,7 +535,7 @@
             this.energy_consumption_large.BackColor = System.Drawing.Color.AliceBlue;
             this.energy_consumption_large.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.energy_consumption_large.Enabled = false;
-            this.energy_consumption_large.Location = new System.Drawing.Point(36, 196);
+            this.energy_consumption_large.Location = new System.Drawing.Point(35, 196);
             this.energy_consumption_large.Name = "energy_consumption_large";
             this.energy_consumption_large.Size = new System.Drawing.Size(100, 23);
             this.energy_consumption_large.TabIndex = 2;
@@ -536,7 +546,7 @@
             this.small_atmospheric_thrusters_quantity.BackColor = System.Drawing.Color.Honeydew;
             this.small_atmospheric_thrusters_quantity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.small_atmospheric_thrusters_quantity.Enabled = false;
-            this.small_atmospheric_thrusters_quantity.Location = new System.Drawing.Point(36, 145);
+            this.small_atmospheric_thrusters_quantity.Location = new System.Drawing.Point(35, 145);
             this.small_atmospheric_thrusters_quantity.Name = "small_atmospheric_thrusters_quantity";
             this.small_atmospheric_thrusters_quantity.Size = new System.Drawing.Size(100, 23);
             this.small_atmospheric_thrusters_quantity.TabIndex = 3;
@@ -554,7 +564,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(35, 127);
+            this.label6.Location = new System.Drawing.Point(34, 127);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(101, 15);
             this.label6.TabIndex = 2;
@@ -565,7 +575,7 @@
             this.large_atmospheric_thrusters_quantity.BackColor = System.Drawing.Color.Honeydew;
             this.large_atmospheric_thrusters_quantity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.large_atmospheric_thrusters_quantity.Enabled = false;
-            this.large_atmospheric_thrusters_quantity.Location = new System.Drawing.Point(36, 145);
+            this.large_atmospheric_thrusters_quantity.Location = new System.Drawing.Point(35, 145);
             this.large_atmospheric_thrusters_quantity.Name = "large_atmospheric_thrusters_quantity";
             this.large_atmospheric_thrusters_quantity.Size = new System.Drawing.Size(100, 23);
             this.large_atmospheric_thrusters_quantity.TabIndex = 0;
@@ -576,7 +586,7 @@
             this.fuel_consumption_small.BackColor = System.Drawing.Color.AliceBlue;
             this.fuel_consumption_small.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.fuel_consumption_small.Enabled = false;
-            this.fuel_consumption_small.Location = new System.Drawing.Point(36, 197);
+            this.fuel_consumption_small.Location = new System.Drawing.Point(35, 197);
             this.fuel_consumption_small.Name = "fuel_consumption_small";
             this.fuel_consumption_small.Size = new System.Drawing.Size(100, 23);
             this.fuel_consumption_small.TabIndex = 1;
@@ -587,7 +597,7 @@
             this.small_hydrogen_thrusters_quantity.BackColor = System.Drawing.Color.Honeydew;
             this.small_hydrogen_thrusters_quantity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.small_hydrogen_thrusters_quantity.Enabled = false;
-            this.small_hydrogen_thrusters_quantity.Location = new System.Drawing.Point(36, 146);
+            this.small_hydrogen_thrusters_quantity.Location = new System.Drawing.Point(35, 146);
             this.small_hydrogen_thrusters_quantity.Name = "small_hydrogen_thrusters_quantity";
             this.small_hydrogen_thrusters_quantity.Size = new System.Drawing.Size(100, 23);
             this.small_hydrogen_thrusters_quantity.TabIndex = 3;
@@ -598,7 +608,7 @@
             this.fuel_consumption_large.BackColor = System.Drawing.Color.AliceBlue;
             this.fuel_consumption_large.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.fuel_consumption_large.Enabled = false;
-            this.fuel_consumption_large.Location = new System.Drawing.Point(36, 196);
+            this.fuel_consumption_large.Location = new System.Drawing.Point(35, 196);
             this.fuel_consumption_large.Name = "fuel_consumption_large";
             this.fuel_consumption_large.Size = new System.Drawing.Size(100, 23);
             this.fuel_consumption_large.TabIndex = 0;
@@ -609,7 +619,7 @@
             this.large_hydrogen_thrusters_quantity.BackColor = System.Drawing.Color.Honeydew;
             this.large_hydrogen_thrusters_quantity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.large_hydrogen_thrusters_quantity.Enabled = false;
-            this.large_hydrogen_thrusters_quantity.Location = new System.Drawing.Point(36, 146);
+            this.large_hydrogen_thrusters_quantity.Location = new System.Drawing.Point(35, 146);
             this.large_hydrogen_thrusters_quantity.Name = "large_hydrogen_thrusters_quantity";
             this.large_hydrogen_thrusters_quantity.Size = new System.Drawing.Size(100, 23);
             this.large_hydrogen_thrusters_quantity.TabIndex = 0;
@@ -620,7 +630,7 @@
             this.ion_consumption_small.BackColor = System.Drawing.Color.AliceBlue;
             this.ion_consumption_small.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ion_consumption_small.Enabled = false;
-            this.ion_consumption_small.Location = new System.Drawing.Point(36, 198);
+            this.ion_consumption_small.Location = new System.Drawing.Point(35, 198);
             this.ion_consumption_small.Name = "ion_consumption_small";
             this.ion_consumption_small.Size = new System.Drawing.Size(100, 23);
             this.ion_consumption_small.TabIndex = 7;
@@ -631,7 +641,7 @@
             this.ion_consumption_large.BackColor = System.Drawing.Color.AliceBlue;
             this.ion_consumption_large.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ion_consumption_large.Enabled = false;
-            this.ion_consumption_large.Location = new System.Drawing.Point(36, 196);
+            this.ion_consumption_large.Location = new System.Drawing.Point(35, 196);
             this.ion_consumption_large.Name = "ion_consumption_large";
             this.ion_consumption_large.Size = new System.Drawing.Size(100, 23);
             this.ion_consumption_large.TabIndex = 6;
@@ -642,7 +652,7 @@
             this.small_ion_thrusters_quantity.BackColor = System.Drawing.Color.Honeydew;
             this.small_ion_thrusters_quantity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.small_ion_thrusters_quantity.Enabled = false;
-            this.small_ion_thrusters_quantity.Location = new System.Drawing.Point(36, 145);
+            this.small_ion_thrusters_quantity.Location = new System.Drawing.Point(35, 145);
             this.small_ion_thrusters_quantity.Name = "small_ion_thrusters_quantity";
             this.small_ion_thrusters_quantity.Size = new System.Drawing.Size(100, 23);
             this.small_ion_thrusters_quantity.TabIndex = 3;
@@ -653,7 +663,7 @@
             this.large_ion_thrusters_quantity.BackColor = System.Drawing.Color.Honeydew;
             this.large_ion_thrusters_quantity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.large_ion_thrusters_quantity.Enabled = false;
-            this.large_ion_thrusters_quantity.Location = new System.Drawing.Point(36, 145);
+            this.large_ion_thrusters_quantity.Location = new System.Drawing.Point(35, 145);
             this.large_ion_thrusters_quantity.Name = "large_ion_thrusters_quantity";
             this.large_ion_thrusters_quantity.Size = new System.Drawing.Size(100, 23);
             this.large_ion_thrusters_quantity.TabIndex = 0;
@@ -692,7 +702,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label23.Location = new System.Drawing.Point(38, 13);
+            this.label23.Location = new System.Drawing.Point(37, 13);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(91, 15);
             this.label23.TabIndex = 24;
@@ -701,7 +711,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(29, 176);
+            this.label24.Location = new System.Drawing.Point(28, 176);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(117, 15);
             this.label24.TabIndex = 5;
@@ -710,7 +720,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(41, 80);
+            this.label25.Location = new System.Drawing.Point(40, 80);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(90, 15);
             this.label25.TabIndex = 22;
@@ -721,7 +731,7 @@
             this.tmass_small_atmo.BackColor = System.Drawing.Color.AliceBlue;
             this.tmass_small_atmo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tmass_small_atmo.Enabled = false;
-            this.tmass_small_atmo.Location = new System.Drawing.Point(36, 53);
+            this.tmass_small_atmo.Location = new System.Drawing.Point(35, 53);
             this.tmass_small_atmo.Name = "tmass_small_atmo";
             this.tmass_small_atmo.Size = new System.Drawing.Size(100, 23);
             this.tmass_small_atmo.TabIndex = 16;
@@ -732,7 +742,7 @@
             this.tnewton_small_atmo.BackColor = System.Drawing.Color.AliceBlue;
             this.tnewton_small_atmo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tnewton_small_atmo.Enabled = false;
-            this.tnewton_small_atmo.Location = new System.Drawing.Point(36, 97);
+            this.tnewton_small_atmo.Location = new System.Drawing.Point(35, 97);
             this.tnewton_small_atmo.Name = "tnewton_small_atmo";
             this.tnewton_small_atmo.Size = new System.Drawing.Size(100, 23);
             this.tnewton_small_atmo.TabIndex = 21;
@@ -741,7 +751,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(35, 127);
+            this.label26.Location = new System.Drawing.Point(34, 127);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(101, 15);
             this.label26.TabIndex = 2;
@@ -750,7 +760,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(51, 33);
+            this.label28.Location = new System.Drawing.Point(50, 33);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(65, 15);
             this.label28.TabIndex = 17;
@@ -777,7 +787,7 @@
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label27.Location = new System.Drawing.Point(38, 13);
+            this.label27.Location = new System.Drawing.Point(37, 13);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(92, 15);
             this.label27.TabIndex = 24;
@@ -786,7 +796,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(41, 80);
+            this.label18.Location = new System.Drawing.Point(40, 80);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(90, 15);
             this.label18.TabIndex = 22;
@@ -797,7 +807,7 @@
             this.tmass_large_atmo.BackColor = System.Drawing.Color.AliceBlue;
             this.tmass_large_atmo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tmass_large_atmo.Enabled = false;
-            this.tmass_large_atmo.Location = new System.Drawing.Point(36, 53);
+            this.tmass_large_atmo.Location = new System.Drawing.Point(35, 53);
             this.tmass_large_atmo.Name = "tmass_large_atmo";
             this.tmass_large_atmo.Size = new System.Drawing.Size(100, 23);
             this.tmass_large_atmo.TabIndex = 16;
@@ -808,7 +818,7 @@
             this.tnewton_large_atmo.BackColor = System.Drawing.Color.AliceBlue;
             this.tnewton_large_atmo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tnewton_large_atmo.Enabled = false;
-            this.tnewton_large_atmo.Location = new System.Drawing.Point(36, 97);
+            this.tnewton_large_atmo.Location = new System.Drawing.Point(35, 97);
             this.tnewton_large_atmo.Name = "tnewton_large_atmo";
             this.tnewton_large_atmo.Size = new System.Drawing.Size(100, 23);
             this.tnewton_large_atmo.TabIndex = 21;
@@ -817,7 +827,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(51, 33);
+            this.label22.Location = new System.Drawing.Point(50, 33);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(65, 15);
             this.label22.TabIndex = 17;
@@ -856,7 +866,7 @@
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label29.Location = new System.Drawing.Point(38, 13);
+            this.label29.Location = new System.Drawing.Point(37, 13);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(91, 15);
             this.label29.TabIndex = 24;
@@ -865,7 +875,7 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(35, 176);
+            this.label30.Location = new System.Drawing.Point(34, 176);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(103, 15);
             this.label30.TabIndex = 5;
@@ -874,7 +884,7 @@
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(41, 80);
+            this.label31.Location = new System.Drawing.Point(40, 80);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(90, 15);
             this.label31.TabIndex = 22;
@@ -885,7 +895,7 @@
             this.tmass_small_hydro.BackColor = System.Drawing.Color.AliceBlue;
             this.tmass_small_hydro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tmass_small_hydro.Enabled = false;
-            this.tmass_small_hydro.Location = new System.Drawing.Point(36, 53);
+            this.tmass_small_hydro.Location = new System.Drawing.Point(35, 53);
             this.tmass_small_hydro.Name = "tmass_small_hydro";
             this.tmass_small_hydro.Size = new System.Drawing.Size(100, 23);
             this.tmass_small_hydro.TabIndex = 16;
@@ -896,7 +906,7 @@
             this.tnewton_small_hydro.BackColor = System.Drawing.Color.AliceBlue;
             this.tnewton_small_hydro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tnewton_small_hydro.Enabled = false;
-            this.tnewton_small_hydro.Location = new System.Drawing.Point(36, 97);
+            this.tnewton_small_hydro.Location = new System.Drawing.Point(35, 97);
             this.tnewton_small_hydro.Name = "tnewton_small_hydro";
             this.tnewton_small_hydro.Size = new System.Drawing.Size(100, 23);
             this.tnewton_small_hydro.TabIndex = 21;
@@ -905,7 +915,7 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(35, 127);
+            this.label32.Location = new System.Drawing.Point(34, 127);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(101, 15);
             this.label32.TabIndex = 2;
@@ -914,7 +924,7 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(51, 33);
+            this.label33.Location = new System.Drawing.Point(50, 33);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(65, 15);
             this.label33.TabIndex = 17;
@@ -941,7 +951,7 @@
             // 
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label34.Location = new System.Drawing.Point(38, 13);
+            this.label34.Location = new System.Drawing.Point(37, 13);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(92, 15);
             this.label34.TabIndex = 24;
@@ -950,7 +960,7 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(34, 176);
+            this.label35.Location = new System.Drawing.Point(33, 176);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(103, 15);
             this.label35.TabIndex = 5;
@@ -959,7 +969,7 @@
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(41, 80);
+            this.label36.Location = new System.Drawing.Point(40, 80);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(90, 15);
             this.label36.TabIndex = 22;
@@ -970,7 +980,7 @@
             this.tmass_large_hydro.BackColor = System.Drawing.Color.AliceBlue;
             this.tmass_large_hydro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tmass_large_hydro.Enabled = false;
-            this.tmass_large_hydro.Location = new System.Drawing.Point(36, 53);
+            this.tmass_large_hydro.Location = new System.Drawing.Point(35, 53);
             this.tmass_large_hydro.Name = "tmass_large_hydro";
             this.tmass_large_hydro.Size = new System.Drawing.Size(100, 23);
             this.tmass_large_hydro.TabIndex = 16;
@@ -981,7 +991,7 @@
             this.tnewton_large_hydro.BackColor = System.Drawing.Color.AliceBlue;
             this.tnewton_large_hydro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tnewton_large_hydro.Enabled = false;
-            this.tnewton_large_hydro.Location = new System.Drawing.Point(36, 97);
+            this.tnewton_large_hydro.Location = new System.Drawing.Point(35, 97);
             this.tnewton_large_hydro.Name = "tnewton_large_hydro";
             this.tnewton_large_hydro.Size = new System.Drawing.Size(100, 23);
             this.tnewton_large_hydro.TabIndex = 21;
@@ -990,7 +1000,7 @@
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(35, 127);
+            this.label37.Location = new System.Drawing.Point(34, 127);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(101, 15);
             this.label37.TabIndex = 2;
@@ -999,7 +1009,7 @@
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(51, 33);
+            this.label38.Location = new System.Drawing.Point(50, 33);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(65, 15);
             this.label38.TabIndex = 17;
@@ -1057,7 +1067,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(38, 13);
+            this.label5.Location = new System.Drawing.Point(37, 13);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(91, 15);
             this.label5.TabIndex = 24;
@@ -1066,7 +1076,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(27, 176);
+            this.label7.Location = new System.Drawing.Point(26, 176);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(117, 15);
             this.label7.TabIndex = 5;
@@ -1075,7 +1085,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(41, 80);
+            this.label8.Location = new System.Drawing.Point(40, 80);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(90, 15);
             this.label8.TabIndex = 22;
@@ -1086,7 +1096,7 @@
             this.tmass_small_ion.BackColor = System.Drawing.Color.AliceBlue;
             this.tmass_small_ion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tmass_small_ion.Enabled = false;
-            this.tmass_small_ion.Location = new System.Drawing.Point(36, 53);
+            this.tmass_small_ion.Location = new System.Drawing.Point(35, 53);
             this.tmass_small_ion.Name = "tmass_small_ion";
             this.tmass_small_ion.Size = new System.Drawing.Size(100, 23);
             this.tmass_small_ion.TabIndex = 16;
@@ -1097,7 +1107,7 @@
             this.tnewton_small_ion.BackColor = System.Drawing.Color.AliceBlue;
             this.tnewton_small_ion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tnewton_small_ion.Enabled = false;
-            this.tnewton_small_ion.Location = new System.Drawing.Point(36, 97);
+            this.tnewton_small_ion.Location = new System.Drawing.Point(35, 97);
             this.tnewton_small_ion.Name = "tnewton_small_ion";
             this.tnewton_small_ion.Size = new System.Drawing.Size(100, 23);
             this.tnewton_small_ion.TabIndex = 21;
@@ -1106,7 +1116,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(35, 127);
+            this.label9.Location = new System.Drawing.Point(34, 127);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(101, 15);
             this.label9.TabIndex = 2;
@@ -1115,7 +1125,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(51, 33);
+            this.label10.Location = new System.Drawing.Point(50, 33);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(65, 15);
             this.label10.TabIndex = 17;
@@ -1142,7 +1152,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label15.Location = new System.Drawing.Point(38, 13);
+            this.label15.Location = new System.Drawing.Point(37, 13);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(92, 15);
             this.label15.TabIndex = 24;
@@ -1151,7 +1161,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(27, 176);
+            this.label20.Location = new System.Drawing.Point(26, 176);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(117, 15);
             this.label20.TabIndex = 5;
@@ -1160,7 +1170,7 @@
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(41, 80);
+            this.label40.Location = new System.Drawing.Point(40, 80);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(90, 15);
             this.label40.TabIndex = 22;
@@ -1171,7 +1181,7 @@
             this.tmass_large_ion.BackColor = System.Drawing.Color.AliceBlue;
             this.tmass_large_ion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tmass_large_ion.Enabled = false;
-            this.tmass_large_ion.Location = new System.Drawing.Point(36, 53);
+            this.tmass_large_ion.Location = new System.Drawing.Point(35, 53);
             this.tmass_large_ion.Name = "tmass_large_ion";
             this.tmass_large_ion.Size = new System.Drawing.Size(100, 23);
             this.tmass_large_ion.TabIndex = 16;
@@ -1182,7 +1192,7 @@
             this.tnewton_large_ion.BackColor = System.Drawing.Color.AliceBlue;
             this.tnewton_large_ion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tnewton_large_ion.Enabled = false;
-            this.tnewton_large_ion.Location = new System.Drawing.Point(36, 97);
+            this.tnewton_large_ion.Location = new System.Drawing.Point(35, 97);
             this.tnewton_large_ion.Name = "tnewton_large_ion";
             this.tnewton_large_ion.Size = new System.Drawing.Size(100, 23);
             this.tnewton_large_ion.TabIndex = 21;
@@ -1191,7 +1201,7 @@
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(35, 127);
+            this.label41.Location = new System.Drawing.Point(34, 127);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(101, 15);
             this.label41.TabIndex = 2;
@@ -1200,7 +1210,7 @@
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(51, 33);
+            this.label42.Location = new System.Drawing.Point(50, 33);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(65, 15);
             this.label42.TabIndex = 17;
@@ -1233,15 +1243,6 @@
             this.label_warning.Size = new System.Drawing.Size(57, 15);
             this.label_warning.TabIndex = 15;
             this.label_warning.Text = "Warnings";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(10, 562);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(163, 29);
-            this.button3.TabIndex = 15;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
