@@ -1,11 +1,9 @@
-using System.Transactions;
-
 namespace SE_Fight_Gravity
 {
     public partial class Form1 : Form
     {
-        #region Variables
-        // Don't change this!
+        #region Dynamic Variables
+
         public const double newton = 0;
         public double g_amount = 0;
         public double total_newton_value = 0;
@@ -15,8 +13,8 @@ namespace SE_Fight_Gravity
         public double small_container_parsed = 0;
         public double cargo_multiplier_set = 1;
         public double mass_summary_set = 0;
-        public string count_check_containers = "e";
-
+        public double planet_msv = 0.0;
+        public string block_type = "";
         public double total_atmo_large_quantity = 0; // Atmospheric
         public double total_atmo_small_quantity = 0;
         public double total_atmo_large_mass = 0;
@@ -35,7 +33,6 @@ namespace SE_Fight_Gravity
         public double total_ion_large_newton = 0;
         public double total_ion_small_mass = 0;
         public double total_ion_small_newton = 0;
-
         public double large_atmospheric_largegrid_quantity = 0;
         public double small_atmospheric_largegrid_quantity = 0;
         public double large_hydrogen_largegrid_quantity = 0;
@@ -49,20 +46,11 @@ namespace SE_Fight_Gravity
         public double large_ion_smallgrid_quantity = 0;
         public double small_ion_smallgrid_quantity = 0;
 
-        // Thrusters Specs
-        public const double large_hydrogen_largegrid = 7200000; // Hydrogen thrusters
-        public const double small_hydrogen_largegrid = 1080000;
-        public const double large_hydrogen_smallgrid = 480000;
-        public const double small_hydrogen_smallgrid = 98400;
-        public const double large_hydrogen_largegrid_fuel = 4820; // L/S
-        public const double small_hydrogen_largegrid_fuel = 803;
-        public const double large_hydrogen_smallgrid_fuel = 386;
-        public const double small_hydrogen_smallgrid_fuel = 80;
-        public const double large_hydrogen_largeg_mass = 6940; // KG
-        public const double small_hydrogen_largeg_mass = 1420;
-        public const double large_hydrogen_smallg_mass = 1222;
-        public const double small_hydrogen_smallg_mass = 334;
+        #endregion Dynamic Variables
 
+        #region Thruster Specs
+
+        public const double large_hydrogen_largegrid = 7200000; // Hydrogen thrusters
         public const double large_atmospheric_largegrid = 6480000; // Atmospheric thrusters
         public const double small_atmospheric_largegrid = 648000;
         public const double large_atmospheric_smallgrid = 576000;
@@ -75,7 +63,17 @@ namespace SE_Fight_Gravity
         public const double small_atmospheric_largeg_mass = 4000;
         public const double large_atmospheric_smallg_mass = 2948;
         public const double small_atmospheric_smallg_mass = 699;
-
+        public const double small_hydrogen_largegrid = 1080000;
+        public const double large_hydrogen_smallgrid = 480000;
+        public const double small_hydrogen_smallgrid = 98400;
+        public const double large_hydrogen_largegrid_fuel = 4820; // L/S
+        public const double small_hydrogen_largegrid_fuel = 803;
+        public const double large_hydrogen_smallgrid_fuel = 386;
+        public const double small_hydrogen_smallgrid_fuel = 80;
+        public const double large_hydrogen_largeg_mass = 6940; // KG
+        public const double small_hydrogen_largeg_mass = 1420;
+        public const double large_hydrogen_smallg_mass = 1222;
+        public const double small_hydrogen_smallg_mass = 334;
         public const double large_ion_largegrid = 4320000; // Ion thrusters
         public const double small_ion_largegrid = 345600;
         public const double large_ion_smallgrid = 172800;
@@ -89,144 +87,74 @@ namespace SE_Fight_Gravity
         public const double large_ion_smallg_mass = 721;
         public const double small_ion_smallg_mass = 121;
 
+        #endregion Thruster Specs
+
+        #region Containers
+
         // Large cargo Container
         public const double largecargocontainer_mass_largegrid = 2593; // KG
+
         public const double largecargocontainer_mass_smallgrid = 626;
         public const double largecargocontainer_with_uranium_largegrid = 1140203;
         public const double largecargocontainer_with_uranium_smallgrid = 42234;
 
         // Medium Cargo Container NOTE: Availiable only for small blocks.
         public const double mediumcargocontainer_mass_smallgrid = 275; // KG
+
         public const double mediumcontainer_with_uranium_smallgrid = 9123;
 
         // Small Cargo Container
         public const double smallcargocontainer_mass_largegrid = 649; // KG
+
         public const int smallcargocontainer_mass_smallgrid = 49;
         public const int smallcargocontainer_with_uranium_largegrid = 1751;
         public const int smallcargocontainer_with_uranium_smallgrid = 132;
-        #endregion
+
+        #endregion Containers
 
         public Form1()
         {
             InitializeComponent();
-
             return;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            #region Set default value on startup
+            // Setting text boxes on start up
             cargo_multiplier.SelectedIndex = 0;
             large_container_quantity.Text = "0";
             medium_container_quantity.Text = "0";
             small_container_quantity.Text = "0";
-            tmass_large_atmo.Text= "...";
+            tmass_large_atmo.Text = "...";
             tmass_large_hydro.Text = "...";
             tmass_large_ion.Text = "...";
             tmass_small_atmo.Text = "...";
             tmass_small_hydro.Text = "...";
-            tmass_small_ion.Text= "...";
+            tmass_small_ion.Text = "...";
             tnewton_large_atmo.Text = "...";
-            tnewton_large_hydro.Text= "...";
+            tnewton_large_hydro.Text = "...";
             tnewton_large_ion.Text = "...";
             tnewton_small_atmo.Text = "...";
             tnewton_small_hydro.Text = "...";
             tnewton_small_ion.Text = "...";
             large_atmospheric_thrusters_quantity.Text = "...";
-            small_atmospheric_thrusters_quantity.Text= "...";
+            small_atmospheric_thrusters_quantity.Text = "...";
             large_hydrogen_thrusters_quantity.Text = "...";
             small_hydrogen_thrusters_quantity.Text = "...";
             large_ion_thrusters_quantity.Text = "...";
             small_ion_thrusters_quantity.Text = "...";
             energy_consumption_large.Text = "...";
             energy_consumption_small.Text = "...";
-            fuel_consumption_large.Text= "...";
-            fuel_consumption_small.Text= "...";
+            fuel_consumption_large.Text = "...";
+            fuel_consumption_small.Text = "...";
             ion_consumption_large.Text = "...";
             ion_consumption_small.Text = "...";
-            return;
         }
 
-        #endregion
-
-        private void type_of_blocks_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            user_entered_value.Enabled = true;
-            user_entered_value.BackColor = Color.Bisque;
-
-            return;
-        }
-
-        private void user_entered_value_TextChanged(object sender, EventArgs e)
-        {
-            user_location_choice.BackColor = Color.Bisque;
-            
-            bool check_user_value = double.TryParse(user_entered_value.Text, out double value);
-            if (check_user_value != true)
-            {
-                label_warning.ForeColor = Color.Red;
-                label_warning.Visible = true;
-                label_warning.Text = "Enter only digits!";
-            }
-            else
-            {
-                user_location_choice.Enabled = true;
-                label_warning.Visible = false;
-                this.user_value_kg = Convert.ToDouble(user_entered_value.Text);
-            }
-            return;
-        }
-
-        private void location_selector_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            button_calculation.Enabled = true;
-            activate_containers.Enabled = true;
-
-            if (user_location_choice.SelectedIndex == 0) // Earthlike
-            {
-                this.g_amount = 9807; // 1g
-                pictureBox1.Image = Image.FromFile("C:\\Users\\Greg\\Desktop\\img\\earthlike_planet.png");
-            }
-            if (user_location_choice.SelectedIndex == 1) // Moon
-            {
-                this.g_amount = 2451; // 0.25g in Newtons
-                pictureBox1.Image = Image.FromFile("C:\\Users\\Greg\\Desktop\\img\\moon_planet.png");
-            }
-            if (user_location_choice.SelectedIndex == 2) // Mars
-            {
-                this.g_amount = 8826; // 0.90g in Newtons
-                pictureBox1.Image = Image.FromFile("C:\\Users\\Greg\\Desktop\\img\\mars_planet.png");
-            }
-            if (user_location_choice.SelectedIndex == 3) // Europa
-            {
-                this.g_amount = 2451; // 0.25g in Newtons
-                pictureBox1.Image = Image.FromFile("C:\\Users\\Greg\\Desktop\\img\\europa_planet.png");
-            }
-            if (user_location_choice.SelectedIndex == 4) // Triton
-            {
-                this.g_amount = 9807; // 1g
-                pictureBox1.Image = Image.FromFile("C:\\Users\\Greg\\Desktop\\img\\triton_planet.png");
-            }
-            if (user_location_choice.SelectedIndex == 5) // Pertam
-            {
-                this.g_amount = 11768; // 1.20g in Newtons
-                pictureBox1.Image = Image.FromFile("C:\\Users\\Greg\\Desktop\\img\\pertam_planet.png");
-            }
-            if (user_location_choice.SelectedIndex == 6) // Alien planet
-            {
-                this.g_amount = 10787; // 1.10g in Newtons
-                pictureBox1.Image = Image.FromFile("C:\\Users\\Greg\\Desktop\\img\\alien_planet.png");
-            }
-            if (user_location_choice.SelectedIndex == 7) // Titan
-            {
-                this.g_amount = 2451; // 0.25g in Newtons
-                pictureBox1.Image = Image.FromFile("C:\\Users\\Greg\\Desktop\\img\\titan_planet.png");
-            }
-        }
+        #region Main button
 
         private void button_calculation_Click(object sender, EventArgs e)
         {
-            #region Set multipliers
             if (cargo_multiplier.SelectedIndex == 0)
             {
                 this.cargo_multiplier_set = 1;
@@ -243,17 +171,15 @@ namespace SE_Fight_Gravity
             {
                 this.cargo_multiplier_set = 10;
             }
-            #endregion
-
-            #region Activate fields by button press
 
             button1.Enabled = true;
+            button3.Enabled = true;
             tmass_large_atmo.Enabled = true;
-            tmass_large_hydro.Enabled= true;
+            tmass_large_hydro.Enabled = true;
             tmass_large_ion.Enabled = true;
-            tmass_small_atmo.Enabled= true;
-            tmass_small_hydro.Enabled= true;
-            tmass_small_ion.Enabled= true;
+            tmass_small_atmo.Enabled = true;
+            tmass_small_hydro.Enabled = true;
+            tmass_small_ion.Enabled = true;
             tnewton_large_atmo.Enabled = true;
             tnewton_large_hydro.Enabled = true;
             tnewton_large_ion.Enabled = true;
@@ -272,7 +198,6 @@ namespace SE_Fight_Gravity
             fuel_consumption_small.Enabled = true;
             ion_consumption_large.Enabled = true;
             ion_consumption_small.Enabled = true;
-            #endregion
 
             if (type_of_blocks.SelectedIndex == 0)
             {
@@ -296,6 +221,10 @@ namespace SE_Fight_Gravity
             }
             return;
         }
+
+        #endregion Main button
+
+        #region Methods of calculating thrusters quantity and consumption
 
         private void calc_largeg_thrusters()
         {
@@ -417,7 +346,7 @@ namespace SE_Fight_Gravity
                 calc_for_smallgrid(total_newton_value);
             }
             //SG + weight included + large medium small containers
-            if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == true & full_of_ore.Checked == true & activate_large_container.Checked == true & activate_medium_container.Checked == true & activate_small_container.Checked == true)
+            if (type_of_blocks.SelectedIndex == 1 & activate_containers.Checked == true & full_of_ore.Checked == true & without_ore.Checked != true & activate_large_container.Checked == true & activate_medium_container.Checked == true & activate_small_container.Checked == true)
             {
                 this.mass_summary_set = ((largecargocontainer_mass_smallgrid * large_container_parsed + largecargocontainer_with_uranium_smallgrid * large_container_parsed) + (mediumcargocontainer_mass_smallgrid * medium_container_parsed + mediumcontainer_with_uranium_smallgrid * medium_container_parsed) + (smallcargocontainer_mass_smallgrid * small_container_parsed + smallcargocontainer_with_uranium_smallgrid * small_container_parsed)) * cargo_multiplier_set + user_value_kg;
                 this.total_newton_value = mass_summary_set * g_amount / 1000;
@@ -457,14 +386,13 @@ namespace SE_Fight_Gravity
             this.total_atmo_large_quantity = total_atmo_large_newton / large_atmospheric_largegrid;
             large_atmospheric_thrusters_quantity.Text = Math.Ceiling(total_atmo_large_quantity).ToString();
 
-
             this.small_atmospheric_largegrid_quantity = newtons / small_atmospheric_largegrid;
             this.total_atmo_small_mass = (small_atmospheric_largegrid_quantity * small_atmospheric_largeg_mass) + mass_summary_set;
             tmass_small_atmo.Text = Math.Ceiling(total_atmo_small_mass).ToString() + " Kg";
             this.total_atmo_small_newton = (total_atmo_small_mass * g_amount) / 1000;
             tnewton_small_atmo.Text = Math.Ceiling(total_atmo_small_newton).ToString() + " N";
             this.total_atmo_small_quantity = total_atmo_small_newton / small_atmospheric_largegrid;
-            small_atmospheric_thrusters_quantity.Text = Math.Ceiling(small_atmospheric_largegrid_quantity).ToString(); ////////////////////
+            small_atmospheric_thrusters_quantity.Text = Math.Ceiling(small_atmospheric_largegrid_quantity).ToString();
 
             this.large_hydrogen_largegrid_quantity = newtons / large_hydrogen_largegrid; // Hydrogen thrusters
             this.total_hydro_large_mass = (large_hydrogen_largegrid_quantity * large_hydrogen_largeg_mass) + mass_summary_set;
@@ -605,7 +533,6 @@ namespace SE_Fight_Gravity
                 activate_large_container.Checked = false;
                 activate_medium_container.Checked = false;
                 activate_small_container.Checked = false;
-
             }
             if (type_of_blocks.SelectedIndex == 0 & activate_containers.Checked == true)
             {
@@ -665,9 +592,77 @@ namespace SE_Fight_Gravity
             return;
         }
 
+        #endregion Methods of calculating thrusters quantity and consumption
+
+        #region Text fields and comboboxes
+
+        private void location_selector_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            button_calculation.Enabled = true;
+            activate_containers.Enabled = true;
+
+            if (user_location_choice.SelectedIndex == 0) // Earthlike
+            {
+                this.g_amount = 9807; // 1g
+                this.planet_msv = 9.8;
+                label_gs.Text = "1g";
+                pictureBox1.Image = Image.FromFile("C:\\Users\\Greg\\Desktop\\img\\earthlike_planet.png");
+            }
+            if (user_location_choice.SelectedIndex == 1) // Moon
+            {
+                this.g_amount = 2451; // 0.25g in Newtons
+                this.planet_msv = 2.45;
+                label_gs.Text = "0.25g";
+                pictureBox1.Image = Image.FromFile("C:\\Users\\Greg\\Desktop\\img\\moon_planet.png");
+            }
+            if (user_location_choice.SelectedIndex == 2) // Mars
+            {
+                this.g_amount = 8826; // 0.90g in Newtons
+                this.planet_msv = 8.82;
+                label_gs.Text = "0.90g";
+                pictureBox1.Image = Image.FromFile("C:\\Users\\Greg\\Desktop\\img\\mars_planet.png");
+            }
+            if (user_location_choice.SelectedIndex == 3) // Europa
+            {
+                this.g_amount = 2451; // 0.25g in Newtons
+                this.planet_msv = 2.45; // 2.452ms
+                label_gs.Text = "0.25g";
+                pictureBox1.Image = Image.FromFile("C:\\Users\\Greg\\Desktop\\img\\europa_planet.png");
+            }
+            if (user_location_choice.SelectedIndex == 4) // Triton
+            {
+                this.g_amount = 9807; // 1g
+                this.planet_msv = 9.8;
+                label_gs.Text = "1g";
+                pictureBox1.Image = Image.FromFile("C:\\Users\\Greg\\Desktop\\img\\triton_planet.png");
+            }
+            if (user_location_choice.SelectedIndex == 5) // Pertam
+            {
+                this.g_amount = 11768; // 1.20g in Newtons
+                this.planet_msv = 11.77;
+                label_gs.Text = "1.20g";
+                pictureBox1.Image = Image.FromFile("C:\\Users\\Greg\\Desktop\\img\\pertam_planet.png");
+            }
+            if (user_location_choice.SelectedIndex == 6) // Alien planet
+            {
+                this.g_amount = 10787; // 1.10g in Newtons
+                this.planet_msv = 10.78;
+                label_gs.Text = "1.10g";
+                pictureBox1.Image = Image.FromFile("C:\\Users\\Greg\\Desktop\\img\\alien_planet.png");
+            }
+            if (user_location_choice.SelectedIndex == 7) // Titan
+            {
+                this.g_amount = 2451; // 0.25g in Newtons
+                this.planet_msv = 2.45;
+                label_gs.Text = "0.25g";
+                pictureBox1.Image = Image.FromFile("C:\\Users\\Greg\\Desktop\\img\\titan_planet.png");
+            }
+            return;
+        }
+
         private void cargo_no_weight_CheckedChanged(object sender, EventArgs e)
         {
-            if (without_ore.Checked== true)
+            if (without_ore.Checked == true)
             {
                 full_of_ore.Checked = false;
             }
@@ -678,7 +673,7 @@ namespace SE_Fight_Gravity
         {
             if (full_of_ore.Checked == true)
             {
-                without_ore.Checked= false;
+                without_ore.Checked = false;
             }
             return;
         }
@@ -686,7 +681,7 @@ namespace SE_Fight_Gravity
         private void large_container_quantity_TextChanged(object sender, EventArgs e)
         {
             bool check_large_cargo = double.TryParse(large_container_quantity.Text, out double value);
-            if (check_large_cargo !=true)
+            if (check_large_cargo != true)
             {
                 label_warning.ForeColor = Color.Red;
                 label_warning.Visible = true;
@@ -752,7 +747,6 @@ namespace SE_Fight_Gravity
         {
             if (activate_medium_container.Checked == true)
             {
-                this.count_check_containers += "m";
                 medium_container_quantity.BackColor = Color.Bisque;
             }
             if (activate_medium_container.Checked == false)
@@ -776,6 +770,38 @@ namespace SE_Fight_Gravity
             }
             return;
         }
+
+        private void type_of_blocks_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            user_entered_value.Enabled = true;
+            user_entered_value.BackColor = Color.Bisque;
+
+            return;
+        }
+
+        private void user_entered_value_TextChanged(object sender, EventArgs e)
+        {
+            user_location_choice.BackColor = Color.Bisque;
+
+            bool check_user_value = double.TryParse(user_entered_value.Text, out double value);
+            if (check_user_value != true)
+            {
+                label_warning.ForeColor = Color.Red;
+                label_warning.Visible = true;
+                label_warning.Text = "Enter only digits!";
+            }
+            else
+            {
+                user_location_choice.Enabled = true;
+                label_warning.Visible = false;
+                this.user_value_kg = Convert.ToDouble(user_entered_value.Text);
+            }
+            return;
+        }
+
+        #endregion Text fields and comboboxes
+
+        #region Additional buttons
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -916,5 +942,24 @@ namespace SE_Fight_Gravity
             form2.Show();
             return;
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form3 form3 = new Form3();
+            form3.planet_ms = planet_msv;
+            form3.totall_mass = mass_summary_set;
+            if (type_of_blocks.SelectedIndex == 0)
+            {
+                form3.block_type_f3 = "large";
+            }
+            if (type_of_blocks.SelectedIndex == 1)
+            {
+                form3.block_type_f3 = "small";
+            }
+            form3.Show();
+            return;
+        }
     }
+
+    #endregion Additional buttons
 }

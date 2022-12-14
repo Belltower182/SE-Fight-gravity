@@ -33,6 +33,7 @@
             this.type_of_blocks = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label_gs = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -175,6 +176,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label_gs);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.groupBox2);
@@ -194,14 +196,26 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             // 
+            // label_gs
+            // 
+            this.label_gs.AutoSize = true;
+            this.label_gs.Location = new System.Drawing.Point(195, 296);
+            this.label_gs.Name = "label_gs";
+            this.label_gs.Size = new System.Drawing.Size(16, 15);
+            this.label_gs.TabIndex = 16;
+            this.label_gs.Text = "...";
+            // 
             // button3
             // 
+            this.button3.Enabled = false;
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button3.Location = new System.Drawing.Point(10, 562);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(163, 29);
             this.button3.TabIndex = 15;
-            this.button3.Text = "button3";
+            this.button3.Text = "Mixed calculations";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -421,9 +435,9 @@
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(178, 528);
+            this.button1.Location = new System.Drawing.Point(179, 528);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(76, 28);
+            this.button1.Size = new System.Drawing.Size(75, 28);
             this.button1.TabIndex = 13;
             this.button1.Text = "   Save";
             this.toolTip1.SetToolTip(this.button1, "Save result to txt file");
@@ -458,7 +472,6 @@
             this.user_entered_value.Name = "user_entered_value";
             this.user_entered_value.Size = new System.Drawing.Size(121, 23);
             this.user_entered_value.TabIndex = 2;
-            this.user_entered_value.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip1.SetToolTip(this.user_entered_value, "Enter mass of your ship");
             this.user_entered_value.TextChanged += new System.EventHandler(this.user_entered_value_TextChanged);
             // 
@@ -473,7 +486,7 @@
             this.button_calculation.Name = "button_calculation";
             this.button_calculation.Size = new System.Drawing.Size(163, 28);
             this.button_calculation.TabIndex = 9;
-            this.button_calculation.Text = "CALCULATE";
+            this.button_calculation.Text = "Fast calculations";
             this.button_calculation.UseVisualStyleBackColor = false;
             this.button_calculation.Click += new System.EventHandler(this.button_calculation_Click);
             // 
@@ -1394,5 +1407,6 @@
         private Label label_warning;
         private CheckBox activate_small_container;
         private Button button3;
+        private Label label_gs;
     }
 }
