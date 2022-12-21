@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.type_of_blocks = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label_gs = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.button_about = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.activate_small_container = new System.Windows.Forms.CheckBox();
             this.cargo_multiplier = new System.Windows.Forms.ComboBox();
@@ -52,7 +51,7 @@
             this.large_container_quantity = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.user_location_choice = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_save = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.user_entered_value = new System.Windows.Forms.TextBox();
@@ -90,7 +89,6 @@
             this.tmass_large_atmo = new System.Windows.Forms.TextBox();
             this.tnewton_large_atmo = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.label29 = new System.Windows.Forms.Label();
@@ -162,7 +160,6 @@
             this.type_of_blocks.Size = new System.Drawing.Size(121, 23);
             this.type_of_blocks.TabIndex = 0;
             this.type_of_blocks.Text = "Select";
-            this.toolTip1.SetToolTip(this.type_of_blocks, "Select type of grid");
             this.type_of_blocks.SelectedIndexChanged += new System.EventHandler(this.type_of_blocks_SelectedIndexChanged);
             // 
             // label1
@@ -178,11 +175,11 @@
             // 
             this.groupBox1.Controls.Add(this.label_gs);
             this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.button_about);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.user_location_choice);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.button_save);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.user_entered_value);
@@ -215,20 +212,19 @@
             this.button3.TabIndex = 15;
             this.button3.Text = "Mixed calculations";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.mixed_calculation_button_Click);
             // 
-            // button2
+            // button_about
             // 
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button2.Location = new System.Drawing.Point(179, 562);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(76, 28);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "   Info";
-            this.toolTip1.SetToolTip(this.button2, "Informations about this program");
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button_about.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_about.BackgroundImage")));
+            this.button_about.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button_about.Location = new System.Drawing.Point(179, 562);
+            this.button_about.Name = "button_about";
+            this.button_about.Size = new System.Drawing.Size(76, 28);
+            this.button_about.TabIndex = 14;
+            this.button_about.Text = "    About";
+            this.button_about.UseVisualStyleBackColor = true;
+            this.button_about.Click += new System.EventHandler(this.info_button_Click);
             // 
             // groupBox2
             // 
@@ -276,7 +272,6 @@
             this.cargo_multiplier.Name = "cargo_multiplier";
             this.cargo_multiplier.Size = new System.Drawing.Size(49, 23);
             this.cargo_multiplier.TabIndex = 14;
-            this.toolTip1.SetToolTip(this.cargo_multiplier, "Cargo containers inventory multiplier");
             // 
             // label17
             // 
@@ -296,7 +291,6 @@
             this.without_ore.Size = new System.Drawing.Size(142, 19);
             this.without_ore.TabIndex = 12;
             this.without_ore.Text = "Add empty containers";
-            this.toolTip1.SetToolTip(this.without_ore, "Calculate container mass without ore");
             this.without_ore.UseVisualStyleBackColor = true;
             this.without_ore.CheckedChanged += new System.EventHandler(this.cargo_no_weight_CheckedChanged);
             // 
@@ -309,7 +303,6 @@
             this.full_of_ore.Size = new System.Drawing.Size(159, 19);
             this.full_of_ore.TabIndex = 11;
             this.full_of_ore.Text = "Add containers full of ore";
-            this.toolTip1.SetToolTip(this.full_of_ore, "Gives you a netto weight per container");
             this.full_of_ore.UseVisualStyleBackColor = true;
             this.full_of_ore.CheckedChanged += new System.EventHandler(this.cargo_weight_CheckedChanged);
             // 
@@ -349,7 +342,6 @@
             this.activate_medium_container.Size = new System.Drawing.Size(124, 19);
             this.activate_medium_container.TabIndex = 3;
             this.activate_medium_container.Text = "Medium container";
-            this.toolTip1.SetToolTip(this.activate_medium_container, "activate medium container calculation");
             this.activate_medium_container.UseVisualStyleBackColor = true;
             this.activate_medium_container.CheckedChanged += new System.EventHandler(this.activate_medium_container_CheckedChanged);
             // 
@@ -361,7 +353,6 @@
             this.small_container_quantity.Name = "small_container_quantity";
             this.small_container_quantity.Size = new System.Drawing.Size(49, 23);
             this.small_container_quantity.TabIndex = 7;
-            this.toolTip1.SetToolTip(this.small_container_quantity, "Quantity of small containers");
             this.small_container_quantity.TextChanged += new System.EventHandler(this.small_container_quantity_TextChanged);
             // 
             // activate_large_container
@@ -373,7 +364,6 @@
             this.activate_large_container.Size = new System.Drawing.Size(108, 19);
             this.activate_large_container.TabIndex = 2;
             this.activate_large_container.Text = "Large container";
-            this.toolTip1.SetToolTip(this.activate_large_container, "Activate large container calculations");
             this.activate_large_container.UseVisualStyleBackColor = true;
             this.activate_large_container.CheckedChanged += new System.EventHandler(this.activate_large_container_CheckedChanged);
             // 
@@ -385,7 +375,6 @@
             this.medium_container_quantity.Name = "medium_container_quantity";
             this.medium_container_quantity.Size = new System.Drawing.Size(49, 23);
             this.medium_container_quantity.TabIndex = 6;
-            this.toolTip1.SetToolTip(this.medium_container_quantity, "Quantity of medium containers");
             this.medium_container_quantity.TextChanged += new System.EventHandler(this.medium_container_quantity_TextChanged);
             // 
             // large_container_quantity
@@ -396,7 +385,6 @@
             this.large_container_quantity.Name = "large_container_quantity";
             this.large_container_quantity.Size = new System.Drawing.Size(49, 23);
             this.large_container_quantity.TabIndex = 5;
-            this.toolTip1.SetToolTip(this.large_container_quantity, "Quantity of large containers");
             this.large_container_quantity.TextChanged += new System.EventHandler(this.large_container_quantity_TextChanged);
             // 
             // label3
@@ -427,22 +415,20 @@
             this.user_location_choice.Size = new System.Drawing.Size(121, 23);
             this.user_location_choice.TabIndex = 4;
             this.user_location_choice.Text = "Select";
-            this.toolTip1.SetToolTip(this.user_location_choice, "Select locations where you starting at");
             this.user_location_choice.SelectedIndexChanged += new System.EventHandler(this.location_selector_SelectedIndexChanged);
             // 
-            // button1
+            // button_save
             // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(179, 528);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 28);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "   Save";
-            this.toolTip1.SetToolTip(this.button1, "Save result to txt file");
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button_save.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_save.BackgroundImage")));
+            this.button_save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button_save.Enabled = false;
+            this.button_save.Location = new System.Drawing.Point(179, 528);
+            this.button_save.Name = "button_save";
+            this.button_save.Size = new System.Drawing.Size(75, 28);
+            this.button_save.TabIndex = 13;
+            this.button_save.Text = "   Save";
+            this.button_save.UseVisualStyleBackColor = true;
+            this.button_save.Click += new System.EventHandler(this.save_info_button_Click);
             // 
             // label2
             // 
@@ -472,7 +458,6 @@
             this.user_entered_value.Name = "user_entered_value";
             this.user_entered_value.Size = new System.Drawing.Size(121, 23);
             this.user_entered_value.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.user_entered_value, "Enter mass of your ship");
             this.user_entered_value.TextChanged += new System.EventHandler(this.user_entered_value_TextChanged);
             // 
             // button_calculation
@@ -499,7 +484,6 @@
             this.activate_containers.Size = new System.Drawing.Size(196, 19);
             this.activate_containers.TabIndex = 0;
             this.activate_containers.Text = "Add cargo containers (Optional)";
-            this.toolTip1.SetToolTip(this.activate_containers, "Add cargo container to your ship calculations");
             this.activate_containers.UseVisualStyleBackColor = true;
             this.activate_containers.CheckedChanged += new System.EventHandler(this.activate_containers_CheckedChanged);
             // 
@@ -1269,6 +1253,8 @@
             this.Controls.Add(this.label_warn);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(891, 653);
+            this.MinimumSize = new System.Drawing.Size(891, 653);
             this.Name = "Form1";
             this.Text = "SE Fight Gravity";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -1334,8 +1320,8 @@
         private TextBox large_hydrogen_thrusters_quantity;
         private TextBox small_ion_thrusters_quantity;
         private TextBox large_ion_thrusters_quantity;
-        private Button button1;
-        private Button button2;
+        private Button button_save;
+        private Button button_about;
         private TextBox fuel_consumption_small;
         private TextBox fuel_consumption_large;
         private TextBox energy_consumption_large;
@@ -1344,7 +1330,6 @@
         private PictureBox pictureBox5;
         private TextBox ion_consumption_small;
         private TextBox ion_consumption_large;
-        private ToolTip toolTip1;
         private RadioButton without_ore;
         private RadioButton full_of_ore;
         private Label label17;

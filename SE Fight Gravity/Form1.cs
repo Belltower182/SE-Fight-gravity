@@ -50,65 +50,65 @@ namespace SE_Fight_Gravity
 
         #region Thruster Specs
 
-        public const double large_hydrogen_largegrid = 7200000; // Hydrogen thrusters
-        public const double large_atmospheric_largegrid = 6480000; // Atmospheric thrusters
-        public const double small_atmospheric_largegrid = 648000;
-        public const double large_atmospheric_smallgrid = 576000;
-        public const double small_atmospheric_smallgrid = 96000;
-        public const double large_atmospheric_largegrid_fuel = 16800; // KW
-        public const double small_atmospheric_largegrid_fuel = 2400;
-        public const double large_atmospheric_smallgrid_fuel = 2400;
-        public const double small_atmospheric_smallgrid_fuel = 600;
-        public const double large_atmospheric_largeg_mass = 32970; // KG
-        public const double small_atmospheric_largeg_mass = 4000;
-        public const double large_atmospheric_smallg_mass = 2948;
-        public const double small_atmospheric_smallg_mass = 699;
-        public const double small_hydrogen_largegrid = 1080000;
-        public const double large_hydrogen_smallgrid = 480000;
-        public const double small_hydrogen_smallgrid = 98400;
-        public const double large_hydrogen_largegrid_fuel = 4820; // L/S
-        public const double small_hydrogen_largegrid_fuel = 803;
-        public const double large_hydrogen_smallgrid_fuel = 386;
-        public const double small_hydrogen_smallgrid_fuel = 80;
-        public const double large_hydrogen_largeg_mass = 6940; // KG
-        public const double small_hydrogen_largeg_mass = 1420;
-        public const double large_hydrogen_smallg_mass = 1222;
-        public const double small_hydrogen_smallg_mass = 334;
-        public const double large_ion_largegrid = 4320000; // Ion thrusters
-        public const double small_ion_largegrid = 345600;
-        public const double large_ion_smallgrid = 172800;
-        public const double small_ion_smallgrid = 14400;
-        public const double large_ion_largegrid_fuel = 33600; // KW
-        public const double small_ion_largegrid_fuel = 3360;
-        public const double large_ion_smallgrid_fuel = 2400;
-        public const double small_ion_smallgrid_fuel = 200;
-        public const double large_ion_largeg_mass = 43200; // KG
-        public const double small_ion_largeg_mass = 4380;
-        public const double large_ion_smallg_mass = 721;
-        public const double small_ion_smallg_mass = 121;
+        public const int large_hydrogen_largegrid = 7200000; // Hydrogen thrusters
+        public const int large_atmospheric_largegrid = 6480000; // Atmospheric thrusters
+        public const int small_atmospheric_largegrid = 648000;
+        public const int large_atmospheric_smallgrid = 576000;
+        public const int small_atmospheric_smallgrid = 96000;
+        public const short large_atmospheric_largegrid_fuel = 16800; // KW
+        public const short small_atmospheric_largegrid_fuel = 2400;
+        public const short large_atmospheric_smallgrid_fuel = 2400;
+        public const short small_atmospheric_smallgrid_fuel = 600;
+        public const int large_atmospheric_largeg_mass = 32970; // KG
+        public const short small_atmospheric_largeg_mass = 4000;
+        public const short large_atmospheric_smallg_mass = 2948;
+        public const short small_atmospheric_smallg_mass = 699;
+        public const int small_hydrogen_largegrid = 1080000;
+        public const int large_hydrogen_smallgrid = 480000;
+        public const int small_hydrogen_smallgrid = 98400;
+        public const short large_hydrogen_largegrid_fuel = 4820; // L/S
+        public const short small_hydrogen_largegrid_fuel = 803;
+        public const short large_hydrogen_smallgrid_fuel = 386;
+        public const short small_hydrogen_smallgrid_fuel = 80;
+        public const short large_hydrogen_largeg_mass = 6940; // KG
+        public const short small_hydrogen_largeg_mass = 1420;
+        public const short large_hydrogen_smallg_mass = 1222;
+        public const short small_hydrogen_smallg_mass = 334;
+        public const int large_ion_largegrid = 4320000; // Ion thrusters
+        public const int small_ion_largegrid = 345600;
+        public const int large_ion_smallgrid = 172800;
+        public const short small_ion_smallgrid = 14400;
+        public const int large_ion_largegrid_fuel = 33600; // KW
+        public const short small_ion_largegrid_fuel = 3360;
+        public const short large_ion_smallgrid_fuel = 2400;
+        public const short small_ion_smallgrid_fuel = 200;
+        public const int large_ion_largeg_mass = 43200; // KG
+        public const short small_ion_largeg_mass = 4380;
+        public const short large_ion_smallg_mass = 721;
+        public const short small_ion_smallg_mass = 121;
 
         #endregion Thruster Specs
 
         #region Containers
 
         // Large cargo Container
-        public const double largecargocontainer_mass_largegrid = 2593; // KG
+        public const short largecargocontainer_mass_largegrid = 2593; // KG
 
-        public const double largecargocontainer_mass_smallgrid = 626;
-        public const double largecargocontainer_with_uranium_largegrid = 1140203;
-        public const double largecargocontainer_with_uranium_smallgrid = 42234;
+        public const short largecargocontainer_mass_smallgrid = 626;
+        public const int largecargocontainer_with_uranium_largegrid = 1140203;
+        public const int largecargocontainer_with_uranium_smallgrid = 42234;
 
         // Medium Cargo Container NOTE: Availiable only for small blocks.
-        public const double mediumcargocontainer_mass_smallgrid = 275; // KG
+        public const short mediumcargocontainer_mass_smallgrid = 275; // KG
 
-        public const double mediumcontainer_with_uranium_smallgrid = 9123;
+        public const short mediumcontainer_with_uranium_smallgrid = 9123;
 
         // Small Cargo Container
-        public const double smallcargocontainer_mass_largegrid = 649; // KG
+        public const short smallcargocontainer_mass_largegrid = 649; // KG
 
-        public const int smallcargocontainer_mass_smallgrid = 49;
-        public const int smallcargocontainer_with_uranium_largegrid = 1751;
-        public const int smallcargocontainer_with_uranium_smallgrid = 132;
+        public const short smallcargocontainer_mass_smallgrid = 49;
+        public const short smallcargocontainer_with_uranium_largegrid = 1751;
+        public const short smallcargocontainer_with_uranium_smallgrid = 132;
 
         #endregion Containers
 
@@ -172,7 +172,7 @@ namespace SE_Fight_Gravity
                 this.cargo_multiplier_set = 10;
             }
 
-            button1.Enabled = true;
+            button_save.Enabled = true;
             button3.Enabled = true;
             tmass_large_atmo.Enabled = true;
             tmass_large_hydro.Enabled = true;
@@ -803,7 +803,7 @@ namespace SE_Fight_Gravity
 
         #region Additional buttons
 
-        private void button1_Click(object sender, EventArgs e)
+        private void save_info_button_Click(object sender, EventArgs e)
         {
             label_warning.Visible = true;
             label_warning.ForeColor = Color.Green;
@@ -936,14 +936,14 @@ namespace SE_Fight_Gravity
             return;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void info_button_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2();
             form2.Show();
             return;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void mixed_calculation_button_Click(object sender, EventArgs e)
         {
             Form3 form3 = new Form3();
             form3.planet_ms = planet_msv;

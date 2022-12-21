@@ -11,7 +11,7 @@
         {
         }
 
-        private void closeinfo_button_Click(object sender, EventArgs e)
+        private void close_info_button_Click(object sender, EventArgs e)
         {
             this.Close();
             return;
@@ -29,7 +29,7 @@
         {
             label3.ForeColor = Color.Green;
             label3.Visible = true;
-            Clipboard.SetText("https://github.com/Belltower182/SE-Fight-gravity");
+            Clipboard.SetText("gregbkv@gmail.com");
             return;
         }
     }

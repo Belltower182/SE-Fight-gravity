@@ -47,7 +47,7 @@
             this.close_button.TabIndex = 0;
             this.close_button.Text = "Close";
             this.close_button.UseVisualStyleBackColor = true;
-            this.close_button.Click += new System.EventHandler(this.closeinfo_button_Click);
+            this.close_button.Click += new System.EventHandler(this.close_info_button_Click);
             // 
             // label1
             // 
@@ -120,6 +120,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.close_button);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(373, 234);
+            this.MinimumSize = new System.Drawing.Size(373, 234);
             this.Name = "Form2";
             this.Text = "About";
             this.Load += new System.EventHandler(this.Form2_Load);

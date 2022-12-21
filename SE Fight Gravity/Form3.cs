@@ -28,7 +28,7 @@
         public const double large_hydrogen_smallgrid = 480000;
         public const double small_hydrogen_smallgrid = 98400;
         public const double large_ion_smallgrid = 172800;
-        public const double small_ion_smallgrid = 14400;
+        public const short small_ion_smallgrid = 14400;
 
         #endregion Variables
 
@@ -40,7 +40,7 @@
         private void Form3_Load(object sender, EventArgs e)
         {
             totall_mass_calc.Text = totall_mass.ToString();
-            comboBox1.SelectedIndex = 0;
+            power_selector.SelectedIndex = 0;
             l_atm_thr.Text = "0";
             s_atm_thr.Text = "0";
             l_hydrogen_thrusters.Text = "0";
@@ -71,7 +71,7 @@
             return;
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void s_atm_thr_TextChanged(object sender, EventArgs e)
         {
             bool check_field = Double.TryParse(s_atm_thr.Text, out double value);
             if (check_field == true)
@@ -168,45 +168,45 @@
 
         #endregion Text fields
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void power_selector_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedIndex == 0)
+            if (power_selector.SelectedIndex == 0)
             {
                 power_percentage = 1;
             }
-            if (comboBox1.SelectedIndex == 1)
+            if (power_selector.SelectedIndex == 1)
             {
                 power_percentage = 0.9;
             }
-            if (comboBox1.SelectedIndex == 2)
+            if (power_selector.SelectedIndex == 2)
             {
                 power_percentage = 0.8;
             }
-            if (comboBox1.SelectedIndex == 3)
+            if (power_selector.SelectedIndex == 3)
             {
                 power_percentage = 0.7;
             }
-            if (comboBox1.SelectedIndex == 4)
+            if (power_selector.SelectedIndex == 4)
             {
                 power_percentage = 0.6;
             }
-            if (comboBox1.SelectedIndex == 5)
+            if (power_selector.SelectedIndex == 5)
             {
                 power_percentage = 0.5;
             }
-            if (comboBox1.SelectedIndex == 6)
+            if (power_selector.SelectedIndex == 6)
             {
                 power_percentage = 0.4;
             }
-            if (comboBox1.SelectedIndex == 7)
+            if (power_selector.SelectedIndex == 7)
             {
                 power_percentage = 0.3;
             }
-            if (comboBox1.SelectedIndex == 8)
+            if (power_selector.SelectedIndex == 8)
             {
                 power_percentage = 0.2;
             }
-            if (comboBox1.SelectedIndex == 9)
+            if (power_selector.SelectedIndex == 9)
             {
                 power_percentage = 0.1;
             }

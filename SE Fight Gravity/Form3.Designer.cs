@@ -61,7 +61,7 @@
             this.totall_mass_calc = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.current_power = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.power_selector = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
@@ -127,7 +127,7 @@
             this.s_atm_thr.Name = "s_atm_thr";
             this.s_atm_thr.Size = new System.Drawing.Size(100, 23);
             this.s_atm_thr.TabIndex = 6;
-            this.s_atm_thr.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.s_atm_thr.TextChanged += new System.EventHandler(this.s_atm_thr_TextChanged);
             // 
             // l_atm_thr
             // 
@@ -339,11 +339,11 @@
             this.label14_enough.AutoSize = true;
             this.label14_enough.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label14_enough.ForeColor = System.Drawing.Color.LimeGreen;
-            this.label14_enough.Location = new System.Drawing.Point(135, 32);
+            this.label14_enough.Location = new System.Drawing.Point(125, 32);
             this.label14_enough.Name = "label14_enough";
-            this.label14_enough.Size = new System.Drawing.Size(204, 30);
+            this.label14_enough.Size = new System.Drawing.Size(223, 30);
             this.label14_enough.TabIndex = 12;
-            this.label14_enough.Text = "ENOUGHT TO LIFT";
+            this.label14_enough.Text = "ENOUGHT TO HOLD";
             this.label14_enough.Visible = false;
             // 
             // progressBar1
@@ -391,11 +391,11 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(362, 20);
+            this.label11.Location = new System.Drawing.Point(365, 20);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(72, 15);
+            this.label11.Size = new System.Drawing.Size(67, 15);
             this.label11.TabIndex = 2;
-            this.label11.Text = "Ships MASS";
+            this.label11.Text = "Ship MASS";
             // 
             // current_power
             // 
@@ -408,11 +408,11 @@
             this.current_power.TabIndex = 1;
             this.current_power.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // comboBox1
+            // power_selector
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.Bisque;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.power_selector.BackColor = System.Drawing.Color.Bisque;
+            this.power_selector.FormattingEnabled = true;
+            this.power_selector.Items.AddRange(new object[] {
             "100%",
             "90%",
             "80%",
@@ -423,11 +423,11 @@
             "30%",
             "20%",
             "10%"});
-            this.comboBox1.Location = new System.Drawing.Point(218, 177);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(55, 23);
-            this.comboBox1.TabIndex = 8;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.power_selector.Location = new System.Drawing.Point(218, 177);
+            this.power_selector.Name = "power_selector";
+            this.power_selector.Size = new System.Drawing.Size(55, 23);
+            this.power_selector.TabIndex = 8;
+            this.power_selector.SelectedIndexChanged += new System.EventHandler(this.power_selector_SelectedIndexChanged);
             // 
             // label13
             // 
@@ -456,14 +456,16 @@
             this.ClientSize = new System.Drawing.Size(499, 325);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.power_selector);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(515, 364);
+            this.MinimumSize = new System.Drawing.Size(515, 364);
             this.Name = "Form3";
-            this.Text = "Form3";
+            this.Text = "Mixed Calculations";
             this.Load += new System.EventHandler(this.Form3_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -508,7 +510,7 @@
         private TextBox current_power;
         private Label label10;
         private Label label12_not_enough;
-        private ComboBox comboBox1;
+        private ComboBox power_selector;
         private Label label13;
         private ProgressBar progressBar1;
         private Label label14_enough;
