@@ -103,7 +103,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackgroundImage = global::SE_Fight_Gravity.Resource1.satm_thruster;
             this.pictureBox2.Location = new System.Drawing.Point(11, 109);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(23, 23);
@@ -112,7 +112,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImage = global::SE_Fight_Gravity.Resource1.latm_thruster;
             this.pictureBox1.Location = new System.Drawing.Point(11, 61);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(23, 23);
@@ -174,7 +174,7 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
+            this.pictureBox4.BackgroundImage = global::SE_Fight_Gravity.Resource1.shydro_thruster;
             this.pictureBox4.Location = new System.Drawing.Point(10, 109);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(23, 23);
@@ -183,7 +183,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
+            this.pictureBox3.BackgroundImage = global::SE_Fight_Gravity.Resource1.lhydro_thruster;
             this.pictureBox3.Location = new System.Drawing.Point(10, 61);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(23, 23);
@@ -255,7 +255,7 @@
             // 
             // pictureBox6
             // 
-            this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
+            this.pictureBox6.BackgroundImage = global::SE_Fight_Gravity.Resource1.sion_thruster;
             this.pictureBox6.Location = new System.Drawing.Point(10, 109);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(23, 23);
@@ -264,7 +264,7 @@
             // 
             // pictureBox5
             // 
-            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
+            this.pictureBox5.BackgroundImage = global::SE_Fight_Gravity.Resource1.lion_thruster;
             this.pictureBox5.Location = new System.Drawing.Point(10, 61);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(23, 23);

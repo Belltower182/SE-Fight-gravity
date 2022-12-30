@@ -196,7 +196,7 @@
             // label_gs
             // 
             this.label_gs.AutoSize = true;
-            this.label_gs.Location = new System.Drawing.Point(195, 296);
+            this.label_gs.Location = new System.Drawing.Point(195, 292);
             this.label_gs.Name = "label_gs";
             this.label_gs.Size = new System.Drawing.Size(16, 15);
             this.label_gs.TabIndex = 16;
@@ -204,19 +204,20 @@
             // 
             // button3
             // 
+            this.button3.BackColor = System.Drawing.SystemColors.Window;
             this.button3.Enabled = false;
             this.button3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button3.Location = new System.Drawing.Point(10, 562);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(163, 29);
             this.button3.TabIndex = 15;
-            this.button3.Text = "Mixed calculations";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Text = "Mixed calculation";
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.mixed_calculation_button_Click);
             // 
             // button_about
             // 
-            this.button_about.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_about.BackgroundImage")));
+            this.button_about.BackgroundImage = global::SE_Fight_Gravity.Resource1.info_icon;
             this.button_about.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button_about.Location = new System.Drawing.Point(179, 562);
             this.button_about.Name = "button_about";
@@ -309,7 +310,7 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
+            this.pictureBox4.BackgroundImage = global::SE_Fight_Gravity.Resource1.small_cargo_container;
             this.pictureBox4.Location = new System.Drawing.Point(6, 153);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(23, 23);
@@ -318,7 +319,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
+            this.pictureBox3.BackgroundImage = global::SE_Fight_Gravity.Resource1.medium_cargo_container;
             this.pictureBox3.Location = new System.Drawing.Point(6, 124);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(23, 23);
@@ -327,7 +328,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackgroundImage = global::SE_Fight_Gravity.Resource1.large_cargo_container;
             this.pictureBox2.Location = new System.Drawing.Point(6, 92);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(23, 23);
@@ -420,7 +421,7 @@
             // 
             // button_save
             // 
-            this.button_save.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_save.BackgroundImage")));
+            this.button_save.BackgroundImage = global::SE_Fight_Gravity.Resource1.save_icon;
             this.button_save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button_save.Enabled = false;
             this.button_save.Location = new System.Drawing.Point(179, 528);
@@ -442,8 +443,9 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImage = global::SE_Fight_Gravity.Resource1.main_cover;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.InitialImage = null;
             this.pictureBox1.Location = new System.Drawing.Point(10, 14);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(239, 145);
@@ -472,7 +474,7 @@
             this.button_calculation.Name = "button_calculation";
             this.button_calculation.Size = new System.Drawing.Size(163, 28);
             this.button_calculation.TabIndex = 9;
-            this.button_calculation.Text = "Fast calculations";
+            this.button_calculation.Text = "Precise calculation";
             this.button_calculation.UseVisualStyleBackColor = false;
             this.button_calculation.Click += new System.EventHandler(this.button_calculation_Click);
             // 
@@ -552,7 +554,8 @@
             // 
             // pictureBox5
             // 
-            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
+            this.pictureBox5.BackgroundImage = global::SE_Fight_Gravity.Resource1.c_atmospher_thruster;
+            this.pictureBox5.InitialImage = null;
             this.pictureBox5.Location = new System.Drawing.Point(54, 32);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(88, 88);
@@ -1015,7 +1018,7 @@
             // 
             // pictureBox8
             // 
-            this.pictureBox8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox8.BackgroundImage")));
+            this.pictureBox8.BackgroundImage = global::SE_Fight_Gravity.Resource1.c_hydrogen_thruster;
             this.pictureBox8.Location = new System.Drawing.Point(53, 32);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(88, 88);
@@ -1216,7 +1219,7 @@
             // 
             // pictureBox6
             // 
-            this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
+            this.pictureBox6.BackgroundImage = global::SE_Fight_Gravity.Resource1.c_ion_thruster;
             this.pictureBox6.Location = new System.Drawing.Point(52, 32);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(88, 88);

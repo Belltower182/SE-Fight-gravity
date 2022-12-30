@@ -36,12 +36,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.email_button = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // close_button
             // 
-            this.close_button.Location = new System.Drawing.Point(272, 161);
+            this.close_button.Location = new System.Drawing.Point(269, 178);
             this.close_button.Name = "close_button";
             this.close_button.Size = new System.Drawing.Size(73, 23);
             this.close_button.TabIndex = 0;
@@ -52,15 +53,15 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 139);
+            this.label1.Location = new System.Drawing.Point(65, 140);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 45);
+            this.label1.Size = new System.Drawing.Size(230, 15);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Version: 1.0.0\r\nBuild: 2022\r\nAuthor: Belltower";
+            this.label1.Text = "Version: 1.0.0 Build: 2022 Author: Belltower";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImage = global::SE_Fight_Gravity.Resource1.about;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(333, 50);
@@ -69,7 +70,7 @@
             // 
             // github_button
             // 
-            this.github_button.Location = new System.Drawing.Point(193, 161);
+            this.github_button.Location = new System.Drawing.Point(182, 178);
             this.github_button.Name = "github_button";
             this.github_button.Size = new System.Drawing.Size(73, 23);
             this.github_button.TabIndex = 3;
@@ -80,7 +81,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(159, 143);
+            this.label3.Location = new System.Drawing.Point(107, 160);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(135, 15);
             this.label3.TabIndex = 5;
@@ -89,7 +90,7 @@
             // 
             // email_button
             // 
-            this.email_button.Location = new System.Drawing.Point(114, 161);
+            this.email_button.Location = new System.Drawing.Point(97, 178);
             this.email_button.Name = "email_button";
             this.email_button.Size = new System.Drawing.Size(73, 23);
             this.email_button.TabIndex = 6;
@@ -105,13 +106,24 @@
             this.label2.Size = new System.Drawing.Size(333, 45);
             this.label2.TabIndex = 7;
             this.label2.Text = "If you found a bug or you have suggestions, you can write me\r\nan email. Latest ve" +
-    "rsion of this program may be found on my \r\nGitHub repository.";
+    "rsion of this app may be found on my \r\nGitHub repository.";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 178);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(73, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Donate";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button_donate_Click);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(357, 195);
+            this.ClientSize = new System.Drawing.Size(357, 206);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.email_button);
             this.Controls.Add(this.label3);
@@ -120,8 +132,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.close_button);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(373, 234);
-            this.MinimumSize = new System.Drawing.Size(373, 234);
+            this.MaximumSize = new System.Drawing.Size(373, 245);
+            this.MinimumSize = new System.Drawing.Size(373, 245);
             this.Name = "Form2";
             this.Text = "About";
             this.Load += new System.EventHandler(this.Form2_Load);
@@ -140,5 +152,6 @@
         private Label label3;
         private Button email_button;
         private Label label2;
+        private Button button1;
     }
 }

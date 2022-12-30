@@ -171,7 +171,7 @@ namespace SE_Fight_Gravity
                 this.total_newton_value = mass_summary_set * g_amount / 1000;
                 calc_for_largegrid(total_newton_value);
             }
-            //LG + weight not included + large container
+            // LG + weight not included + large container
             if (type_of_blocks.SelectedIndex == 0 && activate_containers.Checked && without_ore.Checked && activate_large_container.Checked)
             {
                 this.mass_summary_set = (Containers.LargeContainers.largecargocontainer_mass_largegrid * large_container_parsed) + user_value_kg;
@@ -529,56 +529,56 @@ namespace SE_Fight_Gravity
                 this.g_amount = 9807; // 1g
                 this.planet_msv = 9.8;
                 label_gs.Text = "1g";
-                pictureBox1.Image = Image.FromFile("C:\\Users\\Greg\\Desktop\\img\\earthlike_planet.png");
+                pictureBox1.Image = Resource1.earthlike_planet;
             }
             if (user_location_choice.SelectedIndex == 1) // Moon
             {
                 this.g_amount = 2451; // 0.25g in Newtons
                 this.planet_msv = 2.45;
                 label_gs.Text = "0.25g";
-                pictureBox1.Image = Image.FromFile("C:\\Users\\Greg\\Desktop\\img\\moon_planet.png");
+                pictureBox1.Image = Resource1.moon_planet;
             }
             if (user_location_choice.SelectedIndex == 2) // Mars
             {
                 this.g_amount = 8826; // 0.90g in Newtons
                 this.planet_msv = 8.82;
                 label_gs.Text = "0.90g";
-                pictureBox1.Image = Image.FromFile("C:\\Users\\Greg\\Desktop\\img\\mars_planet.png");
+                pictureBox1.Image = Resource1.mars_planet;
             }
             if (user_location_choice.SelectedIndex == 3) // Europa
             {
                 this.g_amount = 2451; // 0.25g in Newtons
                 this.planet_msv = 2.45; // 2.452ms
                 label_gs.Text = "0.25g";
-                pictureBox1.Image = Image.FromFile("C:\\Users\\Greg\\Desktop\\img\\europa_planet.png");
+                pictureBox1.Image = Resource1.europa_planet;
             }
             if (user_location_choice.SelectedIndex == 4) // Triton
             {
                 this.g_amount = 9807; // 1g
                 this.planet_msv = 9.8;
                 label_gs.Text = "1g";
-                pictureBox1.Image = Image.FromFile("C:\\Users\\Greg\\Desktop\\img\\triton_planet.png");
+                pictureBox1.Image = Resource1.triton_planet;
             }
             if (user_location_choice.SelectedIndex == 5) // Pertam
             {
                 this.g_amount = 11768; // 1.20g in Newtons
                 this.planet_msv = 11.77;
                 label_gs.Text = "1.20g";
-                pictureBox1.Image = Image.FromFile("C:\\Users\\Greg\\Desktop\\img\\pertam_planet.png");
+                pictureBox1.Image = Resource1.pertam_planet;
             }
             if (user_location_choice.SelectedIndex == 6) // Alien planet
             {
                 this.g_amount = 10787; // 1.10g in Newtons
                 this.planet_msv = 10.78;
                 label_gs.Text = "1.10g";
-                pictureBox1.Image = Image.FromFile("C:\\Users\\Greg\\Desktop\\img\\alien_planet.png");
+                pictureBox1.Image = Resource1.alien_planet;
             }
             if (user_location_choice.SelectedIndex == 7) // Titan
             {
                 this.g_amount = 2451; // 0.25g in Newtons
                 this.planet_msv = 2.45;
                 label_gs.Text = "0.25g";
-                pictureBox1.Image = Image.FromFile("C:\\Users\\Greg\\Desktop\\img\\titan_planet.png");
+                pictureBox1.Image = Resource1.titan_planet;
             }
         }
 
