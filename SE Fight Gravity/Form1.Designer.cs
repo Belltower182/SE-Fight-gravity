@@ -148,7 +148,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
-            // type_of_blocks
+            // Type Of Blocks Selector
             // 
             this.type_of_blocks.BackColor = System.Drawing.Color.Bisque;
             this.type_of_blocks.FormattingEnabled = true;
@@ -160,7 +160,7 @@
             this.type_of_blocks.Size = new System.Drawing.Size(121, 23);
             this.type_of_blocks.TabIndex = 0;
             this.type_of_blocks.Text = "Select";
-            this.type_of_blocks.SelectedIndexChanged += new System.EventHandler(this.type_of_blocks_SelectedIndexChanged);
+            this.type_of_blocks.SelectedIndexChanged += new System.EventHandler(this.TypeOfBlocksSelectorSelectedIndexChanged);
             // 
             // label1
             // 
@@ -202,7 +202,7 @@
             this.label_gs.TabIndex = 16;
             this.label_gs.Text = "...";
             // 
-            // button3
+            // Mixed Calculations
             // 
             this.button3.BackColor = System.Drawing.SystemColors.Window;
             this.button3.Enabled = false;
@@ -213,9 +213,9 @@
             this.button3.TabIndex = 15;
             this.button3.Text = "Mixed calculation";
             this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.mixed_calculation_button_Click);
+            this.button3.Click += new System.EventHandler(this.MixedCalculationsButtonClick);
             // 
-            // button_about
+            // Button "About"
             // 
             this.button_about.BackgroundImage = global::SE_Fight_Gravity.Resource1.info_icon;
             this.button_about.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -225,7 +225,7 @@
             this.button_about.TabIndex = 14;
             this.button_about.Text = "    About";
             this.button_about.UseVisualStyleBackColor = true;
-            this.button_about.Click += new System.EventHandler(this.info_button_Click);
+            this.button_about.Click += new System.EventHandler(this.InfoButtonClick);
             // 
             // groupBox2
             // 
@@ -248,7 +248,7 @@
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             // 
-            // activate_small_container
+            // Small Container Activator
             // 
             this.activate_small_container.AutoSize = true;
             this.activate_small_container.Enabled = false;
@@ -258,9 +258,9 @@
             this.activate_small_container.TabIndex = 15;
             this.activate_small_container.Text = "Small container";
             this.activate_small_container.UseVisualStyleBackColor = true;
-            this.activate_small_container.CheckedChanged += new System.EventHandler(this.activate_small_container_CheckedChanged);
+            this.activate_small_container.CheckedChanged += new System.EventHandler(this.ActivateSmallContainerCheckedChanged);
             // 
-            // cargo_multiplier
+            // Cargo Multiplayer Selector
             // 
             this.cargo_multiplier.BackColor = System.Drawing.Color.White;
             this.cargo_multiplier.Enabled = false;
@@ -284,7 +284,7 @@
             this.label17.TabIndex = 13;
             this.label17.Text = "Cargo multiplier";
             // 
-            // without_ore
+            // Without Ore Selector
             // 
             this.without_ore.AutoSize = true;
             this.without_ore.Enabled = false;
@@ -294,9 +294,9 @@
             this.without_ore.TabIndex = 12;
             this.without_ore.Text = "Add empty containers";
             this.without_ore.UseVisualStyleBackColor = true;
-            this.without_ore.CheckedChanged += new System.EventHandler(this.cargo_no_weight_CheckedChanged);
+            this.without_ore.CheckedChanged += new System.EventHandler(this.CargoWithoutWeightCheckedChanged);
             // 
-            // full_of_ore
+            // With Ore Selector
             // 
             this.full_of_ore.AutoSize = true;
             this.full_of_ore.Enabled = false;
@@ -306,9 +306,9 @@
             this.full_of_ore.TabIndex = 11;
             this.full_of_ore.Text = "Add containers full of ore";
             this.full_of_ore.UseVisualStyleBackColor = true;
-            this.full_of_ore.CheckedChanged += new System.EventHandler(this.cargo_weight_CheckedChanged);
+            this.full_of_ore.CheckedChanged += new System.EventHandler(this.CargoWithWeightCheckedChanged);
             // 
-            // pictureBox4
+            // Small Cargo Picturebox
             // 
             this.pictureBox4.BackgroundImage = global::SE_Fight_Gravity.Resource1.small_cargo_container;
             this.pictureBox4.Location = new System.Drawing.Point(6, 153);
@@ -317,7 +317,7 @@
             this.pictureBox4.TabIndex = 10;
             this.pictureBox4.TabStop = false;
             // 
-            // pictureBox3
+            // Medium Cargo PictureBox
             // 
             this.pictureBox3.BackgroundImage = global::SE_Fight_Gravity.Resource1.medium_cargo_container;
             this.pictureBox3.Location = new System.Drawing.Point(6, 124);
@@ -326,7 +326,7 @@
             this.pictureBox3.TabIndex = 9;
             this.pictureBox3.TabStop = false;
             // 
-            // pictureBox2
+            // Large Cargo Container PictureBox
             // 
             this.pictureBox2.BackgroundImage = global::SE_Fight_Gravity.Resource1.large_cargo_container;
             this.pictureBox2.Location = new System.Drawing.Point(6, 92);
@@ -335,7 +335,7 @@
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
             // 
-            // activate_medium_container
+            // Medium Container Activator
             // 
             this.activate_medium_container.AutoSize = true;
             this.activate_medium_container.Enabled = false;
@@ -345,9 +345,9 @@
             this.activate_medium_container.TabIndex = 3;
             this.activate_medium_container.Text = "Medium container";
             this.activate_medium_container.UseVisualStyleBackColor = true;
-            this.activate_medium_container.CheckedChanged += new System.EventHandler(this.activate_medium_container_CheckedChanged);
+            this.activate_medium_container.CheckedChanged += new System.EventHandler(this.ActivateMediumContainerCheckedChanged);
             // 
-            // small_container_quantity
+            // Small Container User Value
             // 
             this.small_container_quantity.BackColor = System.Drawing.Color.White;
             this.small_container_quantity.Enabled = false;
@@ -355,9 +355,9 @@
             this.small_container_quantity.Name = "small_container_quantity";
             this.small_container_quantity.Size = new System.Drawing.Size(49, 23);
             this.small_container_quantity.TabIndex = 7;
-            this.small_container_quantity.TextChanged += new System.EventHandler(this.small_container_quantity_TextChanged);
+            this.small_container_quantity.TextChanged += new System.EventHandler(this.SmallContainerQuantityTextChanged);
             // 
-            // activate_large_container
+            // Large Container Activator
             // 
             this.activate_large_container.AutoSize = true;
             this.activate_large_container.Enabled = false;
@@ -367,9 +367,9 @@
             this.activate_large_container.TabIndex = 2;
             this.activate_large_container.Text = "Large container";
             this.activate_large_container.UseVisualStyleBackColor = true;
-            this.activate_large_container.CheckedChanged += new System.EventHandler(this.activate_large_container_CheckedChanged);
+            this.activate_large_container.CheckedChanged += new System.EventHandler(this.LargeContainerActivationCheckedChanged);
             // 
-            // medium_container_quantity
+            // Medium Container User Value
             // 
             this.medium_container_quantity.BackColor = System.Drawing.Color.White;
             this.medium_container_quantity.Enabled = false;
@@ -377,9 +377,9 @@
             this.medium_container_quantity.Name = "medium_container_quantity";
             this.medium_container_quantity.Size = new System.Drawing.Size(49, 23);
             this.medium_container_quantity.TabIndex = 6;
-            this.medium_container_quantity.TextChanged += new System.EventHandler(this.medium_container_quantity_TextChanged);
+            this.medium_container_quantity.TextChanged += new System.EventHandler(this.MediumContainerQuantityTextChanged);
             // 
-            // large_container_quantity
+            // Large Container User Value
             // 
             this.large_container_quantity.BackColor = System.Drawing.Color.White;
             this.large_container_quantity.Enabled = false;
@@ -387,7 +387,7 @@
             this.large_container_quantity.Name = "large_container_quantity";
             this.large_container_quantity.Size = new System.Drawing.Size(49, 23);
             this.large_container_quantity.TabIndex = 5;
-            this.large_container_quantity.TextChanged += new System.EventHandler(this.large_container_quantity_TextChanged);
+            this.large_container_quantity.TextChanged += new System.EventHandler(this.LargeContainerQuantityTextChanged);
             // 
             // label3
             // 
@@ -398,7 +398,7 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "3. Select location";
             // 
-            // user_location_choice
+            // User Selected Location
             // 
             this.user_location_choice.BackColor = System.Drawing.SystemColors.Window;
             this.user_location_choice.Enabled = false;
@@ -417,9 +417,9 @@
             this.user_location_choice.Size = new System.Drawing.Size(121, 23);
             this.user_location_choice.TabIndex = 4;
             this.user_location_choice.Text = "Select";
-            this.user_location_choice.SelectedIndexChanged += new System.EventHandler(this.location_selector_SelectedIndexChanged);
+            this.user_location_choice.SelectedIndexChanged += new System.EventHandler(this.LocationSelectorSelectedIndexChanged);
             // 
-            // button_save
+            // Button "Save"
             // 
             this.button_save.BackgroundImage = global::SE_Fight_Gravity.Resource1.save_icon;
             this.button_save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -430,7 +430,7 @@
             this.button_save.TabIndex = 13;
             this.button_save.Text = "   Save";
             this.button_save.UseVisualStyleBackColor = true;
-            this.button_save.Click += new System.EventHandler(this.save_info_button_Click);
+            this.button_save.Click += new System.EventHandler(this.SaveButtonClick);
             // 
             // label2
             // 
@@ -441,7 +441,7 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "2. Enter ship mass";
             // 
-            // pictureBox1
+            // Cover PictureBox
             // 
             this.pictureBox1.BackgroundImage = global::SE_Fight_Gravity.Resource1.main_cover;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -452,7 +452,7 @@
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
-            // user_entered_value
+            // User Weight Value
             // 
             this.user_entered_value.BackColor = System.Drawing.SystemColors.Window;
             this.user_entered_value.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -461,9 +461,9 @@
             this.user_entered_value.Name = "user_entered_value";
             this.user_entered_value.Size = new System.Drawing.Size(121, 23);
             this.user_entered_value.TabIndex = 2;
-            this.user_entered_value.TextChanged += new System.EventHandler(this.user_entered_value_TextChanged);
+            this.user_entered_value.TextChanged += new System.EventHandler(this.UserEnteredValueTextChanged);
             // 
-            // button_calculation
+            // Button "Precise Calculations"
             // 
             this.button_calculation.BackColor = System.Drawing.SystemColors.Window;
             this.button_calculation.Enabled = false;
@@ -476,9 +476,9 @@
             this.button_calculation.TabIndex = 9;
             this.button_calculation.Text = "Precise calculation";
             this.button_calculation.UseVisualStyleBackColor = false;
-            this.button_calculation.Click += new System.EventHandler(this.button_calculation_Click);
+            this.button_calculation.Click += new System.EventHandler(this.ButtonCalculationClick);
             // 
-            // activate_containers
+            // Activate Containers Selector
             // 
             this.activate_containers.AutoSize = true;
             this.activate_containers.Enabled = false;
@@ -488,9 +488,9 @@
             this.activate_containers.TabIndex = 0;
             this.activate_containers.Text = "Add cargo containers (Optional)";
             this.activate_containers.UseVisualStyleBackColor = true;
-            this.activate_containers.CheckedChanged += new System.EventHandler(this.activate_containers_CheckedChanged);
+            this.activate_containers.CheckedChanged += new System.EventHandler(this.ContainersActivationCheckedChanged);
             // 
-            // label_warn
+            // Label Warning
             // 
             this.label_warn.AutoSize = true;
             this.label_warn.ForeColor = System.Drawing.Color.Red;

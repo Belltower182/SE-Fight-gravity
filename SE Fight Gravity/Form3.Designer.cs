@@ -127,7 +127,7 @@
             this.s_atm_thr.Name = "s_atm_thr";
             this.s_atm_thr.Size = new System.Drawing.Size(100, 23);
             this.s_atm_thr.TabIndex = 6;
-            this.s_atm_thr.TextChanged += new System.EventHandler(this.s_atm_thr_TextChanged);
+            this.s_atm_thr.TextChanged += new System.EventHandler(this.SmallAtmosphericQuantityThrustersTextChanged);
             // 
             // l_atm_thr
             // 
@@ -137,7 +137,7 @@
             this.l_atm_thr.Name = "l_atm_thr";
             this.l_atm_thr.Size = new System.Drawing.Size(100, 23);
             this.l_atm_thr.TabIndex = 5;
-            this.l_atm_thr.TextChanged += new System.EventHandler(this.l_atm_thr_TextChanged);
+            this.l_atm_thr.TextChanged += new System.EventHandler(this.LargeAtmosphericQuantityThrustersTextChanged);
             // 
             // label3
             // 
@@ -207,7 +207,7 @@
             this.s_hydrogen_thrusters.Name = "s_hydrogen_thrusters";
             this.s_hydrogen_thrusters.Size = new System.Drawing.Size(100, 23);
             this.s_hydrogen_thrusters.TabIndex = 3;
-            this.s_hydrogen_thrusters.TextChanged += new System.EventHandler(this.s_hydrogen_thrusters_TextChanged);
+            this.s_hydrogen_thrusters.TextChanged += new System.EventHandler(this.SmallHydrogenThrustersQuantityTextChanged);
             // 
             // l_hydrogen_thrusters
             // 
@@ -217,7 +217,7 @@
             this.l_hydrogen_thrusters.Name = "l_hydrogen_thrusters";
             this.l_hydrogen_thrusters.Size = new System.Drawing.Size(100, 23);
             this.l_hydrogen_thrusters.TabIndex = 2;
-            this.l_hydrogen_thrusters.TextChanged += new System.EventHandler(this.l_hydrogen_thrusters_TextChanged);
+            this.l_hydrogen_thrusters.TextChanged += new System.EventHandler(this.LargeHydrogenThrustersQuantityTextChanged);
             // 
             // label5
             // 
@@ -288,7 +288,7 @@
             this.s_ion_thrusters.Name = "s_ion_thrusters";
             this.s_ion_thrusters.Size = new System.Drawing.Size(100, 23);
             this.s_ion_thrusters.TabIndex = 3;
-            this.s_ion_thrusters.TextChanged += new System.EventHandler(this.s_ion_thrusters_TextChanged);
+            this.s_ion_thrusters.TextChanged += new System.EventHandler(this.SmallIonThrustersQuantityTextChanged);
             // 
             // l_ion_thrusters
             // 
@@ -298,7 +298,7 @@
             this.l_ion_thrusters.Name = "l_ion_thrusters";
             this.l_ion_thrusters.Size = new System.Drawing.Size(100, 23);
             this.l_ion_thrusters.TabIndex = 2;
-            this.l_ion_thrusters.TextChanged += new System.EventHandler(this.l_ion_thrusters_TextChanged);
+            this.l_ion_thrusters.TextChanged += new System.EventHandler(this.LargeIonThrustersQuantityTextChanged);
             // 
             // label8
             // 
@@ -427,7 +427,7 @@
             this.power_selector.Name = "power_selector";
             this.power_selector.Size = new System.Drawing.Size(55, 23);
             this.power_selector.TabIndex = 8;
-            this.power_selector.SelectedIndexChanged += new System.EventHandler(this.power_selector_SelectedIndexChanged);
+            this.power_selector.SelectedIndexChanged += new System.EventHandler(this.PowerSelectorSelectedIndexChanged);
             // 
             // label13
             // 

@@ -47,128 +47,115 @@
             s_hydrogen_thrusters.Text = "0";
             l_ion_thrusters.Text = "0";
             s_ion_thrusters.Text = "0";
-            return;
         }
 
         #region Text fields
 
-        private void l_atm_thr_TextChanged(object sender, EventArgs e)
+        private void LargeAtmosphericQuantityThrustersTextChanged(object sender, EventArgs e)
         {
             bool check_field = Double.TryParse(l_atm_thr.Text, out double value);
             if (check_field == true)
             {
                 this.large_atm_quantity = Convert.ToDouble(l_atm_thr.Text);
-                calculate_power();
-                statusbar();
-                status_calc();
+                CalculatePower();
+                StatusBar();
+                StatusTextCalculations();
                 label12.Visible = false;
-                return;
             }
             else
             {
                 label12.Visible = true;
             }
-            return;
         }
 
-        private void s_atm_thr_TextChanged(object sender, EventArgs e)
+        private void SmallAtmosphericQuantityThrustersTextChanged(object sender, EventArgs e)
         {
             bool check_field = Double.TryParse(s_atm_thr.Text, out double value);
             if (check_field == true)
             {
                 this.small_atm_quantity = Convert.ToDouble(s_atm_thr.Text);
-                calculate_power();
-                statusbar();
-                status_calc();
+                CalculatePower();
+                StatusBar();
+                StatusTextCalculations();
                 label12.Visible = false;
-                return;
             }
             else
             {
                 label12.Visible = true;
             }
-            return;
         }
 
-        private void l_hydrogen_thrusters_TextChanged(object sender, EventArgs e)
+        private void LargeHydrogenThrustersQuantityTextChanged(object sender, EventArgs e)
         {
             bool check_field = Double.TryParse(l_hydrogen_thrusters.Text, out double value);
             if (check_field == true)
             {
                 this.large_hydro_quantity = Convert.ToDouble(l_hydrogen_thrusters.Text);
-                calculate_power();
-                statusbar();
-                status_calc();
+                CalculatePower();
+                StatusBar();
+                StatusTextCalculations();
                 label12.Visible = false;
-                return;
             }
             else
             {
                 label12.Visible = true;
             }
-            return;
         }
 
-        private void s_hydrogen_thrusters_TextChanged(object sender, EventArgs e)
+        private void SmallHydrogenThrustersQuantityTextChanged(object sender, EventArgs e)
         {
             bool check_field = Double.TryParse(s_hydrogen_thrusters.Text, out double value);
-            if (check_field == true)
+            if (check_field)
             {
                 this.small_hydro_quantity = Convert.ToDouble(s_hydrogen_thrusters.Text);
-                calculate_power();
-                statusbar();
-                status_calc();
+                CalculatePower();
+                StatusBar();
+                StatusTextCalculations();
                 label12.Visible = false;
-                return;
             }
             else
             {
                 label12.Visible = true;
             }
-            return;
         }
 
-        private void l_ion_thrusters_TextChanged(object sender, EventArgs e)
+        private void LargeIonThrustersQuantityTextChanged(object sender, EventArgs e)
         {
             bool check_field = Double.TryParse(l_ion_thrusters.Text, out double value);
-            if (check_field == true)
+            if (check_field)
             {
                 this.large_ion_quantity = Convert.ToDouble(l_ion_thrusters.Text);
-                calculate_power();
-                statusbar();
-                status_calc();
+                CalculatePower();
+                StatusBar();
+                StatusTextCalculations();
                 label12.Visible = false;
-                return;
             }
             else
             {
                 label12.Visible = true;
             }
-            return;
         }
 
-        private void s_ion_thrusters_TextChanged(object sender, EventArgs e)
+        private void SmallIonThrustersQuantityTextChanged(object sender, EventArgs e)
         {
             bool check_field = Double.TryParse(s_ion_thrusters.Text, out double value);
-            if (check_field == true)
+            if (check_field)
             {
                 this.small_ion_quantity = Convert.ToDouble(s_ion_thrusters.Text);
-                calculate_power();
-                statusbar();
-                status_calc();
+                CalculatePower();
+                StatusBar();
+                StatusTextCalculations();
                 label12.Visible = false;
-                return;
             }
             else
             {
                 label12.Visible = true;
             }
-            return;
         }
 
         #endregion Text fields
 
-        private void power_selector_SelectedIndexChanged(object sender, EventArgs e)
+        private void PowerSelectorSelectedIndexChanged(object sender, EventArgs e)
         {
             if (power_selector.SelectedIndex == 0)
             {
@@ -210,11 +197,9 @@
             {
                 power_percentage = 0.1;
             }
-
-            return;
         }
 
-        private void calculate_power()
+        private void CalculatePower()
         {
             if (block_type_f3 == "large")
             {
@@ -226,10 +211,9 @@
                 this.result_of_calculations = (((large_atmospheric_smallgrid * large_atm_quantity) + (large_hydrogen_smallgrid * large_hydro_quantity) + (large_ion_smallgrid * large_ion_quantity) + (small_atmospheric_smallgrid * small_atm_quantity) + (small_hydrogen_smallgrid * small_hydro_quantity) + (small_ion_smallgrid * small_ion_quantity)) * power_percentage) / planet_ms;
                 current_power.Text = Math.Ceiling(result_of_calculations).ToString();
             }
-            return;
         }
 
-        private void statusbar()
+        private void StatusBar()
         {
             try
             {
@@ -241,10 +225,9 @@
             {
                 progressBar1.Maximum = progressBar1.Value;
             }
-            return;
         }
 
-        private void status_calc()
+        private void StatusTextCalculations()
         {
             if (result_of_calculations < totall_mass)
             {
@@ -256,7 +239,6 @@
                 label12_not_enough.Visible = false;
                 label14_enough.Visible = true;
             }
-            return;
         }
     }
 }

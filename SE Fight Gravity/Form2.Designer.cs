@@ -48,16 +48,16 @@
             this.close_button.TabIndex = 0;
             this.close_button.Text = "Close";
             this.close_button.UseVisualStyleBackColor = true;
-            this.close_button.Click += new System.EventHandler(this.close_info_button_Click);
+            this.close_button.Click += new System.EventHandler(this.ButtonInfoCloseClick);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(65, 140);
+            this.label1.Location = new System.Drawing.Point(51, 139);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(230, 15);
+            this.label1.Size = new System.Drawing.Size(257, 15);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Version: 1.0.0 Build: 2022 Author: Belltower";
+            this.label1.Text = "Version: 1.0.0 Date: 01.01.2022 Author: Belltower";
             // 
             // pictureBox1
             // 
@@ -76,7 +76,7 @@
             this.github_button.TabIndex = 3;
             this.github_button.Text = "My GitHub";
             this.github_button.UseVisualStyleBackColor = true;
-            this.github_button.Click += new System.EventHandler(this.github_button_Click);
+            this.github_button.Click += new System.EventHandler(this.LinkToGithubClick);
             // 
             // label3
             // 
@@ -96,7 +96,7 @@
             this.email_button.TabIndex = 6;
             this.email_button.Text = "E-Mail";
             this.email_button.UseVisualStyleBackColor = true;
-            this.email_button.Click += new System.EventHandler(this.email_button_Click);
+            this.email_button.Click += new System.EventHandler(this.LinkForEmailButtonClick);
             // 
             // label2
             // 
@@ -116,7 +116,7 @@
             this.button1.TabIndex = 8;
             this.button1.Text = "Donate";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button_donate_Click);
+            this.button1.Click += new System.EventHandler(this.LinkToDonateButtonClick);
             // 
             // Form2
             // 

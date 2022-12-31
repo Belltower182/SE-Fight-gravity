@@ -66,7 +66,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "Copy link to donate page";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.donate_link_Click);
+            this.button1.Click += new System.EventHandler(this.ButtonDonateLinkClick);
             // 
             // label_donate
             // 
@@ -103,6 +103,7 @@
             this.MinimumSize = new System.Drawing.Size(387, 211);
             this.Name = "Donate";
             this.Text = "Donate";
+            this.Load += new System.EventHandler(this.DonateLoad);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

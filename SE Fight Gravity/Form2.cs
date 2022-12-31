@@ -9,28 +9,29 @@
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            // Nothing To Initiate At Start.
         }
 
-        private void close_info_button_Click(object sender, EventArgs e)
+        private void ButtonInfoCloseClick(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void github_button_Click(object sender, EventArgs e)
+        private void LinkToGithubClick(object sender, EventArgs e)
         {
             label3.ForeColor = Color.Green;
             label3.Visible = true;
             Clipboard.SetText("https://github.com/Belltower182/SE-Fight-gravity");
         }
 
-        private void email_button_Click(object sender, EventArgs e)
+        private void LinkForEmailButtonClick(object sender, EventArgs e)
         {
             label3.ForeColor = Color.Green;
             label3.Visible = true;
             Clipboard.SetText("gregbkv@gmail.com");
         }
 
-        private void button_donate_Click(object sender, EventArgs e)
+        private void LinkToDonateButtonClick(object sender, EventArgs e)
         {
             Donate donate = new Donate();
             donate.Show();

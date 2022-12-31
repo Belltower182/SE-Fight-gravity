@@ -18,11 +18,17 @@ namespace SE_Fight_Gravity
             InitializeComponent();
         }
 
-        private void donate_link_Click(object sender, EventArgs e)
+        private void ButtonDonateLinkClick(object sender, EventArgs e)
         {
             label_donate.ForeColor = Color.Green;
             label_donate.Visible = true;
             Clipboard.SetText("https://www.donationalerts.com/r/belltower182");
+        }
+
+        private void DonateLoad(object sender, EventArgs e)
+        {
+            // Empty
+
         }
     }
 }
