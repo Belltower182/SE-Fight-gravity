@@ -21,7 +21,7 @@
         {
             label3.ForeColor = Color.Green;
             label3.Visible = true;
-            Clipboard.SetText("https://github.com/Belltower182/SE-Fight-gravity");
+            Clipboard.SetText("https://github.com/Belltower182/SE-Fight-gravity/releases");
         }
 
         private void LinkForEmailButtonClick(object sender, EventArgs e)

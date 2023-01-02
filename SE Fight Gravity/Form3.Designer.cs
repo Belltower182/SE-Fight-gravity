@@ -339,11 +339,11 @@
             this.label14_enough.AutoSize = true;
             this.label14_enough.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label14_enough.ForeColor = System.Drawing.Color.LimeGreen;
-            this.label14_enough.Location = new System.Drawing.Point(125, 32);
+            this.label14_enough.Location = new System.Drawing.Point(129, 32);
             this.label14_enough.Name = "label14_enough";
-            this.label14_enough.Size = new System.Drawing.Size(223, 30);
+            this.label14_enough.Size = new System.Drawing.Size(210, 30);
             this.label14_enough.TabIndex = 12;
-            this.label14_enough.Text = "ENOUGHT TO HOLD";
+            this.label14_enough.Text = "ENOUGH TO HOLD";
             this.label14_enough.Visible = false;
             // 
             // progressBar1
