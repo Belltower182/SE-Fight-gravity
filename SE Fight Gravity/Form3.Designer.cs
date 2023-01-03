@@ -443,11 +443,11 @@
             // 
             this.label12.AutoSize = true;
             this.label12.ForeColor = System.Drawing.Color.Crimson;
-            this.label12.Location = new System.Drawing.Point(52, 174);
+            this.label12.Location = new System.Drawing.Point(18, 159);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(67, 15);
+            this.label12.Size = new System.Drawing.Size(139, 45);
             this.label12.TabIndex = 10;
-            this.label12.Text = "Only digits!";
+            this.label12.Text = "Text field can\'t be empty \r\nand \r\ncan take only digits!";
             // 
             // Form3
             // 

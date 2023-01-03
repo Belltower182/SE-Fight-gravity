@@ -7,28 +7,14 @@
         public double totall_mass { get; set; }
         public string block_type_f3 { get; set; }
         public double planet_ms { get; set; }
-        public double large_atm_quantity = 0;
-        public double small_atm_quantity = 0;
-        public double large_hydro_quantity = 0;
-        public double small_hydro_quantity = 0;
-        public double large_ion_quantity = 0;
-        public double small_ion_quantity = 0;
-        public double power_percentage = 0.0;
-        public double result_of_calculations = 0.0;
-
-        public const double large_atmospheric_largegrid = 6480000;
-        public const double small_atmospheric_largegrid = 648000;
-        public const double large_hydrogen_largegrid = 7200000;
-        public const double small_hydrogen_largegrid = 1080000;
-        public const double large_ion_largegrid = 4320000;
-        public const double small_ion_largegrid = 345600;
-
-        public const double large_atmospheric_smallgrid = 576000;
-        public const double small_atmospheric_smallgrid = 96000;
-        public const double large_hydrogen_smallgrid = 480000;
-        public const double small_hydrogen_smallgrid = 98400;
-        public const double large_ion_smallgrid = 172800;
-        public const short small_ion_smallgrid = 14400;
+        private double large_atm_quantity;
+        private double small_atm_quantity;
+        private double large_hydro_quantity;
+        private double small_hydro_quantity;
+        private double large_ion_quantity;
+        private double small_ion_quantity;
+        private double power_percentage;
+        private double result_of_calculations;
 
         #endregion Variables
 
@@ -54,7 +40,7 @@
         private void LargeAtmosphericQuantityThrustersTextChanged(object sender, EventArgs e)
         {
             bool check_field = Double.TryParse(l_atm_thr.Text, out double value);
-            if (check_field == true)
+            if (check_field)
             {
                 this.large_atm_quantity = Convert.ToDouble(l_atm_thr.Text);
                 CalculatePower();
@@ -71,7 +57,7 @@
         private void SmallAtmosphericQuantityThrustersTextChanged(object sender, EventArgs e)
         {
             bool check_field = Double.TryParse(s_atm_thr.Text, out double value);
-            if (check_field == true)
+            if (check_field)
             {
                 this.small_atm_quantity = Convert.ToDouble(s_atm_thr.Text);
                 CalculatePower();
@@ -88,7 +74,7 @@
         private void LargeHydrogenThrustersQuantityTextChanged(object sender, EventArgs e)
         {
             bool check_field = Double.TryParse(l_hydrogen_thrusters.Text, out double value);
-            if (check_field == true)
+            if (check_field)
             {
                 this.large_hydro_quantity = Convert.ToDouble(l_hydrogen_thrusters.Text);
                 CalculatePower();
@@ -203,12 +189,12 @@
         {
             if (block_type_f3 == "large")
             {
-                this.result_of_calculations = (((large_atmospheric_largegrid * large_atm_quantity) + (large_hydrogen_largegrid * large_hydro_quantity) + (large_ion_largegrid * large_ion_quantity) + (small_atmospheric_largegrid * small_atm_quantity) + (small_hydrogen_largegrid * small_hydro_quantity) + (small_ion_largegrid * small_ion_quantity)) * power_percentage) / planet_ms;
+                this.result_of_calculations = (((AtmosphericThrusters.AtmosphericPower.large_atmospheric_largegrid * large_atm_quantity) + (HydrogenThrusters.HydrogenPower.large_hydrogen_largegrid * large_hydro_quantity) + (IonThrusters.IonPower.large_ion_largegrid * large_ion_quantity) + (AtmosphericThrusters.AtmosphericPower.small_atmospheric_largegrid * small_atm_quantity) + (HydrogenThrusters.HydrogenPower.small_hydrogen_largegrid * small_hydro_quantity) + (IonThrusters.IonPower.small_ion_largegrid * small_ion_quantity)) * power_percentage) / planet_ms;
                 current_power.Text = Math.Ceiling(result_of_calculations).ToString();
             }
             if (block_type_f3 == "small")
             {
-                this.result_of_calculations = (((large_atmospheric_smallgrid * large_atm_quantity) + (large_hydrogen_smallgrid * large_hydro_quantity) + (large_ion_smallgrid * large_ion_quantity) + (small_atmospheric_smallgrid * small_atm_quantity) + (small_hydrogen_smallgrid * small_hydro_quantity) + (small_ion_smallgrid * small_ion_quantity)) * power_percentage) / planet_ms;
+                this.result_of_calculations = (((AtmosphericThrusters.AtmosphericPower.large_atmospheric_smallgrid * large_atm_quantity) + (HydrogenThrusters.HydrogenPower.large_hydrogen_smallgrid * large_hydro_quantity) + (IonThrusters.IonPower.large_ion_smallgrid * large_ion_quantity) + (AtmosphericThrusters.AtmosphericPower.small_atmospheric_smallgrid * small_atm_quantity) + (HydrogenThrusters.HydrogenPower.small_hydrogen_smallgrid * small_hydro_quantity) + (IonThrusters.IonPower.small_ion_smallgrid * small_ion_quantity)) * power_percentage) / planet_ms;
                 current_power.Text = Math.Ceiling(result_of_calculations).ToString();
             }
         }

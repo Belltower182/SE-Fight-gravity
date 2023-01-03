@@ -55,34 +55,7 @@ namespace SE_Fight_Gravity
         private void Form1_Load(object sender, EventArgs e)
         {
             // Set text boxes values on start up
-            cargo_multiplier.SelectedIndex = 0;
-            large_container_quantity.Text = "0";
-            medium_container_quantity.Text = "0";
-            small_container_quantity.Text = "0";
-            tmass_large_atmo.Text = "...";
-            tmass_large_hydro.Text = "...";
-            tmass_large_ion.Text = "...";
-            tmass_small_atmo.Text = "...";
-            tmass_small_hydro.Text = "...";
-            tmass_small_ion.Text = "...";
-            tnewton_large_atmo.Text = "...";
-            tnewton_large_hydro.Text = "...";
-            tnewton_large_ion.Text = "...";
-            tnewton_small_atmo.Text = "...";
-            tnewton_small_hydro.Text = "...";
-            tnewton_small_ion.Text = "...";
-            large_atmospheric_thrusters_quantity.Text = "...";
-            small_atmospheric_thrusters_quantity.Text = "...";
-            large_hydrogen_thrusters_quantity.Text = "...";
-            small_hydrogen_thrusters_quantity.Text = "...";
-            large_ion_thrusters_quantity.Text = "...";
-            small_ion_thrusters_quantity.Text = "...";
-            energy_consumption_large.Text = "...";
-            energy_consumption_small.Text = "...";
-            fuel_consumption_large.Text = "...";
-            fuel_consumption_small.Text = "...";
-            ion_consumption_large.Text = "...";
-            ion_consumption_small.Text = "...";
+            SetFieldsToBasicValues();
         }
 
         #region Main button
@@ -708,6 +681,38 @@ namespace SE_Fight_Gravity
                 label_warning.Visible = false;
                 this.user_value_kg = Convert.ToDouble(user_entered_value.Text);
             }
+        }
+
+        private void SetFieldsToBasicValues()
+        {
+            cargo_multiplier.SelectedIndex = 0;
+            large_container_quantity.Text = "0";
+            medium_container_quantity.Text = "0";
+            small_container_quantity.Text = "0";
+            tmass_large_atmo.Text = "...";
+            tmass_large_hydro.Text = "...";
+            tmass_large_ion.Text = "...";
+            tmass_small_atmo.Text = "...";
+            tmass_small_hydro.Text = "...";
+            tmass_small_ion.Text = "...";
+            tnewton_large_atmo.Text = "...";
+            tnewton_large_hydro.Text = "...";
+            tnewton_large_ion.Text = "...";
+            tnewton_small_atmo.Text = "...";
+            tnewton_small_hydro.Text = "...";
+            tnewton_small_ion.Text = "...";
+            large_atmospheric_thrusters_quantity.Text = "...";
+            small_atmospheric_thrusters_quantity.Text = "...";
+            large_hydrogen_thrusters_quantity.Text = "...";
+            small_hydrogen_thrusters_quantity.Text = "...";
+            large_ion_thrusters_quantity.Text = "...";
+            small_ion_thrusters_quantity.Text = "...";
+            energy_consumption_large.Text = "...";
+            energy_consumption_small.Text = "...";
+            fuel_consumption_large.Text = "...";
+            fuel_consumption_small.Text = "...";
+            ion_consumption_large.Text = "...";
+            ion_consumption_small.Text = "...";
         }
 
         #endregion Text fields and comboboxes
